@@ -2,6 +2,7 @@
 
 use app\models\Image;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $session = Yii::$app->session;
 if (!$session->isActive) {
@@ -18,6 +19,7 @@ if ($session->has('startseiteTitleImage') && file_exists($session->get('startsei
     $imagePath = $imageMdl -> getRndImagePath();
     $session->set('startseiteTitleImage', $imagePath);
 }
+$url = Url::to('@web/' . $imagePath);
 $this->title = 'Mayer Hörmann';
 ?>
 <div id="iconDownContainer">
@@ -29,8 +31,8 @@ $this->title = 'Mayer Hörmann';
 </div>
 
 <div class="container-fluid">
-    <div class="row indexTitleImageContainer">
-        <?php echo Html::img('@web/' . $imagePath, ['alt'=>'weingarten', 'id'=>'homeImage']); ?>
+    <div class="row">
+        <div class="indexTitleImageContainer" style='background-image: url(<?= $url ?>);'></div>
     </div>
     <div id="row">
         <div id="headlineAktuelles" class="row headline">
@@ -95,8 +97,9 @@ $this->title = 'Mayer Hörmann';
         </div>
     </div>
 </div>
+<script>
 
-
+</script>
 
 
 

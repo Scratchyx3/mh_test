@@ -222,13 +222,12 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
     border: none; }
 
 .indexTitleImageContainer {
-  position: relative; }
-
-#homeImage {
   height: calc(100vh - 112px);
   margin-top: 112px;
   width: 100%;
-  object-fit: cover; }
+  position: relative;
+  background-size: cover;
+  background-position: center; }
 
 .iconDown {
   bottom: 5vh;
@@ -280,12 +279,13 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
     background-color: white;
     overflow-y: scroll; }
 
-.standardTitleImage {
-  margin-top: 112px;
+.standardTitleImageContainer {
   height: 35vh;
   width: 100%;
-  object-fit: cover;
-  margin-bottom: 10vh; }
+  margin-top: 112px;
+  position: relative;
+  background-size: cover;
+  background-position: center; }
 
 #gmap0-map-canvas {
   width: 100% !important;

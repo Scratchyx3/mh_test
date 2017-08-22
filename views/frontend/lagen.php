@@ -7,7 +7,7 @@
  */
 
 use app\models\Image;
-use yii\helpers\Html;
+use yii\helpers\Url;
 
 $session = Yii::$app->session;
 if (!$session->isActive) {
@@ -24,13 +24,13 @@ if ($session->has('lagenTitleImage') && file_exists($session->get('lagenTitleIma
     $imagePath = $imageMdl -> getRndImagePath();
     $session->set('lagenTitleImage', $imagePath);
 }
-
+$url = Url::to('@web/' . $imagePath);
 $this->title = 'Lagen';
 
 ?>
 
 <div class="container-fluid">
-    <div class="row standardTitleImageContainer">
-        <?php echo Html::img('@web/' . $imagePath, ['alt'=>'weingarten', 'class'=>'standardTitleImage']); ?>
+    <div class="row">
+        <div class="standardTitleImageContainer" style='background-image: url(<?= $url ?>);'></div>
     </div>
 </div>

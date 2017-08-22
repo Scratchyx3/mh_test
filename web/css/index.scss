@@ -223,13 +223,12 @@ body {
 
 // ========================== Index =========================== //
 .indexTitleImageContainer {
-    position: relative;
-}
-#homeImage {
     height: calc(100vh - #{$navBarHeight});
     margin-top: $navBarHeight;
     width: 100%;
-    object-fit: cover;
+    position: relative;
+    background-size: cover;
+    background-position: center;
 }
 
 .iconDown {
@@ -293,12 +292,13 @@ body {
 }
 // ======================= Title images ======================== //
 
-.standardTitleImage {
-    margin-top: $navBarHeight;
+.standardTitleImageContainer {
     height: 35vh;
     width: 100%;
-    object-fit: cover;
-    margin-bottom: 10vh;
+    margin-top: $navBarHeight;
+    position: relative;
+    background-size: cover;
+    background-position: center;
 }
 
 // ========================== ANFAHRT =========================== //
