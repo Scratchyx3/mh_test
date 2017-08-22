@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c2333ca185668eebb3ac3056d1a2bd48",
-    "content-hash": "108c8fd3d6ae1edd686c59657cc11361",
+    "hash": "c5327fcf5b3c57b111195d8796d74ca7",
+    "content-hash": "caa9390ceb460ba04dbab423a481ec08",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -272,6 +272,37 @@
             ]
         },
         {
+            "name": "bower-asset/jquery-mousewheel",
+            "version": "3.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery-mousewheel.git",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery-mousewheel/zipball/67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.2.2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./jquery.mousewheel.js",
+                "bower-asset-ignore": [
+                    "*.json",
+                    "*.markdown",
+                    "*.txt",
+                    ".*",
+                    "!LICENSE.txt",
+                    "Gruntfile.js",
+                    "test"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/jquery.inputmask",
             "version": "3.3.7",
             "source": {
@@ -328,6 +359,49 @@
                 "jquery",
                 "mask",
                 "plugins"
+            ]
+        },
+        {
+            "name": "bower-asset/malihu-custom-scrollbar-plugin",
+            "version": "3.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/malihu/malihu-custom-scrollbar-plugin.git",
+                "reference": "eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/malihu/malihu-custom-scrollbar-plugin/zipball/eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29",
+                "reference": "eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6",
+                "bower-asset/jquery-mousewheel": ">=3.0.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./jquery.mCustomScrollbar.js",
+                    "./jquery.mCustomScrollbar.css",
+                    "./mCSB_buttons.png"
+                ],
+                "bower-asset-ignore": [
+                    "*.md",
+                    ".*",
+                    "*.txt",
+                    "*.json",
+                    "*.html",
+                    "/examples",
+                    "/source-files",
+                    "/js"
+                ]
+            },
+            "description": "Highly customizable custom scrollbar jQuery plugin, featuring vertical/horizontal scrollbars, scrolling momentum, mouse-wheel, keyboard and touch support, user defined callbacks etc.",
+            "keywords": [
+                "custom-scrollbar",
+                "jquery",
+                "scrollbar"
             ]
         },
         {
@@ -492,6 +566,60 @@
                 "wysiwyg"
             ],
             "time": "2017-08-17 17:01:28"
+        },
+        {
+            "name": "dhiraj/yii2-malihu-custom-scrollbar-plugin",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dhiraj/yii2-malihu-custom-scrollbar-plugin.git",
+                "reference": "7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dhiraj/yii2-malihu-custom-scrollbar-plugin/zipball/7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609",
+                "reference": "7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": "2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/malihu-custom-scrollbar-plugin": "^3.1",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "traversient\\yii\\customscrollbar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhiraj Gupta",
+                    "email": "dhiraj@traversient.com",
+                    "homepage": "http://traversient.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with yii2-malihu-custom-scrollbar-plugin",
+            "keywords": [
+                "asset",
+                "bundle",
+                "custom scrollbar",
+                "jquery",
+                "yii",
+                "yii2-malihu-custom-scrollbar-plugin"
+            ],
+            "time": "2016-09-13 11:43:05"
         },
         {
             "name": "ezyang/htmlpurifier",

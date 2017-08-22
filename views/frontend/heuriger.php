@@ -9,6 +9,8 @@
 use app\models\Image;
 use yii\helpers\Url;
 
+traversient\yii\customscrollbar\AssetBundle::register($this);
+
 $this->title = 'Heuriger';
 
 ?>
@@ -39,17 +41,26 @@ $this->title = 'Heuriger';
             <div id="myGallery">
                 <?= dosamigos\gallery\Gallery::widget(['options' => $options, 'items' => $items]);?>
             </div>
-
-
-
-
     </div>
-
-
-
-
-
 </div>
+
+<?php
+    $this->registerJs(
+        '(function($){
+			$(window).on("load",function(){
+				
+				$("#myGallery").mCustomScrollbar({
+					theme:"minimal",
+					autoHideScrollbar: "true",
+					axis:"x"
+				});
+				
+			});
+		})(jQuery);'
+    );
+?>
+
+
 
 
 
