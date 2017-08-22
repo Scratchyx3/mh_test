@@ -7,34 +7,13 @@
  */
 
 use app\models\Image;
-use yii\helpers\Html;
 use yii\helpers\Url;
-
-$session = Yii::$app->session;
-if (!$session->isActive) {
-    $session->open();
-}
-// check if there is already a title image saved in session
-if ($session->has('heurigerTitleImage') && file_exists($session->get('heurigerTitleImage'))) {
-    $imagePath = $session->get('heurigerTitleImage');
-// get path to random title image
-} else {
-    $imageMdl = new Image();
-    $imageMdl -> type = 'heuriger';
-    $imageMdl -> setPath();
-    $imagePath = $imageMdl -> getRndImagePath();
-    $session->set('heurigerTitleImage', $imagePath);
-}
 
 $this->title = 'Heuriger';
 
 ?>
 
 <div class="container-fluid">
-    <div id="titleImageHeuriger" class="row standardTitleImageContainer">
-        <?php echo Html::img('@web/' . $imagePath, ['alt'=>'weingarten', 'class'=>'standardTitleImage']); ?>
-    </div>
-
     <div class="row">
         <?php
         $imageMdl = new Image();
