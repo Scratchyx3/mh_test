@@ -28,3 +28,12 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
+
+#pdf files
+/web/file_upload
+
+#image files
+/web/image/uploads
+
+#db config
+/config/db.php
