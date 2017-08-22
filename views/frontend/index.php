@@ -19,7 +19,7 @@ if ($session->has('startseiteTitleImage') && file_exists($session->get('startsei
     $imagePath = $imageMdl -> getRndImagePath();
     $session->set('startseiteTitleImage', $imagePath);
 }
-$url = Url::to('@web/' . $imagePath);
+$url = Url::to($imagePath);
 $this->title = 'Mayer Hörmann';
 ?>
 <div id="iconDownContainer">
