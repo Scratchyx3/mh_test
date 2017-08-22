@@ -1,0 +1,334 @@
+//colors
+$standardBackgroundColorBlack: #222222;
+$standardFontColorWhite: #f8f8f8;
+$standardColorGold: #e2b339;
+//fonts
+@font-face {
+    font-family: 'GaramondBE-SwashItalic';
+    src: url('../fonts/GaramondBE-SwashItalic.ttf');
+}
+$standardFontFamily: 'Lato', sans-serif;
+$cursiveFontFamily: 'Courgette', cursive;
+$mhLogoFontFamily: 'GaramondBE-SwashItalic';
+
+// commonly used variables
+$navBarHeight: 112px;
+$footerHeight: 234px;
+//media query specific css
+@import 'mediaQueries';
+//responsive font-sizes
+@import 'responsiveFontSizes';
+//global reset
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    p, a, h1, h2, h3, h4, h5, h6 {
+        font-family: $standardFontFamily;
+    }
+}
+
+// ========================== Nav Bar =========================== //
+#navigationHeader {
+    height: 60px;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-color: $standardBackgroundColorBlack;
+    margin-bottom: 0;
+    border-bottom: 2px solid black;
+    z-index: 5;
+    .logoMH {
+        height: 60px;
+        padding-top: 0;
+        padding-bottom: 0;
+        h1 {
+            font-family: $mhLogoFontFamily;
+            line-height: 60px;
+            margin: 0;
+            color: $standardColorGold;
+        }
+    }
+    .logoShop {
+        height: 60px;
+        padding-right: 0;
+        #shopButton {
+            height: 40px;
+            margin: 10px 0 0 0;
+            padding: 5px;
+            background-color: $standardColorGold;
+            border: none;
+            border-radius: 4px 0px 0px 4px;
+            h1 {
+                font-size: 20px;
+                line-height: 30px;
+                margin: 0;
+                padding: 0;
+                color: $standardBackgroundColorBlack;
+            }
+        }
+        #iconShop {
+            height: 40px;
+            padding: 5px 5px 5px 0;
+            margin-top: 10px;
+            width: auto;
+            background-color: $standardColorGold;
+            border-radius: 0px 4px 4px 0px;
+        }
+        #iconShop:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+#navBar {
+    top: 60px;
+    border-bottom: 2px solid $standardColorGold;
+    border-radius: 0 0 0 0;
+    margin-bottom: 0;
+    z-index: 5;
+}
+
+#navBarUl {
+    .active {
+        a {
+            color: $standardColorGold;
+            background: transparent;
+        }
+    }
+    li {
+        a {
+            color: $standardFontColorWhite;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            color: $standardColorGold;
+        }
+    }
+}
+
+.navbar-brand {
+    font-family: $mhLogoFontFamily;
+    color: $standardFontColorWhite !important;
+}
+
+// ========================== Footer =========================== //
+// footer desktop
+.footer {
+    background-color: $standardBackgroundColorBlack;
+    padding-bottom: 10px;
+    h4 {
+        text-align: center;
+    }
+    p {
+        color: $standardFontColorWhite;
+    }
+    //social media icons
+    .iconFooter {
+        width: 25px;
+        height: 25px;
+        float: left;
+    }
+    #icon_facebook {
+        background-image: url(../image/icon_facebook.png);
+        background-size: cover;
+    }
+    #icon_instagram {
+        background-image: url(../image/icon_instagram2.png);
+        background-size: cover;
+    }
+    #icon_youtube {
+        background-image: url(../image/icon_youtube.png);
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+    }
+    .iconTextFooter {
+        line-height: 25px;
+        float: left;
+    }
+    .footer3container {
+        width: 100%;
+        height: 25px;
+        margin-bottom: 10px;
+    }
+}
+
+#footer {
+    h4 {
+        color: $standardFontColorWhite;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $standardColorGold;
+    }
+    .linkFooter {
+        color: $standardColorGold;
+        font-size: 15px;
+    }
+    #mailtoLinkFooter {
+        color: $standardColorGold;
+    }
+    #footercol2Container1 {
+        margin-top: 18px;
+    }
+    #footercol3Container1 {
+        margin-top: 15px;
+    }
+}
+// footer mobile
+#footerMobile {
+    min-height: 200px;
+    h4 {
+        color: $standardFontColorWhite;
+    }
+    a {
+        color: $standardFontColorWhite;
+    }
+    a:hover {
+        color: $standardColorGold;
+        border: none;
+        background-color: transparent;
+    }
+    #nav-tabs {
+        border-bottom: 2px solid $standardColorGold;
+    }
+    .tab-pane {
+        padding-top: 10px;
+    }
+    .active {
+        a {
+            background-color: $standardColorGold !important;
+            border: 2px solid $standardColorGold;
+        }
+        a:hover {
+            color: $standardFontColorWhite;
+        }
+        .linkFooter {
+            background-color: transparent !important;
+            border: none !important;
+            color: $standardColorGold;
+            line-height: 200%;
+        }
+    }
+    .linkFooter {
+        background-color: transparent !important;
+    }
+    #mailtoLinkFooter {
+        color: $standardColorGold;
+        background-color: $standardBackgroundColorBlack !important;
+        border: none;
+    }
+}
+
+// ========================== Index =========================== //
+.indexTitleImageContainer {
+    position: relative;
+}
+#homeImage {
+    height: calc(100vh - #{$navBarHeight});
+    margin-top: $navBarHeight;
+    width: 100%;
+    object-fit: cover;
+}
+
+.iconDown {
+    bottom: 5vh;
+    z-index: 3;
+    height: 15vh;
+    width: 15vh;
+    left: 50%;
+    margin-left: -7.5vh;
+    position: absolute;
+    background-image: url(../image/direction_white.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+
+.iconDown:hover {
+    background-image: url(../image/direction_gold.png);
+}
+
+.headline {
+    background: $standardBackgroundColorBlack;
+    position: relative;
+    height: 14vh;
+    margin-bottom: 5vh;
+    h1 {
+        width: auto;
+        text-align: center;
+        margin: 0;
+        font-size: 8vh;
+        line-height: 14vh;
+        color: $standardFontColorWhite;
+    }
+}
+
+.card {
+    min-height: 300px;
+    background-color: $standardBackgroundColorBlack;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    .cardImageContainer {
+        width: 100%;
+        .cardImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .cardHeadline {
+        width: 100%;
+        text-align: center;
+        h1 {
+            color: white;
+            margin: 0;
+        }
+    }
+    .cardText {
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+        overflow-y: scroll;
+    }
+}
+// ======================= Title images ======================== //
+
+.standardTitleImage {
+    margin-top: $navBarHeight;
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 10vh;
+}
+
+// ========================== ANFAHRT =========================== //
+#gmap0-map-canvas {
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+// ========================== HEURIGER =========================== //
+#myGallery {
+    height: 35vh;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: $navBarHeight;
+}
+.galleryContainer {
+    width: auto;
+    white-space: nowrap;
+    background-color: $standardBackgroundColorBlack;
+    .gallery-item {
+        img {
+            display: inline-block;
+            width: auto;
+            height: 35vh;
+            margin-bottom: 4px;
+            padding: 0;
+        }
+    }
+}
+#titleImageHeuriger {
+    display: none;
+}
