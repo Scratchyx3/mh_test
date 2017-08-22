@@ -36,4 +36,4 @@ web/file_upload/*
 web/image/uploads/*
 
 #db config
-/config
+config/db.php
