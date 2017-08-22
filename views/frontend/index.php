@@ -8,7 +8,7 @@ $session = Yii::$app->session;
 if (!$session->isActive) {
     $session->open();
 }
-// check if there is already a title image saved in session
+// check if there is a title image saved in session
 if ($session->has('startseiteTitleImage') && file_exists($session->get('startseiteTitleImage'))) {
     $imagePath = $session->get('startseiteTitleImage');
 // get path to random title image
