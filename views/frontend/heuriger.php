@@ -19,14 +19,12 @@ $this->title = 'Heuriger';
     <div class="row">
         <?php
         $imageMdl = new Image();
-        $imageMdl->type = 'gallery_heuriger';
-        $imageMdl -> setPath();
-        // get all images from database
-        $images = $imageMdl -> find()->where(['type' => $imageMdl->type])->all();
+        $imageMdl -> type = 'heuriger';
+        $rndImages = $imageMdl -> getRndImages(10);
 
         $items = array();
 
-        foreach ($images as $image) {
+        foreach ($rndImages as $image) {
         $thumbnailUrl = Url::to([$image->path . $image->thumbnailName]);
         $imageUrl = Url::to([$image->path . $image->name]);
         array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image->name]]);

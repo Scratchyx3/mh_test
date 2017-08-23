@@ -20,16 +20,12 @@ $this->title = 'Weinkeller';
     <?php
 
     $imageMdl = new Image();
-    $imageMdl->type = 'gallery_weinkeller';
-    $imageMdl -> setPath();
-    // get all images from database
-    $images = $imageMdl -> find()->where(['type' => $imageMdl->type])->all();
+    $imageMdl -> type = 'weinkeller';
+    $rndImages = $imageMdl -> getRndImages(10);
 
     $items = array();
 
-    $items = array();
-
-    foreach ($images as $image) {
+    foreach ($rndImages as $image) {
         $thumbnailUrl = Url::to([$image->path . $image->thumbnailName]);
         $imageUrl = Url::to([$image->path . $image->name]);
         array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image->name]]);

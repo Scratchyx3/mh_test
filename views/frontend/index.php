@@ -1,32 +1,18 @@
 <?php
 
 use app\models\Image;
+use traversient\yii\customscrollbar\AssetBundle;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
-traversient\yii\customscrollbar\AssetBundle::register($this);
+AssetBundle::register($this);
 
 $this->title = 'Mayer Hörmann';
 
 $imageMdl = new Image();
 $imageMdl -> type = 'startseite';
-$imagePath = $imageMdl -> getRndImagePath();
-
-//$session = Yii::$app->session;
-//if (!$session->isActive) {
-//    $session->open();
-//}
-//// check if there is a title image saved in session
-//if ($session->has('startseiteTitleImage') && file_exists($session->get('startseiteTitleImage'))) {
-//    $imagePath = $session->get('startseiteTitleImage');
-//// get path to random title image
-//} else {
-//    $imageMdl = new Image();
-//    $imageMdl -> type = 'startseite';
-//    $imageMdl -> setPath();
-//    $imagePath = $imageMdl -> getRndImagePath();
-//    $session->set('startseiteTitleImage', $imagePath);
-//}
-//$url = Url::to('/' . $imagePath);
+$rndTitleImage = $imageMdl -> getRndImages(1);
+$imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
 
 ?>
 <div id="iconDownContainer">
@@ -59,6 +45,14 @@ $imagePath = $imageMdl -> getRndImagePath();
                 </div>
                 <div class="cardText">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
                         ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
                         dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut

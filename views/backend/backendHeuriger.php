@@ -30,47 +30,6 @@ foreach ($images as $image) {
 ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1> Titelbild Heuriger </h1>
-            <div class="bs-callout bs-callout-info">
-                <h4> How-To </h4>
-                <p>
-                    1) Bild verkleinern auf ungefähr 1900 - 2000 Pixel Breite. <br>
-                    2) <a href="https://tinypng.com/" target="_blank"> Bild online komprimieren </a> <br>
-                    3) Dateiname anpassen (z.B. Weingarten, Traubenernte, Weinkeller, ...) <br>
-                    4) Bild uploaden
-                </p>
-            </div>
-            <?php
-            echo FileInput::widget([
-                'model' => $imageMdl,
-                'attribute' => 'imageFiles[]',
-                'language' => 'de',
-                'options'=>[
-                    'multiple'=>true,
-                ],
-                'pluginOptions' => [
-                    'maxFileSize' => 3000,
-                    'theme' => 'explorer-fa',
-                    'previewFileType' => 'image',
-                    'overwriteInitial'=>false,
-                    'initialPreviewAsData'=>true,
-                    'initialPreview'=> $initialPreviewData,
-                    'initialPreviewConfig' => $initialPreviewConfigData,
-                    'uploadUrl' => Url::to(['/backend/image-upload']),
-                    'maxFileCount' => 10,
-                    'uploadExtraData' =>
-                        [
-                            'imageType' => 'heuriger',
-                        ],
-                    'resizeImage' => true,
-                ]
-            ]);
-            ?>
-        </div>
-    </div>
-
     <?php
     $initialPreviewData = array();
     $initialPreviewConfigData = array();
@@ -123,10 +82,10 @@ foreach ($images as $image) {
     </div>
 
     <?php
-    $imageMdl->type = 'gallery_heuriger';
+    $imageMdl->type = 'heuriger';
     $imageMdl -> setPath();
     // get all images from database
-    $images = $imageMdl -> find()->where(['type' => 'gallery_heuriger'])->all();
+    $images = $imageMdl -> find()->where(['type' => 'heuriger'])->all();
 
     $initialPreviewData = array();
     $initialPreviewConfigData = array();
@@ -173,7 +132,7 @@ foreach ($images as $image) {
                     'maxFileCount' => 100,
                     'uploadExtraData' =>
                         [
-                            'imageType' => 'gallery_heuriger',
+                            'imageType' => 'heuriger',
                         ],
                     'resizeImage' => true,
                 ]

@@ -9,29 +9,16 @@
 use app\models\Image;
 use yii\helpers\Url;
 
-$session = Yii::$app->session;
-if (!$session->isActive) {
-    $session->open();
-}
-// check if there is already a title image saved in session
-if ($session->has('auszeichnungenTitleImage') && file_exists($session->get('auszeichnungenTitleImage'))) {
-    $imagePath = $session->get('auszeichnungenTitleImage');
-// get path to random title image
-} else {
-    $imageMdl = new Image();
-    $imageMdl -> type = 'auszeichnungen';
-    $imageMdl -> setPath();
-    $imagePath = $imageMdl -> getRndImagePath();
-    $session->set('auszeichnungenTitleImage', $imagePath);
-}
-$url = Url::to('@web/' . $imagePath);
-$this->title = 'Auszeichnungen';
+$imageMdl = new Image();
+$imageMdl -> type = 'auszeichnungen';
+$rndTitleImage = $imageMdl -> getRndImages(1);
+$imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
 
 ?>
 
 <div class="container-fluid">
     <div class="row">
-        <div class="standardTitleImageContainer" style='background-image: url(<?= $url ?>);'></div>
+        <div class="standardTitleImageContainer" style='background-image: url(<?= $imagePath ?>);'></div>
     </div>
 </div>
 <?php

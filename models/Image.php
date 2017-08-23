@@ -11,7 +11,6 @@ namespace app\models;
 use yii;
 use yii\base\Exception;
 use yii\db\ActiveRecord;
-use yii\helpers\Url;
 use yii\web\UploadedFile;
 
 class Image extends ActiveRecord
@@ -128,34 +127,41 @@ class Image extends ActiveRecord
     /**
      * Returns the path to a random image
      *
-     * @return string
+     * @return array
      */
-    public function getRndImagePath() {
+    public function getRndImages($amount) {
         $session = Yii::$app->session;
         if (!$session->isActive) {
             $session->open();
         }
-        // check if there is a title image saved in session
-        if ($session->has($this->type . 'TitleImage') && file_exists($session->get($this->type . 'TitleImage'))) {
-            $imagePath = $session->get($this->type . 'TitleImage');
+
+        $rndImages = array();
+
+        if ($session->has($this->type . 'Images')) {
+            return $session->get($this->type . 'Images');
         } else {
-            $type = $this->type;
-            // count number of images in database
-            $sql = "SELECT COUNT(*) as images FROM image WHERE type = '$type'";
-            $command = Yii::$app->db->createCommand($sql);
-            $results = $command->queryAll();
-            $numImages = (int)$results[0]["images"];
+            if ($amount < 2) {
+                $amount = 2;
+            }
 
-            $rndId = rand(1, $numImages) - 1;
+            $images = $this -> find()->where(['type' => $this->type])->all();
+            $numImages = count($images);
+            if($numImages < $amount) {
+                $session->set($this->type . 'Images', $images);
+                return $images;
+            }
 
-            $images = $this -> find()->where(['type' => $type])->all();
+            $rnd_keys = array_rand($images, $amount);
 
-            $randomImage = $images[$rndId];
-
-            $imagePath = $randomImage -> path . $randomImage -> name;
+            if($amount > 1) {
+                for ($i = 0; $i < $amount; $i++) {
+                    array_push($rndImages, $images[$rnd_keys[$i]]);
+                }
+            } else {
+                array_push($rndImages, $images[$rnd_keys]);
+            }
+            $session->set($this->type . 'Images', $rndImages);
+            return $rndImages;
         }
-        return Url::to('/' . $imagePath);
     }
-
-
 }
