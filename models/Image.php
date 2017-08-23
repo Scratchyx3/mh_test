@@ -11,6 +11,7 @@ namespace app\models;
 use yii;
 use yii\base\Exception;
 use yii\db\ActiveRecord;
+use yii\helpers\Url;
 use yii\web\UploadedFile;
 
 class Image extends ActiveRecord
@@ -130,20 +131,31 @@ class Image extends ActiveRecord
      * @return string
      */
     public function getRndImagePath() {
-        $type = $this->type;
-        // count number of images in database
-        $sql = "SELECT COUNT(*) as images FROM image WHERE type = '$type'";
-        $command = Yii::$app->db->createCommand($sql);
-        $results = $command->queryAll();
-        $numImages = (int)$results[0]["images"];
+        $session = Yii::$app->session;
+        if (!$session->isActive) {
+            $session->open();
+        }
+        // check if there is a title image saved in session
+        if ($session->has($this->type . 'TitleImage') && file_exists($session->get($this->type . 'TitleImage'))) {
+            $imagePath = $session->get($this->type . 'TitleImage');
+        } else {
+            $type = $this->type;
+            // count number of images in database
+            $sql = "SELECT COUNT(*) as images FROM image WHERE type = '$type'";
+            $command = Yii::$app->db->createCommand($sql);
+            $results = $command->queryAll();
+            $numImages = (int)$results[0]["images"];
 
-        $rndId = rand(1, $numImages) - 1;
+            $rndId = rand(1, $numImages) - 1;
 
-        $images = $this -> find()->where(['type' => $type])->all();
+            $images = $this -> find()->where(['type' => $type])->all();
 
-        $randomImage = $images[$rndId];
+            $randomImage = $images[$rndId];
 
-        $imagePath = $randomImage -> path . $randomImage -> name;
-        return $imagePath;
+            $imagePath = $randomImage -> path . $randomImage -> name;
+        }
+        return Url::to('/' . $imagePath);
     }
+
+
 }

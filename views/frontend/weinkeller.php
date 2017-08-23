@@ -9,6 +9,8 @@
 use app\models\Image;
 use yii\helpers\Url;
 
+traversient\yii\customscrollbar\AssetBundle::register($this);
+
 $this->title = 'Weinkeller';
 
 ?>
@@ -41,3 +43,20 @@ $this->title = 'Weinkeller';
 
 </div>
 
+<?php
+// enable custom scroll bars
+$this->registerJs(
+    '(function($){
+			$(window).on("load",function(){
+				
+				$("#myGallery").mCustomScrollbar({
+					theme:"inset",
+					autoHideScrollbar: false,
+					axis:"x",
+					alwaysShowScrollbar: 0
+				});
+				
+			});
+		})(jQuery);'
+);
+?>

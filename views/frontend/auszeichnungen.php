@@ -34,3 +34,20 @@ $this->title = 'Auszeichnungen';
         <div class="standardTitleImageContainer" style='background-image: url(<?= $url ?>);'></div>
     </div>
 </div>
+<?php
+// enable custom scroll bars
+$this->registerJs(
+    '(function($){
+			$(window).on("load",function(){
+				
+				$(".cardText").mCustomScrollbar({
+					theme:"inset-dark",
+					autoHideScrollbar: false,
+					axis:"y",
+					alwaysShowScrollbar: 0
+				});
+				
+			});
+		})(jQuery);'
+);
+?>

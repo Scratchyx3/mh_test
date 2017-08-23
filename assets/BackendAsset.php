@@ -15,9 +15,6 @@ class BackendAsset extends AssetBundle
     public $css = [
         'css/backend.css',
     ];
-    public $js = [
-        'js/index.js'
-    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',

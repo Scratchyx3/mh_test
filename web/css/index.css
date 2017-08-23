@@ -277,7 +277,7 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
     width: 100%;
     padding: 20px;
     background-color: white;
-    overflow-y: scroll; }
+    overflow: hidden; }
 
 .standardTitleImageContainer {
   height: 35vh;
@@ -294,9 +294,8 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
 #myGallery {
   height: 35vh;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  margin-top: 112px; }
+  margin-top: 112px;
+  overflow: hidden; }
 
 .galleryContainer {
   width: auto;

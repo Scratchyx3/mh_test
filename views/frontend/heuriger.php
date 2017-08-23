@@ -45,19 +45,21 @@ $this->title = 'Heuriger';
 </div>
 
 <?php
-    $this->registerJs(
-        '(function($){
-			$(window).on("load",function(){
-				
-				$("#myGallery").mCustomScrollbar({
-					theme:"minimal",
-					autoHideScrollbar: "true",
-					axis:"x"
-				});
-				
+// enable custom scroll bars
+$this->registerJs(
+    '(function($){
+		$(window).on("load",function(){
+			
+			$("#myGallery").mCustomScrollbar({
+				theme:"inset",
+				autoHideScrollbar: false,
+				axis:"x",
+				alwaysShowScrollbar: 0
 			});
-		})(jQuery);'
-    );
+			
+		});
+	})(jQuery);'
+);
 ?>
 
 

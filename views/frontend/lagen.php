@@ -9,6 +9,8 @@
 use app\models\Image;
 use yii\helpers\Url;
 
+$this->title = 'Lagen';
+
 $session = Yii::$app->session;
 if (!$session->isActive) {
     $session->open();
@@ -25,7 +27,6 @@ if ($session->has('lagenTitleImage') && file_exists($session->get('lagenTitleIma
     $session->set('lagenTitleImage', $imagePath);
 }
 $url = Url::to('@web/' . $imagePath);
-$this->title = 'Lagen';
 
 ?>
 
@@ -34,3 +35,20 @@ $this->title = 'Lagen';
         <div class="standardTitleImageContainer" style='background-image: url(<?= $url ?>);'></div>
     </div>
 </div>
+<?php
+// enable custom scroll bars
+$this->registerJs(
+    '(function($){
+			$(window).on("load",function(){
+				
+				$(".cardText").mCustomScrollbar({
+					theme:"inset-dark",
+					autoHideScrollbar: false,
+					axis:"y",
+					alwaysShowScrollbar: 0
+				});
+				
+			});
+		})(jQuery);'
+);
+?>

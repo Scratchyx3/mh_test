@@ -287,7 +287,7 @@ body {
         width: 100%;
         padding: 20px;
         background-color: white;
-        overflow-y: scroll;
+        overflow: hidden;
     }
 }
 // ======================= Title images ======================== //
@@ -311,9 +311,8 @@ body {
 #myGallery {
     height: 35vh;
     width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
     margin-top: $navBarHeight;
+    overflow:hidden;
 }
 .galleryContainer {
     width: auto;
