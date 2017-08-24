@@ -32,16 +32,17 @@ $imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
             <h1> Aktuelles </h1>
         </div>
     </div>
-
+</div>
+<div class="container">
 
     <div id="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card">
                 <div class="cardImageContainer">
                     <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
                 </div>
                 <div class="cardHeadline">
-                    <h1> Meine Aktuelles Ding und noch mehr Text</h1>
+                    <h1> Auszeichnung: Top Heuriger 2016 in Wagram und noch länger und sogar noch länger </h1>
                 </div>
                 <div class="cardText">
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
@@ -64,7 +65,7 @@ $imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card">
                 <div class="cardImageContainer">
                     <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
@@ -86,7 +87,23 @@ $imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+                <div class="cardImageContainer">
+                    <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
+                </div>
+
+                <div class="cardHeadline">
+                    <h1> Meine Aktuelles Ding</h1>
+                </div>
+                <div class="cardText">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card">
                 <div class="cardImageContainer">
                     <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
@@ -138,9 +155,6 @@ $this->registerJs(
     $(".scrollTop a").scrollTop();'
 );
 ?>
-
-
-
 
 
 

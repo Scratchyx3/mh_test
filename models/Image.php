@@ -136,7 +136,7 @@ class Image extends ActiveRecord
         }
 
         $rndImages = array();
-
+        // if random images are in session -> return session array
         if ($session->has($this->type . 'Images')) {
             return $session->get($this->type . 'Images');
         } else {
@@ -146,13 +146,14 @@ class Image extends ActiveRecord
 
             $images = $this -> find()->where(['type' => $this->type])->all();
             $numImages = count($images);
+            // if there are less images in database than requested, return all images from database
             if($numImages < $amount) {
                 $session->set($this->type . 'Images', $images);
                 return $images;
             }
 
             $rnd_keys = array_rand($images, $amount);
-
+            // if there are more than 1 entries
             if($amount > 1) {
                 for ($i = 0; $i < $amount; $i++) {
                     array_push($rndImages, $images[$rnd_keys[$i]]);

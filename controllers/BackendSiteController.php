@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Card;
 use app\models\User;
 use yii;
 use yii\web\Controller;
@@ -117,8 +118,11 @@ class BackendSiteController extends Controller
     public function actionBackendLagen()
     {
         if (!Yii::$app->user->isGuest) {
+            $cardModel = new Card();
             $this->layout = '/backend/standard';
-            return $this->render('/backend/backendLagen');
+            return $this->render('/backend/backendLagen', [
+                'model' => $cardModel,
+            ]);
         } else {
             // if user is not logged in
             $model = new User();

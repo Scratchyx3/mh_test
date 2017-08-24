@@ -60,7 +60,7 @@ body {
             padding: 5px;
             background-color: $standardColorGold;
             border: none;
-            border-radius: 4px 0px 0px 4px;
+            border-radius: 4px 0 0 4px;
             h1 {
                 font-size: 20px;
                 line-height: 30px;
@@ -75,7 +75,7 @@ body {
             margin-top: 10px;
             width: auto;
             background-color: $standardColorGold;
-            border-radius: 0px 4px 4px 0px;
+            border-radius: 0 4px 4px 0;
         }
         #iconShop:hover {
             cursor: pointer;
@@ -247,7 +247,7 @@ body {
 .iconDown:hover {
     background-image: url(../image/direction_gold.png);
 }
-
+// Aktuelles Headline
 .headline {
     background: $standardBackgroundColorBlack;
     position: relative;
@@ -262,9 +262,8 @@ body {
         color: $standardFontColorWhite;
     }
 }
-
+// Aktuelles cards
 .card {
-    min-height: 300px;
     background-color: $standardBackgroundColorBlack;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     .cardImageContainer {
@@ -278,9 +277,11 @@ body {
     .cardHeadline {
         width: 100%;
         text-align: center;
+        position: relative;
         h1 {
             color: white;
             margin: 0;
+            font-size: 20px;
         }
     }
     .cardText {
@@ -313,6 +314,9 @@ body {
     width: 100%;
     margin-top: $navBarHeight;
     overflow:hidden;
+    a {
+        margin-right: -3px;
+    }
 }
 .galleryContainer {
     width: auto;
@@ -330,4 +334,40 @@ body {
 }
 #titleImageHeuriger {
     display: none;
+}
+
+// ======================== ALLGEMEIN =============================== //
+.textHeadline {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    background-color: $standardBackgroundColorBlack;
+    h1 {
+        color: white;
+        margin: 0;
+    }
+}
+.textContent {
+    margin-bottom: 40px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    padding: 20px;
+    p {
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+        color: $standardColorGold;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: $standardColorGold;
+    }
+}
+
+.textEditor {
+    margin-top: 500px;
 }

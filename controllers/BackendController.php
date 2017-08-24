@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Card;
 use app\models\File;
 use app\models\Image;
 use Yii;
@@ -89,5 +90,13 @@ class BackendController extends Controller
             return json_encode(true);
         }
         return json_encode(false);
+    }
+    public function actionCardUpload() {
+        $cardMdl = new Card();
+        $cardMdl->load(Yii::$app->request->post());
+
+        echo "------------------------------------<br>";
+        echo $cardMdl->content;
+        echo "------------------------------------<br>";
     }
 }
