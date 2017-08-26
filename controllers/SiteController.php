@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Card;
 use yii;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -35,8 +36,14 @@ class SiteController extends Controller
      */
     public function actionHeuriger()
     {
-        $this->layout='/frontend/standard';
-        return $this->render('/frontend/heuriger');
+        if($cardMdl = Card::find()->where(['type' => 'heuriger'])->one()) {
+            $this->layout='/frontend/standard';
+            return $this->render('/frontend/heuriger', [
+                'model' => $cardMdl,
+            ]);
+        } else {
+            return false;
+        }
     }
     /**
      * Displays weinkeller.php
@@ -45,8 +52,14 @@ class SiteController extends Controller
      */
     public function actionWeinkeller()
     {
-        $this->layout='/frontend/standard';
-        return $this->render('/frontend/weinkeller');
+        if($cardMdl = Card::find()->where(['type' => 'weinkeller'])->one()) {
+            $this->layout='/frontend/standard';
+            return $this->render('/frontend/weinkeller', [
+                'model' => $cardMdl,
+            ]);
+        } else {
+            return false;
+        }
     }
     /**
      * Displays weinkarte.php

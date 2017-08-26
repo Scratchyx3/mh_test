@@ -61,8 +61,13 @@ class BackendSiteController extends Controller
     public function actionBackendHeuriger()
     {
         if (!Yii::$app->user->isGuest) {
+            if(!$cardMdl = Card::find()->where(['type' => 'heuriger'])->one()) {
+                $cardMdl = new card();
+            }
             $this->layout = '/backend/standard';
-            return $this->render('/backend/backendHeuriger');
+            return $this->render('/backend/backendHeuriger', [
+                'model' => $cardMdl,
+            ]);
         } else {
             // if user is not logged in
             $model = new User();
@@ -80,8 +85,13 @@ class BackendSiteController extends Controller
     public function actionBackendWeinkeller()
     {
         if (!Yii::$app->user->isGuest) {
+            if(!$cardMdl = Card::find()->where(['type' => 'weinkeller'])->one()) {
+                $cardMdl = new card();
+            }
             $this->layout = '/backend/standard';
-            return $this->render('/backend/backendWeinkeller');
+            return $this->render('/backend/backendWeinkeller', [
+                'model' => $cardMdl,
+            ]);
         } else {
             // if user is not logged in
             $model = new User();
@@ -118,10 +128,12 @@ class BackendSiteController extends Controller
     public function actionBackendLagen()
     {
         if (!Yii::$app->user->isGuest) {
-            $cardModel = new Card();
+            if(!$cardMdl = Card::find()->where(['type' => 'lagen'])->one()) {
+                $cardMdl = new card();
+            }
             $this->layout = '/backend/standard';
             return $this->render('/backend/backendLagen', [
-                'model' => $cardModel,
+                'model' => $cardMdl,
             ]);
         } else {
             // if user is not logged in

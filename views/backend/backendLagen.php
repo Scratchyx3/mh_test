@@ -80,15 +80,17 @@ foreach ($images as $image) {
                     'id' => 'card',
                     'action' => ['backend/card-upload'],
                     'options' => ['method' => 'post', 'class' => 'form-horizontal'],
-            ])
-            ?>
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                'options' => ['rows' => 6],
-                'preset' => 'basic'
             ]) ?>
-            <?= $form->field($model, 'headline')->textInput()->hint('Please enter your name')->label('Name') ?>
-            <?= $form->field($model, 'fkImage')->textInput()->hint('Please enter your name')->label('Name') ?>
-            <?= $form->field($model, 'instagramLink')->textInput()->hint('Please enter your name')->label('Name') ?>
+
+            <?= $form->field($model, 'headline')->textInput()->hint('Please enter your name') ?>
+
+            <?= $form->field($model, 'content')->label('Überschrift')->widget(CKEditor::className(), [
+                'options' => ['rows' => 6],
+                'preset' => 'basic',
+            ]) ?>
+
+            <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
+            <?= $form->field($model, 'type')->hiddenInput(['value'=> 'lagen'])->label(false) ?>
 
             <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>

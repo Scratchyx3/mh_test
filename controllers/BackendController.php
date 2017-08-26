@@ -43,7 +43,7 @@ class BackendController extends Controller
      * Deletes an image file from server and deletes image data from database
      *
      * @var $imageType
-     * @var key
+     * @var $key
      *  id of the image which should be deleted
      * @return string
      */
@@ -75,7 +75,6 @@ class BackendController extends Controller
         } else {
             return json_encode(false);
         }
-
     }
     public function actionFileDelete() {
         if (Yii::$app->request->isPost) {
@@ -92,11 +91,39 @@ class BackendController extends Controller
         return json_encode(false);
     }
     public function actionCardUpload() {
-        $cardMdl = new Card();
-        $cardMdl->load(Yii::$app->request->post());
-
-        echo "------------------------------------<br>";
-        echo $cardMdl->content;
-        echo "------------------------------------<br>";
+        // if post data exists
+        if (Yii::$app->request->isPost) {
+            $cardMdl = new Card();
+            $cardMdl->load(Yii::$app->request->post());
+            //if record exists in database
+            if(Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
+                $cardMdl->isNewRecord = false;
+                //if update was successful
+                if ($cardMdl->updateAll([
+                        'headline' => $cardMdl->headline,
+                        'content' => $cardMdl->content,
+                        'fkImage' => $cardMdl->fkImage,
+                        'instagramLink' => $cardMdl->instagramLink,
+                        'type' => $cardMdl->type
+                    ], ['id' => $cardMdl->id]) !== false) {
+                    $this->layout = '/backend/standard';
+                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
+                        'model' => $cardMdl,
+                    ]);
+                } else {
+                    return false;
+                }
+                // new record
+            } else {
+                if($cardMdl->save()) {
+                    $this->layout = '/backend/standard';
+                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
+                        'model' => $cardMdl,
+                    ]);
+                }
+            }
+        } else {
+            return false;
+        }
     }
 }
