@@ -74,30 +74,28 @@ array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/ima
         </div>
     </div>
     <div class="row">
-        <div class="textEditor">
-            <?php
-            $form = ActiveForm::begin([
-                'id' => 'card',
-                'action' => ['backend/card-upload'],
-                'options' => ['method' => 'post', 'class' => 'form-horizontal'],
-            ]) ?>
+            <div class="col-xs-12">
+                <h1> Überschrift und Text Weinkeller </h1>
+                    <?php
+                    $form = ActiveForm::begin([
+                        'id' => 'card',
+                        'action' => ['backend/card-upload'],
+                        'options' => ['method' => 'post', 'class' => 'form-horizontal'],
+                    ]) ?>
 
-            <?= $form->field($model, 'headline')->textInput()->hint('Please enter your name') ?>
+                    <?= $form->field($model, 'headline')->label('Überschrift')->textInput()->hint('Please enter your name') ?>
 
-            <?= $form->field($model, 'content')->label('Überschrift')->widget(CKEditor::className(), [
-                'options' => ['rows' => 6],
-                'preset' => 'basic',
-            ]) ?>
+                    <?= $form->field($model, 'content')->label('Text')->widget(CKEditor::className(), [
+                        'options' => ['rows' => 6],
+                        'preset' => 'basic',
+                    ]) ?>
 
-            <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
-            <?= $form->field($model, 'type')->hiddenInput(['value'=> 'weinkeller'])->label(false) ?>
+                    <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
+                    <?= $form->field($model, 'type')->hiddenInput(['value'=> 'weinkeller'])->label(false) ?>
 
-            <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
-            <?php ActiveForm::end() ?>
-
-
-        </div>
+                    <?= Html::submitButton('Bestätigen', ['class' => 'btn btn-primary']) ?>
+                    <?php ActiveForm::end() ?>
+            </div>
     </div>
-
 </div>
 

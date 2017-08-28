@@ -12,7 +12,7 @@ html {
       font-size: 0.8125em; } }
 
 h1 {
-  font-size: 1.875em; }
+  font-size: 1.625em; }
 
 h2 {
   font-size: 1.5em; }
@@ -165,5 +165,11 @@ h2 {
 
 .bs-callout-info h4 {
   color: #5bc0de; }
+
+#card .form-group {
+  margin: 0; }
+
+.field-card-id, .field-card-type {
+  display: none; }
 
 /*# sourceMappingURL=backend.css.map */

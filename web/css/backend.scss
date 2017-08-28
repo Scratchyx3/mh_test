@@ -189,3 +189,13 @@ $standardFontFamily: 'Lato', sans-serif;
     color: #5bc0de;
 }
 
+#card {
+    .form-group {
+        margin: 0;
+    }
+}
+
+.field-card-id, .field-card-type {
+    display: none;
+}
+
