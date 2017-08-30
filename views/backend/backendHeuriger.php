@@ -8,6 +8,7 @@
 
 use app\models\File;
 use app\models\Image;
+use app\models\Image\ImageFactory;
 use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use yii\helpers\Html;
@@ -85,20 +86,39 @@ foreach ($images as $image) {
     </div>
 
     <?php
-    $imageMdl->type = 'heuriger';
-    $imageMdl -> setPath();
+//    $imageMdl->type = 'heuriger';
+//    $imageMdl -> setPath();
+//    // get all images from database
+//    $images = $imageMdl -> find()->where(['type' => 'heuriger'])->all();
+//
+//    $initialPreviewData = array();
+//    $initialPreviewConfigData = array();
+//
+//    foreach ($images as $image) {
+//        // get image paths from database for initial preview
+//        $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
+//        array_push($initialPreviewData, $imagePath);
+//        // set up delete button url and match the image ids
+//        array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+//    }
+    $imageMdl = ImageFactory::create('galleryImage', 'heuriger');
     // get all images from database
-    $images = $imageMdl -> find()->where(['type' => 'heuriger'])->all();
+    $images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
 
     $initialPreviewData = array();
     $initialPreviewConfigData = array();
 
     foreach ($images as $image) {
         // get image paths from database for initial preview
-        $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
+        $imagePath = Url::to(['/image/uploads/gallery_' . $image->type . '/' . $image->thumbnailName]);
         array_push($initialPreviewData, $imagePath);
         // set up delete button url and match the image ids
-        array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+        array_push($initialPreviewConfigData, [
+            'url' => '/backend/image-delete',
+            'key' => $image->id,
+            'caption' => $image->name,
+            'size' => $image->size,
+            'extra' => ['baseType' => 'galleryImage', 'imageType' => 'heuriger']]);
     }
     ?>
 
@@ -135,6 +155,7 @@ foreach ($images as $image) {
                     'maxFileCount' => 100,
                     'uploadExtraData' =>
                         [
+                            'baseType' => 'galleryImage',
                             'imageType' => 'heuriger',
                         ],
                     'resizeImage' => true,

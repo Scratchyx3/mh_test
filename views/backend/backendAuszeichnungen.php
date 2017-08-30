@@ -6,15 +6,13 @@
  * Time: 14:23
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use kartik\file\FileInput;
 use yii\helpers\Url;
 
-$imageMdl = new Image();
-$imageMdl->type = 'auszeichnungen';
-$imageMdl -> setPath();
+$imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
 // get all images from database
-$images = $imageMdl -> find()->where(['type' => 'auszeichnungen'])->all();
+$images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
 
 $initialPreviewData = array();
 $initialPreviewConfigData = array();
@@ -24,8 +22,16 @@ foreach ($images as $image) {
     $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
     array_push($initialPreviewData, $imagePath);
     // set up delete button url and match the image ids
-    array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+    array_push($initialPreviewConfigData, [
+        'url' => '/backend/image-delete',
+        'key' => $image->id,
+        'caption' => $image->name,
+        'size' => $image->size,
+        'extra' => ['baseType' => 'titleImage', 'imageType' => 'auszeichnungen']]);
 }
+
+$imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
+
 ?>
 
 <div class="container">
@@ -61,6 +67,7 @@ foreach ($images as $image) {
                     'maxFileCount' => 10,
                     'uploadExtraData' =>
                         [
+                            'baseType' => 'titleImage',
                             'imageType' => 'auszeichnungen',
                         ],
                     'resizeImage' => true,

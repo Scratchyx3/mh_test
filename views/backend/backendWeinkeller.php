@@ -6,28 +6,31 @@
  * Time: 14:23
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$imageMdl = new Image();
-$imageMdl->type = 'weinkeller';
-$imageMdl -> setPath();
+$imageMdl = ImageFactory::create('galleryImage', 'weinkeller');
 // get all images from database
-$images = $imageMdl -> find()->where(['type' => 'weinkeller'])->all();
+$images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
 
 $initialPreviewData = array();
 $initialPreviewConfigData = array();
 
 foreach ($images as $image) {
 // get image paths from database for initial preview
-$imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
+$imagePath = Url::to(['/image/uploads/gallery_' . $image->type . '/' . $image->thumbnailName]);
 array_push($initialPreviewData, $imagePath);
 // set up delete button url and match the image ids
-array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+    array_push($initialPreviewConfigData, [
+        'url' => '/backend/image-delete',
+        'key' => $image->id,
+        'caption' => $image->name,
+        'size' => $image->size,
+        'extra' => ['baseType' => 'galleryImage', 'imageType' => 'weinkeller']]);
 }
 ?>
 
@@ -65,6 +68,7 @@ array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/ima
                     'maxFileCount' => 10,
                     'uploadExtraData' =>
                         [
+                            'baseType' => 'galleryImage',
                             'imageType' => 'weinkeller',
                         ],
                     'resizeImage' => true,

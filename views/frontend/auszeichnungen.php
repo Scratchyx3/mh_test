@@ -6,14 +6,12 @@
  * Time: 13:49
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
-$imageMdl = new Image();
-$imageMdl -> type = 'auszeichnungen';
-$rndTitleImage = $imageMdl -> getRndImages(1);
-$imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
-
+$imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
+$image = $imageMdl -> getRandomImage();
+$imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
 ?>
 
 <div class="container-fluid">

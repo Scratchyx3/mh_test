@@ -8,9 +8,8 @@
 
 namespace app\controllers;
 
-use app\models\Card;
 use app\models\File;
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use Yii;
 use yii\web\Controller;
 use yii\web\UploadedFile;
@@ -26,14 +25,14 @@ class BackendController extends Controller
     */
     public function actionImageUpload() {
         if (Yii::$app->request->isPost) {
+            $baseType = Yii::$app->request->post('baseType');
             $imageType = Yii::$app->request->post('imageType');
-            $imageMdl = new Image();
-            $imageMdl -> type = $imageType;
-            $imageMdl->setPath();
+            $imageMdl = ImageFactory::create($baseType, $imageType);
 
             $imageMdl->imageFiles = UploadedFile::getInstances($imageMdl, 'imageFiles');
+
             // upload the image file and save image data to database
-            if ($imageMdl->uploadFile() && $imageMdl->saveToDatabase()) {
+            if ($imageMdl->uploadImage() && $imageMdl->saveImageData()) {
                 return json_encode(true);
             }
         }
@@ -50,13 +49,14 @@ class BackendController extends Controller
     public function actionImageDelete() {
         if (Yii::$app->request->isPost) {
             $id = Yii::$app->request->post('key');
-            $imageMdl = Image::findOne($id);
-            // delete image from database
-            $imageMdl->delete();
-            // delete image file from server
-            $imageMdl->deleteFile();
-
-            return json_encode(true);
+            $baseType = Yii::$app->request->post('baseType');
+            $imageType = Yii::$app->request->post('imageType');
+            $imageMdl = ImageFactory::create($baseType, $imageType)->findOne($id);
+            if( $imageMdl->deleteImage() &&
+                $imageMdl->deleteThumbnail() &&
+                $imageMdl->delete()) {
+                return json_encode(true);
+            }
         }
         return json_encode(false);
     }
@@ -92,38 +92,38 @@ class BackendController extends Controller
     }
     public function actionCardUpload() {
         // if post data exists
-        if (Yii::$app->request->isPost) {
-            $cardMdl = new Card();
-            $cardMdl->load(Yii::$app->request->post());
-            //if record exists in database
-            if(Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
-                $cardMdl->isNewRecord = false;
-                //if update was successful
-                if ($cardMdl->updateAll([
-                        'headline' => $cardMdl->headline,
-                        'content' => $cardMdl->content,
-                        'fkImage' => $cardMdl->fkImage,
-                        'instagramLink' => $cardMdl->instagramLink,
-                        'type' => $cardMdl->type
-                    ], ['id' => $cardMdl->id]) !== false) {
-                    $this->layout = '/backend/standard';
-                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
-                        'model' => $cardMdl,
-                    ]);
-                } else {
-                    return false;
-                }
-                // new record
-            } else {
-                if($cardMdl->save()) {
-                    $this->layout = '/backend/standard';
-                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
-                        'model' => $cardMdl,
-                    ]);
-                }
-            }
-        } else {
-            return false;
-        }
+//        if (Yii::$app->request->isPost) {
+//            $cardMdl = new Card();
+//            $cardMdl->load(Yii::$app->request->post());
+//            //if record exists in database
+//            if(Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
+//                $cardMdl->isNewRecord = false;
+//                //if update was successful
+//                if ($cardMdl->updateAll([
+//                        'headline' => $cardMdl->headline,
+//                        'content' => $cardMdl->content,
+//                        'fkImage' => $cardMdl->fkImage,
+//                        'instagramLink' => $cardMdl->instagramLink,
+//                        'type' => $cardMdl->type
+//                    ], ['id' => $cardMdl->id]) !== false) {
+//                    $this->layout = '/backend/standard';
+//                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
+//                        'model' => $cardMdl,
+//                    ]);
+//                } else {
+//                    return false;
+//                }
+//                // new record
+//            } else {
+//                if($cardMdl->save()) {
+//                    $this->layout = '/backend/standard';
+//                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
+//                        'model' => $cardMdl,
+//                    ]);
+//                }
+//            }
+//        } else {
+//            return false;
+//        }
     }
 }

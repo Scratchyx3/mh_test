@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use traversient\yii\customscrollbar\AssetBundle;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -9,10 +9,9 @@ AssetBundle::register($this);
 
 $this->title = 'Mayer Hörmann';
 
-$imageMdl = new Image();
-$imageMdl -> type = 'startseite';
-$rndTitleImage = $imageMdl -> getRndImages(1);
-$imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
+$imageMdl = ImageFactory::create('titleImage', 'startseite');
+$image = $imageMdl -> getRandomImage();
+$imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
 
 ?>
 <div id="iconDownContainer">

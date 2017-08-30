@@ -6,23 +6,22 @@
  * Time: 13:49
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
 traversient\yii\customscrollbar\AssetBundle::register($this);
 
 $this->title = 'Heuriger';
 
-$imageMdl = new Image();
-$imageMdl -> type = 'heuriger';
-$rndImages = $imageMdl -> getRndImages(10);
+$imageMdl = ImageFactory::create('galleryImage', 'heuriger');
+$rndImages = $imageMdl->getRandomImage();
 
 $items = array();
 
 foreach ($rndImages as $image) {
-    $thumbnailUrl = Url::to([$image->path . $image->thumbnailName]);
-    $imageUrl = Url::to([$image->path . $image->name]);
-    array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image->name]]);
+    $thumbnailUrl = Url::to([$image['path'] . $image['thumbnailName']]);
+    $imageUrl = Url::to([$image['path'] . $image['name']]);
+    array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image['name']]]);
 }
 
 $options = ['class' => 'galleryContainer'];
@@ -43,7 +42,6 @@ $text = $model->content;
     <div class="row">
         <div class="textHeadline">
             <?php echo "<h1>" . $headline . "</h1>"; ?>
-<!--            <h1> Unser Heuriger </h1>-->
         </div>
         <div class="textContent">
             <?= $text ?>

@@ -6,23 +6,22 @@
  * Time: 13:49
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
 traversient\yii\customscrollbar\AssetBundle::register($this);
 
 $this->title = 'Weinkeller';
 
-$imageMdl = new Image();
-$imageMdl -> type = 'weinkeller';
-$rndImages = $imageMdl -> getRndImages(10);
+$imageMdl = ImageFactory::create('galleryImage', 'weinkeller');
+$rndImages = $imageMdl->getRandomImage();
 
 $items = array();
 
 foreach ($rndImages as $image) {
-    $thumbnailUrl = Url::to([$image->path . $image->thumbnailName]);
-    $imageUrl = Url::to([$image->path . $image->name]);
-    array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image->name]]);
+    $thumbnailUrl = Url::to([$image['path'] . $image['thumbnailName']]);
+    $imageUrl = Url::to([$image['path'] . $image['name']]);
+    array_push($items, ['div' => 'itemDiv', 'url' => $imageUrl, 'src' =>  $thumbnailUrl, 'options' =>['title' => $image['name']]]);
 }
 $options = ['class' => 'galleryContainer'];
 

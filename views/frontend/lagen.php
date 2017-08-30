@@ -6,15 +6,14 @@
  * Time: 13:49
  */
 
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
 $this->title = 'Lagen';
 
-$imageMdl = new Image();
-$imageMdl -> type = 'lagen';
-$rndTitleImage = $imageMdl -> getRndImages(1);
-$imagePath = Url::to('/' . $rndTitleImage[0]->path . $rndTitleImage[0]->name);
+$imageMdl = ImageFactory::create('titleImage', 'lagen');
+$image = $imageMdl -> getRandomImage();
+$imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
 
 ?>
 
