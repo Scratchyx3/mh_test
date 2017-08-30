@@ -7,18 +7,16 @@
  */
 
 use app\models\AktuellesCard;
-use app\models\Image;
+use app\models\Image\ImageFactory;
 use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 
-$imageMdl = new Image();
-$imageMdl->type = 'startseite';
-$imageMdl -> setPath();
+$imageMdl = ImageFactory::create('titleImage', 'startseite');
 // get all images from database
-$images = $imageMdl -> find()->where(['type' => 'startseite'])->all();
+$images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
 
 $initialPreviewData = array();
 $initialPreviewConfigData = array();
@@ -28,7 +26,12 @@ foreach ($images as $image) {
     $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
     array_push($initialPreviewData, $imagePath);
     // set up delete button url and match the image ids
-    array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+    array_push($initialPreviewConfigData, [
+        'url' => '/backend/image-delete',
+        'key' => $image->id,
+        'caption' => $image->name,
+        'size' => $image->size,
+        'extra' => ['baseType' => 'titleImage', 'imageType' => 'startseite']]);
 }
 ?>
 
@@ -64,6 +67,7 @@ echo FileInput::widget([
         'maxFileCount' => 10,
         'uploadExtraData' =>
             [
+                'baseType' => 'titleImage',
                 'imageType' => 'startseite',
             ],
         'resizeImage' => true,
