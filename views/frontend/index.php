@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Card;
 use app\models\Image\ImageFactory;
 use traversient\yii\customscrollbar\AssetBundle;
 use yii\helpers\Html;
@@ -12,6 +13,11 @@ $this->title = 'Mayer Hörmann';
 $imageMdl = ImageFactory::create('titleImage', 'startseite');
 $image = $imageMdl -> getRandomImage();
 $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
+
+
+$cardMdl = new Card();
+$cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_startseite'])->orderBy(['id'=>SORT_DESC])->all();
+$imageMdl = ImageFactory::create('cardImage', 'card_startseite');
 
 ?>
 <div id="iconDownContainer">
@@ -33,91 +39,33 @@ $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
     </div>
 </div>
 <div class="container">
-
     <div id="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="card">
-                <div class="cardImageContainer">
-                    <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
-                </div>
-                <div class="cardHeadline">
-                    <h1> Auszeichnung: Top Heuriger 2016 in Wagram und noch länger und sogar noch länger </h1>
-                </div>
-                <div class="cardText">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="card">
-                <div class="cardImageContainer">
-                    <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
-                </div>
-
-                <div class="cardHeadline">
-                    <h1> Meine Aktuelles Ding</h1>
-                </div>
-                <div class="cardText">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="card">
-                <div class="cardImageContainer">
-                    <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
-                </div>
-
-                <div class="cardHeadline">
-                    <h1> Meine Aktuelles Ding</h1>
-                </div>
-                <div class="cardText">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren. </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="card">
-                <div class="cardImageContainer">
-                    <?php echo Html::img($imagePath, ['alt'=>'weingarten', 'class'=>'cardImage']); ?>
-                </div>
-
-                <div class="cardHeadline">
-                    <h1> Meine Aktuelles Ding</h1>
-                </div>
-                <div class="cardText">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren. </p>
-                </div>
-            </div>
-        </div>
+        <?php
+        foreach($cardMdlArray as $cardMdl) {
+            $imageMdl = $imageMdl->findOne($cardMdl->fkImage);
+            echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-6'>";
+                echo "<div class='card'>";
+                    if(isset($cardMdl->instagramLink) && !empty($cardMdl->instagramLink)) {
+                        echo "<a class='disableLink' target='_blank' href='" . $cardMdl->instagramLink . "'>";
+                        echo "<div class='cardImageContainer'>";
+                        echo Html::img(Url::to('/' . $imageMdl->path . $imageMdl->name), ['alt'=>'weingarten', 'class'=>'cardImage']);
+                        echo "</div>";
+                        echo "</a>";
+                    } else {
+                        echo "<div class='cardImageContainer'>";
+                        echo Html::img(Url::to('/' . $imageMdl->path . $imageMdl->name), ['alt'=>'weingarten', 'class'=>'cardImage']);
+                        echo "</div>";
+                    }
+                    echo "<div class='cardHeadline'>";
+                        echo "<h1>" . $cardMdl->headline . "</h1>";
+                    echo "</div>";
+                    echo "<div class='cardText'>";
+                        echo $cardMdl->content;
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </div>
 <?php

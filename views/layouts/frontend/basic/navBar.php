@@ -11,13 +11,15 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$startseiteUrl = Url::to('/site/index');
+
 ?>
 
 <nav id="navigationHeader" class="container-fluid">
     <div class="row">
         <div class="container">
             <div class="logoMH hidden-xs col-sm-6">
-                <h1>Mayer-Hörmann</h1>
+                <a id="menuStartseiteLink" href="<?=$startseiteUrl?>"><h1>Mayer-Hörmann</h1></a>
             </div>
 
             <div class="logoShop col-12 col-sm-6">

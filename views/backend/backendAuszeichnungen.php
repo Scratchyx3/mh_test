@@ -120,10 +120,10 @@ $imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
                 ]
             ]); ?>
 
+            <?= $form->field($cardMdl, 'instagramLink')->label('Instagram Link')->textInput() ?>
             <?= $form->field($cardMdl, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
             <?= $form->field($cardMdl, 'imageType')->hiddenInput(['value'=> 'card_auszeichnungen'])->label(false) ?>
             <?= $form->field($cardMdl, 'headline')->label('Überschrift')->textInput() ?>
-
             <?= $form->field($cardMdl, 'content')->label('Text')->widget(CKEditor::className(), [
                 'options' => ['rows' => 6],
                 'preset' => 'basic',

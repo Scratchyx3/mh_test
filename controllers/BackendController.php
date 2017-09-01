@@ -120,11 +120,6 @@ class BackendController extends Controller
                 'model' => $cardMdl,
             ]);
 
-
-
-
-
-
 //            // upload the image file and save image data to database
 //            if ($fk = $imageMdl->uploadImage() && $imageMdl->saveImageData()) {
 //

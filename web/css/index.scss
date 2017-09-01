@@ -31,6 +31,9 @@ body {
 }
 
 // ========================== Nav Bar =========================== //
+#menuStartseiteLink:hover {
+    text-decoration: none;
+}
 #navigationHeader {
     height: 60px;
     width: 100%;
@@ -220,7 +223,6 @@ body {
         border: none;
     }
 }
-
 // ========================== Index =========================== //
 .indexTitleImageContainer {
     height: calc(100vh - #{$navBarHeight});
@@ -234,8 +236,6 @@ body {
 .iconDown {
     bottom: 5vh;
     z-index: 3;
-    height: 15vh;
-    width: 15vh;
     left: 50%;
     margin-left: -7.5vh;
     position: absolute;
@@ -251,14 +251,14 @@ body {
 .headline {
     background: $standardBackgroundColorBlack;
     position: relative;
-    height: 14vh;
-    margin-bottom: 5vh;
+    height: 10vh;
+    margin-bottom: 3vh;
     h1 {
         width: auto;
         text-align: center;
         margin: 0;
-        font-size: 8vh;
-        line-height: 14vh;
+        font-size: 6vh;
+        line-height: 10vh;
         color: $standardFontColorWhite;
     }
 }
@@ -296,6 +296,7 @@ body {
 .standardTitleImageContainer {
     height: 35vh;
     width: 100%;
+    margin-bottom: 3vh;
     margin-top: $navBarHeight;
     position: relative;
     background-size: cover;

@@ -36,7 +36,7 @@ class SiteController extends Controller
      */
     public function actionHeuriger()
     {
-        if($cardMdl = Card::find()->where(['type' => 'heuriger'])->one()) {
+        if($cardMdl = Card::find()->where(['imageType' => 'card_heuriger'])->one()) {
             $this->layout='/frontend/standard';
             return $this->render('/frontend/heuriger', [
                 'model' => $cardMdl,
@@ -52,7 +52,7 @@ class SiteController extends Controller
      */
     public function actionWeinkeller()
     {
-        if($cardMdl = Card::find()->where(['type' => 'weinkeller'])->one()) {
+        if($cardMdl = Card::find()->where(['imageType' => 'card_weinkeller'])->one()) {
             $this->layout='/frontend/standard';
             return $this->render('/frontend/weinkeller', [
                 'model' => $cardMdl,

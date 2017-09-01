@@ -6,24 +6,15 @@
 }
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
+    // startseite icon down
+    .iconDown {
+        height: 15vh;
+        width: 15vh;
+    }
     // startseite cards
-    //.card {
-    //    height: 70vh;
-    //    margin: 0 auto 10vh auto;
-    //    .cardImageContainer {
-    //        height: 45%;
-    //    }
-    //    .cardHeadline {
-    //        height: auto;
-    //        min-height: 10%;
-    //    }
-    //    .cardText {
-    //        height: 45%;
-    //    }
-    //}
     .card {
         height: auto;
-        margin: 0 auto 10vh auto;
+        margin: 0 auto 6vh auto;
         .cardImageContainer {
             height: 30vh;
         }
@@ -47,24 +38,15 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+    // startseite icon down
+    .iconDown {
+        height: 10vh;
+        width: 10vh;
+    }
     // startseite cards
-    //.card {
-    //    height: 60vh;
-    //    margin: 0 auto 5vh auto;
-    //    .cardImageContainer {
-    //        height: 40%;
-    //    }
-    //    .cardHeadline {
-    //        height: auto;
-    //        min-height: 15%;
-    //    }
-    //    .cardText {
-    //        height: 45%;
-    //    }
-    //}
     .card {
         height: auto;
-        margin: 0 auto 5vh auto;
+        margin: 0 auto 4vh auto;
         .cardImageContainer {
             height: 24vh;
         }

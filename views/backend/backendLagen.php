@@ -114,6 +114,7 @@ foreach ($images as $image) {
                 ]
             ]); ?>
 
+            <?= $form->field($cardMdl, 'instagramLink')->label('Instagram Link')->textInput() ?>
             <?= $form->field($cardMdl, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
             <?= $form->field($cardMdl, 'imageType')->hiddenInput(['value'=> 'card_lagen'])->label(false) ?>
             <?= $form->field($cardMdl, 'headline')->label('Überschrift')->textInput() ?>
