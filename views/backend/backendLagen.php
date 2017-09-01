@@ -6,7 +6,9 @@
  * Time: 14:23
  */
 
+use app\models\Card;
 use app\models\Image;
+use app\models\Image\ImageFactory;
 use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use yii\helpers\Html;
@@ -73,31 +75,56 @@ foreach ($images as $image) {
         </div>
     </div>
 
+    <?php
+    $imageMdl = ImageFactory::create('cardImage', 'card_lagen');
+    $cardMdl = new Card();
+    ?>
     <div class="row">
-        <div class="textEditor">
+        <div class="col-xs-12">
+            <h1> Neue Karte erstellen </h1>
+            <div class="bs-callout bs-callout-info">
+                <h4> How-To </h4>
+                <p>
+                    1) Bild verkleinern auf ungefähr 400 - 500 Pixel Breite. <br>
+                    2) <a href="https://tinypng.com/" target="_blank"> Bild online komprimieren </a> <br>
+                    3) Dateiname anpassen (z.B. Weingarten, Traubenernte, Weinkeller, ...) <br>
+                    4) Überschrift und Text eingeben. <br>
+                    5) Zum Speichern "Bestätigen" klicken.
+                </p>
+            </div>
             <?php
             $form = ActiveForm::begin([
-                    'id' => 'card',
-                    'action' => ['backend/card-upload'],
-                    'options' => ['method' => 'post', 'class' => 'form-horizontal'],
+                'id' => 'card',
+                'action' => ['backend/card-upload'],
+                'options' => ['method' => 'post', 'class' => 'form-horizontal'],
             ]) ?>
+            <?php
+            echo $form->field($imageMdl, 'imageFiles[]')->label('Bild')->widget(FileInput::classname(), [
+                'options'=>[
+                    'multiple'=>false,
+                    'id'=>'image-imageFiles2',
+                ],
+                'language' => 'de',
+                'pluginOptions' => [
+                    'maxFileSize' => 10000,
+                    'theme' => 'explorer-fa',
+                    'maxFileCount' => 1,
+                    'resizeImage' => true,
+                    'showUpload' => false,
+                ]
+            ]); ?>
 
-            <?= $form->field($model, 'headline')->textInput()->hint('Please enter your name') ?>
+            <?= $form->field($cardMdl, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
+            <?= $form->field($cardMdl, 'imageType')->hiddenInput(['value'=> 'card_lagen'])->label(false) ?>
+            <?= $form->field($cardMdl, 'headline')->label('Überschrift')->textInput() ?>
 
-            <?= $form->field($model, 'content')->label('Überschrift')->widget(CKEditor::className(), [
+            <?= $form->field($cardMdl, 'content')->label('Text')->widget(CKEditor::className(), [
                 'options' => ['rows' => 6],
                 'preset' => 'basic',
             ]) ?>
-
-            <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
-            <?= $form->field($model, 'type')->hiddenInput(['value'=> 'lagen'])->label(false) ?>
-
-            <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('Bestätigen', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>
-
-
         </div>
     </div>
-
 </div>
 

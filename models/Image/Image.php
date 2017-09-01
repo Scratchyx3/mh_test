@@ -18,5 +18,5 @@ interface Image
     public function uploadThumbnail($file);
     public function saveImageData();
     public function deleteImage();
-    public function deleteThumbnail();
+    public function getRandomImage();
 }

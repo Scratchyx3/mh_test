@@ -86,21 +86,6 @@ foreach ($images as $image) {
     </div>
 
     <?php
-//    $imageMdl->type = 'heuriger';
-//    $imageMdl -> setPath();
-//    // get all images from database
-//    $images = $imageMdl -> find()->where(['type' => 'heuriger'])->all();
-//
-//    $initialPreviewData = array();
-//    $initialPreviewConfigData = array();
-//
-//    foreach ($images as $image) {
-//        // get image paths from database for initial preview
-//        $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
-//        array_push($initialPreviewData, $imagePath);
-//        // set up delete button url and match the image ids
-//        array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
-//    }
     $imageMdl = ImageFactory::create('galleryImage', 'heuriger');
     // get all images from database
     $images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
@@ -175,15 +160,16 @@ foreach ($images as $image) {
                     'options' => ['method' => 'post', 'class' => 'form-horizontal'],
                 ]) ?>
 
-                <?= $form->field($model, 'headline')->textInput()->hint('Please enter your name')->label('Name') ?>
+                <?= $form->field($model, 'headline')->textInput()->label('Überschrift') ?>
 
-                <?= $form->field($model, 'content')->widget(CKEditor::className(), [
+                <?= $form->field($model, 'content')->label('Text')->widget(CKEditor::className(), [
                     'options' => ['rows' => 6],
                     'preset' => 'basic'
                 ]) ?>
 
                 <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
-                <?= $form->field($model, 'type')->hiddenInput(['value'=> 'heuriger'])->label(false) ?>
+                <?= $form->field($model, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
+                <?= $form->field($model, 'imageType')->hiddenInput(['value'=> 'card_heuriger'])->label(false) ?>
 
                 <?= Html::submitButton('Bestätigen', ['class' => 'btn btn-primary']) ?>
                 <?php ActiveForm::end() ?>

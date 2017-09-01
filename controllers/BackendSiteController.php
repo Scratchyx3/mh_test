@@ -42,8 +42,11 @@ class BackendSiteController extends Controller
     public function actionBackendStartseite()
     {
         if (!Yii::$app->user->isGuest) {
+            $cardMdl = new Card();
             $this->layout='/backend/standard';
-            return $this->render('/backend/backendStartseite');
+            return $this->render('/backend/backendStartseite', [
+            'model' => $cardMdl,
+            ]);
         } else {
             // if user is not logged in
             $model = new User();
@@ -61,8 +64,8 @@ class BackendSiteController extends Controller
     public function actionBackendHeuriger()
     {
         if (!Yii::$app->user->isGuest) {
-            if(!$cardMdl = Card::find()->where(['type' => 'heuriger'])->one()) {
-                $cardMdl = new card();
+            if(!$cardMdl = Card::find()->where(['imageType' => 'card_heuriger'])->one()) {
+                $cardMdl = new Card();
             }
             $this->layout = '/backend/standard';
             return $this->render('/backend/backendHeuriger', [
@@ -85,7 +88,7 @@ class BackendSiteController extends Controller
     public function actionBackendWeinkeller()
     {
         if (!Yii::$app->user->isGuest) {
-            if(!$cardMdl = Card::find()->where(['type' => 'weinkeller'])->one()) {
+            if(!$cardMdl = Card::find()->where(['imageType' => 'card_weinkeller'])->one()) {
                 $cardMdl = new card();
             }
             $this->layout = '/backend/standard';
@@ -128,7 +131,7 @@ class BackendSiteController extends Controller
     public function actionBackendLagen()
     {
         if (!Yii::$app->user->isGuest) {
-            if(!$cardMdl = Card::find()->where(['type' => 'lagen'])->one()) {
+            if(!$cardMdl = Card::find()->where(['imageType' => 'card_lagen'])->one()) {
                 $cardMdl = new card();
             }
             $this->layout = '/backend/standard';

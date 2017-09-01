@@ -169,7 +169,7 @@ h2 {
 #card .form-group {
   margin: 0; }
 
-.field-card-id, .field-card-type {
+.field-card-id, .field-card-type, .field-card-basetype, .field-card-imagetype {
   display: none; }
 
 /*# sourceMappingURL=backend.css.map */

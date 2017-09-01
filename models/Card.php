@@ -27,13 +27,12 @@ class Card extends ActiveRecord
             // text is required
             [['content'], 'required', 'message' => 'Bitte Text eingeben!'],
             // fkImage can not be longer than 50 characters
-            [['fkImage'], 'string', 'max' => 120, 'message' => 'Bitte nicht mehr als 100 Zeichen!'],
+            [['fkImage'], 'integer', 'message' => 'Bitte nicht mehr als 100 Zeichen!'],
             // headline can not be longer than 100 characters
             [['instagramLink'], 'string', 'max' => 100, 'message' => 'Bitte nicht mehr als 100 Zeichen!'],
-            // headline can not be longer than 100 characters
-            [['type'], 'required'],
+            [['baseType'], 'string', 'max' => 45, 'message' => 'Bitte nicht mehr als 45 Zeichen!'],
+            [['imageType'], 'string', 'max' => 45, 'message' => 'Bitte nicht mehr als 45 Zeichen!'],
             [['id'], 'integer'],
-
         ];
     }
 }

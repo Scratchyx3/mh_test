@@ -87,7 +87,7 @@ array_push($initialPreviewData, $imagePath);
                         'options' => ['method' => 'post', 'class' => 'form-horizontal'],
                     ]) ?>
 
-                    <?= $form->field($model, 'headline')->label('Überschrift')->textInput()->hint('Please enter your name') ?>
+                    <?= $form->field($model, 'headline')->label('Überschrift')->textInput() ?>
 
                     <?= $form->field($model, 'content')->label('Text')->widget(CKEditor::className(), [
                         'options' => ['rows' => 6],
@@ -95,7 +95,8 @@ array_push($initialPreviewData, $imagePath);
                     ]) ?>
 
                     <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>
-                    <?= $form->field($model, 'type')->hiddenInput(['value'=> 'weinkeller'])->label(false) ?>
+                <?= $form->field($model, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
+                <?= $form->field($model, 'imageType')->hiddenInput(['value'=> 'card_weinkeller'])->label(false) ?>
 
                     <?= Html::submitButton('Bestätigen', ['class' => 'btn btn-primary']) ?>
                     <?php ActiveForm::end() ?>

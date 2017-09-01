@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Card;
 use app\models\File;
 use app\models\Image\ImageFactory;
 use Yii;
@@ -53,7 +54,6 @@ class BackendController extends Controller
             $imageType = Yii::$app->request->post('imageType');
             $imageMdl = ImageFactory::create($baseType, $imageType)->findOne($id);
             if( $imageMdl->deleteImage() &&
-                $imageMdl->deleteThumbnail() &&
                 $imageMdl->delete()) {
                 return json_encode(true);
             }
@@ -91,7 +91,46 @@ class BackendController extends Controller
         return json_encode(false);
     }
     public function actionCardUpload() {
-        // if post data exists
+        if (Yii::$app->request->isPost) {
+            $cardMdl = new Card();
+            $cardMdl->load(Yii::$app->request->post());
+            $cardImageMdl = ImageFactory::create($cardMdl->baseType, $cardMdl->imageType);
+
+            $cardImageMdl->imageFiles = UploadedFile::getInstances($cardImageMdl, 'imageFiles');
+            $cardImageMdl->uploadImage();
+            $fkImage = $cardImageMdl->saveImageData();
+
+            $cardMdl->fkImage = intval($fkImage);
+
+            if (!Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
+                $cardMdl->save();
+            } else {
+                //if update was successful
+                $cardMdl->updateAll([
+                        'headline' => $cardMdl->headline,
+                        'content' => $cardMdl->content,
+                        'fkImage' => $fkImage,
+                        'instagramLink' => $cardMdl->instagramLink,
+                        'baseType' => $cardMdl->baseType,
+                        'imageType' => $cardMdl->imageType
+                    ], ['id' => $cardMdl->id]);
+            }
+            $this->layout = '/backend/standard';
+            return $this->render('/backend/backend' . ucfirst(str_replace('card_', '', $cardMdl->imageType)), [
+                'model' => $cardMdl,
+            ]);
+
+
+
+
+
+
+//            // upload the image file and save image data to database
+//            if ($fk = $imageMdl->uploadImage() && $imageMdl->saveImageData()) {
+//
+//            }
+//        }
+//        // if post data exists
 //        if (Yii::$app->request->isPost) {
 //            $cardMdl = new Card();
 //            $cardMdl->load(Yii::$app->request->post());
@@ -102,7 +141,7 @@ class BackendController extends Controller
 //                if ($cardMdl->updateAll([
 //                        'headline' => $cardMdl->headline,
 //                        'content' => $cardMdl->content,
-//                        'fkImage' => $cardMdl->fkImage,
+//                        'fkImage' => $fk,
 //                        'instagramLink' => $cardMdl->instagramLink,
 //                        'type' => $cardMdl->type
 //                    ], ['id' => $cardMdl->id]) !== false) {
@@ -124,6 +163,6 @@ class BackendController extends Controller
 //            }
 //        } else {
 //            return false;
-//        }
+        }
     }
 }

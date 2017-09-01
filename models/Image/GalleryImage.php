@@ -89,7 +89,11 @@ class GalleryImage extends ActiveRecord implements Image
         }
         return true;
     }
-
+    /**
+     * Saves image data to database
+     *
+     * @return bool
+     */
     public function saveImageData()
     {
         foreach ($this->imageFiles as $file) {
@@ -99,27 +103,22 @@ class GalleryImage extends ActiveRecord implements Image
             $this->size = $file->size;
             // make sure that the given record does not already exist in db
             if(!$this::find()->where(['name' => strtolower($this->name), 'size' => $this->size, 'type' => strtolower($this->type)])->one()) {
-                $this->save();
+                if(!$this->save()) {
+                    return false;
+                }
             }
         }
+        return true;
     }
-
-    public function deleteImage()
-    {
-        if(unlink($this->path . $this->name)) {
-            return true;
-        }
-        return false;
-    }
-
     /**
-     * Deletes image thumbnail file from server
+     * Deletes image file from server
      *
      * @return bool
      */
-    public function deleteThumbnail()
+    public function deleteImage()
     {
-        if(unlink($this->path . $this->thumbnailName)) {
+        if( unlink($this->path . $this->name) &&
+            unlink($this->path . $this->thumbnailName)) {
             return true;
         }
         return false;
