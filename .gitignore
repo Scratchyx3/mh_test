@@ -33,7 +33,6 @@ tests/_support/_generated
 web/file_upload/*
 
 #image files
-web/image/uploads/*
 
 #db config
 /config/db.php
