@@ -29,6 +29,24 @@ $msg = wordwrap($msg,70);
 if (mail("felixklein@gmx.at","Mein Betreff!!!",$msg)) {
     echo "<script>alert('Email wurde gesendet!');</script>";
 }
+
+
+
+$to = "rohrmoser.christoph91@gmail.com";
+$subject = "Mein Test Betreff";
+$txt = "Das ist eine Test Mail!";
+$headers = "From: christophrohrmoser@gmx.at";
+
+mail($to,$subject,$txt,$headers);
+
+$to = "felixklein@gmx.at";
+$subject = "Mein Test Betreff";
+$txt = "Das ist eine Test Mail!";
+$headers = "From: christophrohrmoser@gmx.at";
+
+mail($to,$subject,$txt,$headers);
+
+
 ?>
 <div id="iconDownContainer">
     <a href="#headlineAktuelles">
