@@ -7,7 +7,6 @@
  */
 
 use app\models\Card;
-use app\models\Image;
 use app\models\Image\ImageFactory;
 use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
@@ -15,9 +14,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$imageMdl = new Image();
-$imageMdl->type = 'lagen';
-$imageMdl -> setPath();
+$imageMdl = ImageFactory::create('titleImage', 'lagen');
+
 // get all images from database
 $images = $imageMdl -> find()->where(['type' => 'lagen'])->all();
 
@@ -29,7 +27,13 @@ foreach ($images as $image) {
     $imagePath = Url::to(['/image/uploads/' . $image->type . '/' . $image->thumbnailName]);
     array_push($initialPreviewData, $imagePath);
     // set up delete button url and match the image ids
-    array_push($initialPreviewConfigData, ['type' => 'image', 'url' => '/backend/image-delete', 'key' => $image->id, 'caption' => $image->name, 'size' => $image->size]);
+    array_push($initialPreviewConfigData, [
+        'type' => 'image',
+        'url' => '/backend/image-delete',
+        'key' => $image->id,
+        'caption' => $image->name,
+        'size' => $image->size,
+        'extra' => ['baseType' => 'titleImage', 'imageType' => 'lagen']]);
 }
 ?>
 
@@ -66,6 +70,7 @@ foreach ($images as $image) {
                     'maxFileCount' => 10,
                     'uploadExtraData' =>
                         [
+                            'baseType' => 'titleImage',
                             'imageType' => 'lagen',
                         ],
                     'resizeImage' => true,
