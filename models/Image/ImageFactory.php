@@ -34,7 +34,7 @@ class ImageFactory
                 return $imageMdl;
                 break;
             default:
-                throw new Exception('Image type not supported!');
+                throw new Exception('Base type not supported!');
         }
     }
 }

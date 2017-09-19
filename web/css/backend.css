@@ -71,6 +71,9 @@ h2 {
 #fieldLagen .menuIcon {
   background-image: url(../image/icon/icon_lagen.png); }
 
+#fieldImpressum .menuIcon {
+  background-image: url(../image/icon/icon_impressum.png); }
+
 #fieldAuszeichnungen {
   margin-bottom: 30px; }
   #fieldAuszeichnungen .menuIcon {

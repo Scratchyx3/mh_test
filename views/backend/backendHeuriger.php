@@ -15,6 +15,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
+Url::remember();
 $imageMdl = new Image();
 $imageMdl->type = 'heuriger';
 $imageMdl -> setPath();

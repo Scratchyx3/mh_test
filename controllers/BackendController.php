@@ -95,69 +95,33 @@ class BackendController extends Controller
             $cardMdl = new Card();
             $cardMdl->load(Yii::$app->request->post());
             $cardImageMdl = ImageFactory::create($cardMdl->baseType, $cardMdl->imageType);
-
+            // get card image in model
             $cardImageMdl->imageFiles = UploadedFile::getInstances($cardImageMdl, 'imageFiles');
             $cardImageMdl->uploadImage();
             $fkImage = $cardImageMdl->saveImageData();
 
             $cardMdl->fkImage = intval($fkImage);
-
-            if (!Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
+            // if card is not found in database -> save
+            if (!Card::find()->where(['id' => $cardMdl->id])->exists()) {
                 $cardMdl->save();
             } else {
-                //if update was successful
+                //if card already exists in database -> update
                 $cardMdl->updateAll([
-                        'headline' => $cardMdl->headline,
-                        'content' => $cardMdl->content,
-                        'fkImage' => $fkImage,
-                        'instagramLink' => $cardMdl->instagramLink,
-                        'baseType' => $cardMdl->baseType,
-                        'imageType' => $cardMdl->imageType
-                    ], ['id' => $cardMdl->id]);
+                    'headline' => $cardMdl->headline,
+                    'content' => $cardMdl->content,
+                    'fkImage' => $fkImage,
+                    'instagramLink' => $cardMdl->instagramLink,
+                    'baseType' => $cardMdl->baseType,
+                    'imageType' => $cardMdl->imageType
+                ], ['id' => $cardMdl->id]);
             }
+            // return to previous view
             $this->layout = '/backend/standard';
             return $this->render('/backend/backend' . ucfirst(str_replace('card_', '', $cardMdl->imageType)), [
                 'model' => $cardMdl,
             ]);
-
-//            // upload the image file and save image data to database
-//            if ($fk = $imageMdl->uploadImage() && $imageMdl->saveImageData()) {
-//
-//            }
-//        }
-//        // if post data exists
-//        if (Yii::$app->request->isPost) {
-//            $cardMdl = new Card();
-//            $cardMdl->load(Yii::$app->request->post());
-//            //if record exists in database
-//            if(Card::find()->where( [ 'id' => $cardMdl->id ] )->exists()) {
-//                $cardMdl->isNewRecord = false;
-//                //if update was successful
-//                if ($cardMdl->updateAll([
-//                        'headline' => $cardMdl->headline,
-//                        'content' => $cardMdl->content,
-//                        'fkImage' => $fk,
-//                        'instagramLink' => $cardMdl->instagramLink,
-//                        'type' => $cardMdl->type
-//                    ], ['id' => $cardMdl->id]) !== false) {
-//                    $this->layout = '/backend/standard';
-//                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
-//                        'model' => $cardMdl,
-//                    ]);
-//                } else {
-//                    return false;
-//                }
-//                // new record
-//            } else {
-//                if($cardMdl->save()) {
-//                    $this->layout = '/backend/standard';
-//                    return $this->render('/backend/backend' . ucfirst($cardMdl->type), [
-//                        'model' => $cardMdl,
-//                    ]);
-//                }
-//            }
-//        } else {
-//            return false;
         }
+        $this->layout='/backend/standard';
+        return $this->render('/backend/backendLandingPage');
     }
 }
