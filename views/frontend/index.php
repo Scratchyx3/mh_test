@@ -26,7 +26,7 @@ $msg = "Die Email ist offensichtlich angekommen!";
 $msg = wordwrap($msg,70);
 
 // send email
-if (mail("rohrmoser.christoph91@gmail.com","Mein Betreff!!!",$msg)) {
+if (mail("felixklein@gmx.at","Mein Betreff!!!",$msg)) {
     echo "<script>alert('Email wurde gesendet!');</script>";
 }
 ?>
