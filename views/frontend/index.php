@@ -19,6 +19,14 @@ $cardMdl = new Card();
 $cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_startseite'])->orderBy(['id'=>SORT_DESC])->all();
 $imageMdl = ImageFactory::create('cardImage', 'card_startseite');
 
+// the message
+$msg = "Die Email ist offensichtlich angekommen!";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail("rohrmoser.christoph91@gmail.com","Mein Betreff!!!",$msg);
 ?>
 <div id="iconDownContainer">
     <a href="#headlineAktuelles">
