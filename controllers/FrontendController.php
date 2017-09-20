@@ -26,7 +26,7 @@ class FrontendController extends Controller
 
                 $to = "rohrmoser.christoph91@gmail.com";
                 $subject = "Newsletter-Anmeldung";
-                $txt = $emailMdl->email;
+                $txt = "$emailMdl->email";
                 $from = "From: Winzerhof Mayer-Hörmann <mh@veltliner.at>";
 
                 mail($to,$subject,$txt,$from);
