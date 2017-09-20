@@ -21,15 +21,15 @@ class FrontendController extends Controller
             if( $emailMdl->load(Yii::$app->request->post()) &&
                 $emailMdl->save() &&
                 empty($emailMdl->antiSpam)) {
-                    $emailMdl = new Email();
-                    $emailMdl->setEmailSaved(true);
 
                 $to = "rohrmoser.christoph91@gmail.com";
                 $subject = "Newsletter-Anmeldung";
-                $txt = "$emailMdl->email";
+                $txt = $emailMdl->email;
                 $from = "From: Winzerhof Mayer-Hörmann <mh@veltliner.at>";
-
                 mail($to,$subject,$txt,$from);
+
+                $emailMdl = new Email();
+                $emailMdl->setEmailSaved(true);
             }
         }
         $this->layout='/frontend/standard';
