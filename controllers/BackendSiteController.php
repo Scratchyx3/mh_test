@@ -167,7 +167,7 @@ class BackendSiteController extends Controller
         }
     }
     /**
-     * Displays backendAuszeichnungen.php
+     * Displays backendImpressum.php
      *
      * @return string
      */
@@ -176,6 +176,25 @@ class BackendSiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             $this->layout = '/backend/standard';
             return $this->render('/backend/backendImpressum');
+        } else {
+            // if user is not logged in
+            $model = new User();
+            $this->layout='/backend/login';
+            return $this->render('/backend/login', [
+                'model' => $model,
+            ]);
+        }
+    }
+    /**
+     * Displays backendNewsletter.php
+     *
+     * @return string
+     */
+    public function actionBackendNewsletter()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $this->layout = '/backend/standard';
+            return $this->render('/backend/backendNewsletter');
         } else {
             // if user is not logged in
             $model = new User();

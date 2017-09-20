@@ -327,6 +327,9 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
 #titleImageHeuriger {
   display: none; }
 
+.field-antiSpamField {
+  display: none; }
+
 .textHeadline {
   width: 100%;
   margin-top: 20px;

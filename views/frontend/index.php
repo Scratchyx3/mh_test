@@ -19,21 +19,6 @@ $cardMdl = new Card();
 $cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_startseite'])->orderBy(['id'=>SORT_DESC])->all();
 $imageMdl = ImageFactory::create('cardImage', 'card_startseite');
 
-$to = "rohrmoser.christoph91@gmail.com";
-$subject = "Mein Test Betreff";
-$txt = "Das ist eine Test Mail!";
-$headers = "From: christophrohrmoser@gmx.at";
-
-mail($to,$subject,$txt,$headers);
-
-$to = "felixklein@gmx.at";
-$subject = "Mein Test Betreff";
-$txt = "Das ist eine Test Mail!";
-$headers = "From: christophrohrmoser@gmx.at";
-
-mail($to,$subject,$txt,$headers);
-
-
 ?>
 <div id="iconDownContainer">
     <a href="#headlineAktuelles">
@@ -53,8 +38,9 @@ mail($to,$subject,$txt,$headers);
         </div>
     </div>
 </div>
+
 <div class="container">
-    <div id="row">
+    <div class="row">
         <?php
         foreach($cardMdlArray as $cardMdl) {
             $imageMdl = $imageMdl->findOne($cardMdl->fkImage);

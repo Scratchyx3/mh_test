@@ -55,6 +55,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
                 'http://localhost/admin' => 'login/index',
                 'http://192.168.0.188/admin' => 'login/index',

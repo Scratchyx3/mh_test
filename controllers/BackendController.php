@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\models\Card;
+use app\models\Email;
 use app\models\File;
 use app\models\Image\ImageFactory;
 use Yii;
@@ -123,5 +124,14 @@ class BackendController extends Controller
         }
         $this->layout='/backend/standard';
         return $this->render('/backend/backendLandingPage');
+    }
+
+    public function actionDeleteNewsletterEmail() {
+        $id = Yii::$app->request->get('id');
+        if($emailMdl = Email::findOne($id)) {
+            $emailMdl -> delete();
+        }
+
+        return Yii::$app->runAction('backend-site/backend-newsletter');
     }
 }

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Card;
+use app\models\Email;
 use yii;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -139,7 +140,10 @@ class SiteController extends Controller
      */
     public function actionNewsletterSignUp()
     {
+        $emailMdl = new Email();
         $this->layout='/frontend/standard';
-        return $this->render('/frontend/newsletterSignUp');
+        return $this->render('/frontend/newsletterSignUp', [
+            'model' => $emailMdl,
+        ]);
     }
 }

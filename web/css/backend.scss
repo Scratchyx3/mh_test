@@ -92,11 +92,16 @@ $standardFontFamily: 'Lato', sans-serif;
         background-image: url(../image/icon/icon_impressum.png);
     }
 }
-
 #fieldAuszeichnungen {
     margin-bottom: 30px;
     .menuIcon {
         background-image: url(../image/icon/icon_auszeichnungen.png);
+    }
+}
+#fieldNewsletter {
+    margin-bottom: 30px;
+    .menuIcon {
+        background-image: url(../image/icon/icon_newsletter.png);
     }
 }
 
@@ -202,5 +207,10 @@ $standardFontFamily: 'Lato', sans-serif;
 
 .field-card-id, .field-card-type, .field-card-basetype, .field-card-imagetype {
     display: none;
+}
+
+// =============================== newsletter ================================ //
+#row_newsletter {
+    margin-top: 50px;
 }
 
