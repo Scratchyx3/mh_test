@@ -19,12 +19,13 @@ class FrontendController extends Controller
         $emailMdl = new Email();
         if (Yii::$app->request->isPost) {
             if( $emailMdl->load(Yii::$app->request->post()) &&
+                !$emailMdl->find()->where(['email' => $emailMdl->email])->one() &&
                 $emailMdl->save() &&
                 empty($emailMdl->antiSpam)) {
 
-                $to = "rohrmoser.christoph91@gmail.com";
+                $to = Yii::$app->params['newsletterEmail'];
                 $subject = "Newsletter-Anmeldung";
-                $txt = $emailMdl->email;
+                $txt = "E-Mail Adresse: " . $emailMdl->email;
                 $from = "From: Winzerhof Mayer-Hörmann <mh@veltliner.at>";
                 mail($to,$subject,$txt,$from);
 

@@ -65,7 +65,11 @@ $config = [
         ],
 
     ],
-    'params' => $params,
+
+    'params' => [
+        $params,
+        'newsletterEmail' => 'rohrmoser.christoph91@gmail.com',
+    ],
 ];
 
 if (YII_ENV_DEV) {
