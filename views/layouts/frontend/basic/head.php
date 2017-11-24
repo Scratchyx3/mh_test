@@ -24,5 +24,6 @@ AppAsset::register($this);
     <!--    include google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Average|Fjalla+One" rel="stylesheet">
     <?php $this->head() ?>
 </head>

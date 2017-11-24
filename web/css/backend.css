@@ -59,6 +59,9 @@ h2 {
 #fieldStartseite .menuIcon {
   background-image: url(../image/icon/icon_startseite.png); }
 
+#fieldOpeningHours .menuIcon {
+  background-image: url(../image/icon/icon_calendar.png); }
+
 #fieldHeuriger .menuIcon {
   background-image: url(../image/icon/icon_heuriger.png); }
 
@@ -74,15 +77,16 @@ h2 {
 #fieldImpressum .menuIcon {
   background-image: url(../image/icon/icon_impressum.png); }
 
-#fieldAuszeichnungen {
-  margin-bottom: 30px; }
-  #fieldAuszeichnungen .menuIcon {
-    background-image: url(../image/icon/icon_auszeichnungen.png); }
+#fieldAuszeichnungen .menuIcon {
+  background-image: url(../image/icon/icon_auszeichnungen.png); }
 
-#fieldNewsletter {
+#fieldNewsletter .menuIcon {
+  background-image: url(../image/icon/icon_newsletter.png); }
+
+#fieldUeberUns {
   margin-bottom: 30px; }
-  #fieldNewsletter .menuIcon {
-    background-image: url(../image/icon/icon_newsletter.png); }
+  #fieldUeberUns .menuIcon {
+    background-image: url(../image/icon/icon_ueber_uns.png); }
 
 .menuField {
   width: 100%;
@@ -182,5 +186,11 @@ h2 {
 
 #row_newsletter {
   margin-top: 50px; }
+
+.glyphicon-eye-open {
+  color: #4CFF30; }
+
+.glyphicon-eye-close {
+  color: red; }
 
 /*# sourceMappingURL=backend.css.map */

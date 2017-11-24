@@ -64,6 +64,12 @@ $standardFontFamily: 'Lato', sans-serif;
     }
 }
 
+#fieldOpeningHours {
+    .menuIcon {
+        background-image: url(../image/icon/icon_calendar.png);;
+    }
+}
+
 #fieldHeuriger {
     .menuIcon {
         background-image: url(../image/icon/icon_heuriger.png);
@@ -93,15 +99,20 @@ $standardFontFamily: 'Lato', sans-serif;
     }
 }
 #fieldAuszeichnungen {
-    margin-bottom: 30px;
+
     .menuIcon {
         background-image: url(../image/icon/icon_auszeichnungen.png);
     }
 }
 #fieldNewsletter {
-    margin-bottom: 30px;
     .menuIcon {
         background-image: url(../image/icon/icon_newsletter.png);
+    }
+}
+#fieldUeberUns {
+    margin-bottom: 30px;
+    .menuIcon {
+        background-image: url(../image/icon/icon_ueber_uns.png);
     }
 }
 
@@ -214,3 +225,11 @@ $standardFontFamily: 'Lato', sans-serif;
     margin-top: 50px;
 }
 
+// =============================== cards ================================ //
+.glyphicon-eye-open {
+    color: #4CFF30;
+}
+
+.glyphicon-eye-close {
+    color: red;
+}

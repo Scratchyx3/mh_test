@@ -101,12 +101,13 @@ $imageMdl = ImageFactory::create('titleImage', 'newsletter');
                     'format' => 'text'
                 ],
                 [
+                    'header' => 'Aktionen',
                     'class' => 'yii\grid\ActionColumn',
                     'template' => '{delete}',
                     'buttons' => [
                         'delete' => function ($url, $model) {
                             $url = Url::to(['backend/delete-newsletter-email', 'id' => $model->id]);
-                            return Html::a('<span class="fa fa-trash"></span>', $url, ['title' => 'delete']);
+                            return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['title' => 'delete']);
                         },
                     ]
                 ],

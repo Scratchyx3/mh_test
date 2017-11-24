@@ -146,4 +146,14 @@ class SiteController extends Controller
             'model' => $emailMdl,
         ]);
     }
+    /**
+     * Displays newsletterSignUp.php
+     *
+     * @return string
+     */
+    public function actionEnglish()
+    {
+        $this->layout='/frontend/english';
+        return $this->render('/frontend/english');
+    }
 }

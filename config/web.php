@@ -8,6 +8,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
     'components' => [
         'assetManager' => [
             'bundles' => [
@@ -63,13 +64,16 @@ $config = [
                 'http://www.kimnoskofanclub.at/admin' => 'login/index',
             ],
         ],
-
+        'formatter' => [
+            'currencyCode' => 'EUR',
+            'locale'=>'de_DE'
+        ],
     ],
 
     'params' => [
         $params,
-        'newsletterEmail' => 'rohrmoser.christoph91@gmail.com',
     ],
+
 ];
 
 if (YII_ENV_DEV) {

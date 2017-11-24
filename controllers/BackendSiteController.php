@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\models\Card;
+use app\models\OpeningHour;
 use app\models\User;
 use yii;
 use yii\web\Controller;
@@ -56,6 +57,67 @@ class BackendSiteController extends Controller
             ]);
         }
     }
+
+    /**
+     * Displays backendOpeningHours.php
+     *
+     * @return string
+     */
+    public function actionBackendOpeningHours()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $ppeningHourMdl = new OpeningHour();
+            $this->layout='/backend/standard';
+            return $this->render('/backend/backendOpeningHours', [
+                'model' => $ppeningHourMdl,
+            ]);
+        } else {
+            // if user is not logged in
+            $model = new User();
+            $this->layout='/backend/login';
+            return $this->render('/backend/login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionBackendStartseiteEdit($model)
+    {
+        if (!Yii::$app->user->isGuest) {
+            $cardMdl = $model;
+            $this->layout='/backend/standard';
+            return $this->render('/backend/backendStartseite', [
+                'model' => $cardMdl,
+            ]);
+        } else {
+            // if user is not logged in
+            $model = new User();
+            $this->layout='/backend/login';
+            return $this->render('/backend/login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionBackendEdit($site, $model)
+    {
+        if (!Yii::$app->user->isGuest) {
+            $view = '/backend/backend' . $site;
+            $cardMdl = $model;
+            $this->layout='/backend/standard';
+            return $this->render($view, [
+                'model' => $cardMdl,
+            ]);
+        } else {
+            // if user is not logged in
+            $model = new User();
+            $this->layout='/backend/login';
+            return $this->render('/backend/login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     /**
      * Displays backendHeuriger.php
      *
@@ -131,9 +193,7 @@ class BackendSiteController extends Controller
     public function actionBackendLagen()
     {
         if (!Yii::$app->user->isGuest) {
-            if(!$cardMdl = Card::find()->where(['imageType' => 'card_lagen'])->one()) {
-                $cardMdl = new card();
-            }
+            $cardMdl = new Card();
             $this->layout = '/backend/standard';
             return $this->render('/backend/backendLagen', [
                 'model' => $cardMdl,
@@ -155,8 +215,11 @@ class BackendSiteController extends Controller
     public function actionBackendAuszeichnungen()
     {
         if (!Yii::$app->user->isGuest) {
+            $cardMdl = new Card();
             $this->layout = '/backend/standard';
-            return $this->render('/backend/backendAuszeichnungen');
+            return $this->render('/backend/backendAuszeichnungen', [
+                'model' => $cardMdl,
+            ]);
         } else {
             // if user is not logged in
             $model = new User();
@@ -195,6 +258,26 @@ class BackendSiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             $this->layout = '/backend/standard';
             return $this->render('/backend/backendNewsletter');
+        } else {
+            // if user is not logged in
+            $model = new User();
+            $this->layout='/backend/login';
+            return $this->render('/backend/login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Displays backendUeberUns.php
+     *
+     * @return string
+     */
+    public function actionBackendUeberUns()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $this->layout = '/backend/standard';
+            return $this->render('/backend/backendUeberUns');
         } else {
             // if user is not logged in
             $model = new User();

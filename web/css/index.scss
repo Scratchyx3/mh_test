@@ -1,7 +1,8 @@
 //colors
-$standardBackgroundColorBlack: #222222;
-$standardFontColorWhite: #f8f8f8;
+$standardColorBlack: #222222;
+$standardColorWhite: #f8f8f8;
 $standardColorGold: #e2b339;
+
 //fonts
 @font-face {
     font-family: 'GaramondBE-SwashItalic';
@@ -13,7 +14,7 @@ $mhLogoFontFamily: 'GaramondBE-SwashItalic';
 
 // commonly used variables
 $navBarHeight: 112px;
-$footerHeight: 234px;
+$footerHeight: 206.71px;
 //media query specific css
 @import 'mediaQueries';
 //responsive font-sizes
@@ -28,6 +29,8 @@ body {
     p, a, h1, h2, h3, h4, h5, h6 {
         font-family: $standardFontFamily;
     }
+    // background-color: $standardColorBlack;
+    background-color: $standardColorWhite;
 }
 
 // ========================== Nav Bar =========================== //
@@ -39,7 +42,7 @@ body {
     width: 100%;
     top: 0;
     position: fixed;
-    background-color: $standardBackgroundColorBlack;
+    background-color: $standardColorBlack;
     margin-bottom: 0;
     border-bottom: 2px solid black;
     z-index: 5;
@@ -69,7 +72,7 @@ body {
                 line-height: 30px;
                 margin: 0;
                 padding: 0;
-                color: $standardBackgroundColorBlack;
+                color: $standardColorBlack;
             }
         }
         #iconShop {
@@ -83,6 +86,22 @@ body {
         #iconShop:hover {
             cursor: pointer;
         }
+
+        #linkUk, #linkAustria {
+            height: 30px;
+            margin: 15px 10px 0 0;
+        }
+
+        #linkUk :hover, #linkAustria :hover {
+            height: 35px;
+            margin: -2.5px 0 0 0;
+        }
+
+        #iconUk, #iconAustria {
+            height: 100%;
+            width: auto;
+        }
+
     }
 }
 
@@ -103,7 +122,7 @@ body {
     }
     li {
         a {
-            color: $standardFontColorWhite;
+            color: $standardColorWhite;
             transition: all 0.3s ease;
         }
         a:hover {
@@ -114,19 +133,18 @@ body {
 
 .navbar-brand {
     font-family: $mhLogoFontFamily;
-    color: $standardFontColorWhite !important;
+    color: $standardColorGold !important;
 }
 
 // ========================== Footer =========================== //
-// footer desktop
 .footer {
-    background-color: $standardBackgroundColorBlack;
+    background-color: $standardColorBlack;
     padding-bottom: 10px;
     h4 {
         text-align: center;
     }
     p {
-        color: $standardFontColorWhite;
+        color: $standardColorWhite;
     }
     //social media icons
     .iconFooter {
@@ -158,10 +176,10 @@ body {
         margin-bottom: 10px;
     }
 }
-
+// footer desktop
 #footer {
     h4 {
-        color: $standardFontColorWhite;
+        color: $standardColorWhite;
         padding-bottom: 10px;
         border-bottom: 2px solid $standardColorGold;
     }
@@ -183,10 +201,10 @@ body {
 #footerMobile {
     min-height: 200px;
     h4 {
-        color: $standardFontColorWhite;
+        color: $standardColorWhite;
     }
     a {
-        color: $standardFontColorWhite;
+        color: $standardColorWhite;
     }
     a:hover {
         color: $standardColorGold;
@@ -195,6 +213,9 @@ body {
     }
     #nav-tabs {
         border-bottom: 2px solid $standardColorGold;
+        a {
+            border-radius: 0 0 0 0;
+        }
     }
     .tab-pane {
         padding-top: 10px;
@@ -205,7 +226,7 @@ body {
             border: 2px solid $standardColorGold;
         }
         a:hover {
-            color: $standardFontColorWhite;
+            color: $standardColorWhite;
         }
         .linkFooter {
             background-color: transparent !important;
@@ -219,12 +240,65 @@ body {
     }
     #mailtoLinkFooter {
         color: $standardColorGold;
-        background-color: $standardBackgroundColorBlack !important;
+        background-color: $standardColorBlack !important;
         border: none;
     }
 }
+
 // ========================== Index =========================== //
-.indexTitleImageContainer {
+
+// Aktuelles Headline
+.headline {
+    background: $standardColorBlack;
+    height: 10vh;
+    margin-bottom: 3vh;
+    h1 {
+        width: auto;
+        text-align: center;
+        margin: 0;
+        font-size: 6vh;
+        line-height: 10vh;
+        color: $standardColorWhite;
+    }
+}
+// Aktuelles cards
+.card {
+    background-color: $standardColorBlack;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    .cardImageContainer {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    .cardHeadline {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        background-color: $standardColorWhite;
+        border-bottom: 1px solid $standardColorBlack;
+        h1 {
+            color: $standardColorBlack;
+            margin: 0;
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+    }
+    .cardText {
+        width: 100%;
+        padding: 20px;
+        background-color: $standardColorWhite;
+        overflow: hidden;
+        h1 {
+            margin-top: 0;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        p {
+            font-family: 'Average', serif;
+        }
+    }
+}
+// ======================= Title images ======================== //
+.titleImageContainer {
     height: calc(100vh - #{$navBarHeight});
     margin-top: $navBarHeight;
     width: 100%;
@@ -247,66 +321,92 @@ body {
 .iconDown:hover {
     background-image: url(../image/direction_gold.png);
 }
-// Aktuelles Headline
-.headline {
-    background: $standardBackgroundColorBlack;
-    position: relative;
-    height: 10vh;
-    margin-bottom: 3vh;
-    h1 {
-        width: auto;
-        text-align: center;
-        margin: 0;
-        font-size: 6vh;
-        line-height: 10vh;
-        color: $standardFontColorWhite;
-    }
-}
-// Aktuelles cards
-.card {
-    background-color: $standardBackgroundColorBlack;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    .cardImageContainer {
-        width: 100%;
-        .cardImage {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    .cardHeadline {
-        width: 100%;
-        text-align: center;
-        position: relative;
-        h1 {
-            color: white;
-            margin: 0;
-            font-size: 20px;
-        }
-    }
-    .cardText {
-        width: 100%;
-        padding: 20px;
-        background-color: white;
-        overflow: hidden;
-    }
-}
-// ======================= Title images ======================== //
 
-.standardTitleImageContainer {
-    height: 35vh;
-    width: 100%;
-    margin-bottom: 3vh;
-    margin-top: $navBarHeight;
-    position: relative;
-    background-size: cover;
-    background-position: center;
+#cardContainer {
+    padding-top: 3vh;
 }
 
 // ========================== ANFAHRT =========================== //
 #gmap0-map-canvas {
     width: 100% !important;
-    height: 100vh !important;
+    height: calc(100vh - #{$navBarHeight}) !important;
+    margin-top: $navBarHeight;
+}
+
+// ========================== Footer Anfahrt =========================== //
+
+// footer desktop
+#footerAnfahrt {
+    h4 {
+        color: $standardColorWhite;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $standardColorGold;
+    }
+    p {
+
+    }
+    .linkFooter {
+        color: $standardColorGold;
+        font-size: 15px;
+    }
+    #mailtoLinkFooter {
+        color: $standardColorGold;
+    }
+    #footercol2Container1 {
+        margin-top: 18px;
+    }
+    #footercol3Container1 {
+        margin-top: 15px;
+    }
+}
+// footer mobile
+#footerAnfahrtMobile {
+    height: auto;
+    h4 {
+        color: $standardColorWhite;
+    }
+    a {
+        color: $standardColorWhite;
+    }
+    a:hover {
+        color: $standardColorGold;
+        border: none;
+        background-color: transparent;
+    }
+    p {
+        line-height: 100%;
+    }
+    #nav-tabs {
+        border-bottom: 2px solid $standardColorGold;
+        a {
+            border-radius: 0 0 0 0;
+        }
+    }
+    .tab-pane {
+        padding-top: 15px;
+    }
+    .active {
+        a {
+            background-color: $standardColorGold !important;
+            border: 2px solid $standardColorGold;
+        }
+        a:hover {
+            color: $standardColorWhite;
+        }
+        .linkFooter {
+            background-color: transparent !important;
+            border: none !important;
+            color: $standardColorGold;
+        }
+    }
+    .linkFooter {
+        background-color: transparent !important;
+    }
+    #mailtoLinkFooter {
+        color: $standardColorGold;
+        background-color: $standardColorBlack !important;
+        border: none;
+    }
 }
 
 // ========================== HEURIGER =========================== //
@@ -322,13 +422,14 @@ body {
 .galleryContainer {
     width: auto;
     white-space: nowrap;
-    background-color: $standardBackgroundColorBlack;
+    background-color: $standardColorBlack;
     .gallery-item {
         img {
             display: inline-block;
             width: auto;
             height: 35vh;
             margin-bottom: 4px;
+
             padding: 0;
         }
     }
@@ -337,30 +438,53 @@ body {
     display: none;
 }
 // ========================== Newsletter =========================== //
+#containerNewsletter {
+    margin-top: $navBarHeight;
+    min-height: calc(100vh - #{$navBarHeight} - #{$footerHeight});
+}
+#newsletterSubmit {
+    background-color: $standardColorGold;
+    color: black;
+    border: none;
+}
+#newsletterSubmit:hover {
+        color: white;
+}
+
+#contentNewsletter {
+    h1 {
+        font-family: 'Fjalla One', sans-serif;
+    }
+    a {
+        color: $standardColorGold;
+        font-family: 'Average', serif;
+    }
+    p {
+        margin-top: 20px;
+        font-family: 'Average', serif;
+    }
+}
+
 .field-antiSpamField {
     display: none;
 }
 // ======================== ALLGEMEIN =============================== //
-.textHeadline {
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    text-align: center;
-    position: relative;
-    background-color: $standardBackgroundColorBlack;
-    h1 {
-        color: white;
-        margin: 0;
-    }
-}
 .textContent {
-    margin-bottom: 40px;
     width: 100%;
-    height: auto;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    padding: 20px;
+    min-height: calc(100vh - #{$navBarHeight} - 35vh - #{$footerHeight});
+    background-color: $standardColorWhite;
+    margin: 20px 0 20px 0;
+    h1 {
+        font-size: 24px;
+        margin: 0 0 10px 0;
+        color: $standardColorBlack;
+        font-family: 'Fjalla One', sans-serif;
+    }
     p {
+        font-size: 16px;
         margin: 0;
+        font-family: 'Average', serif;
+        color: $standardColorBlack;
     }
     a {
         text-decoration: none;
@@ -370,8 +494,45 @@ body {
         text-decoration: underline;
         color: $standardColorGold;
     }
+    ul {
+        margin-left: 15px;
+    }
+}
+
+#textContentImpressum {
+    margin-top: calc(#{$navBarHeight} + 20px);
+    font-family: 'Average', serif;
+}
+
+// ======================== ENGLISH =============================== //
+.imageContainerEnglish {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 10px;
+    background-image: url(../image/uploads/startseite/img_1531.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 10px;
+}
+
+#imageEnglishPride1 {
+    background-image: url(../image/uploads/startseite/img_1531.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 0;
+}
+
+#textContentEnglish {
+    min-height: calc(100vh - 80px - #{$footerHeight});
+    margin-top: 80px;
+    font-family: 'Average', serif;
 }
 
 .textEditor {
     margin-top: 500px;
+}
+
+.form-group {
+    margin: 0 !important;
+    padding: 0;
 }

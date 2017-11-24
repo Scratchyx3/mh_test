@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'newsletterEmail' => 'rohrmoser.christoph91@gmail.com',
+    'fallbackImagePath' => 'image/fallbackImage.jpg',
 ];

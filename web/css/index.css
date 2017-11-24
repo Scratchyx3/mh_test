@@ -7,40 +7,57 @@
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
   .iconDown {
-    height: 15vh;
-    width: 15vh; }
-
-  .card {
-    height: auto;
-    margin: 0 auto 6vh auto; }
-    .card .cardImageContainer {
-      height: 30vh; }
-    .card .cardHeadline {
-      height: auto;
-      min-height: 8vh;
-      padding: 1vh 1vw 2vh 1vw;
-      line-height: 4vh; }
-    .card .cardText {
-      height: 30vh; } }
-/* Extra Small Devices, Phones */
-/* Small Devices, Tablets */
-@media only screen and (min-width: 768px) {
-  .iconDown {
     height: 10vh;
     width: 10vh; }
 
   .card {
     height: auto;
+    margin: 0 auto 6vh auto; }
+    .card .cardImageContainer {
+      height: 34vh; }
+    .card .cardHeadline {
+      display: none;
+      height: auto;
+      min-height: 8vh;
+      padding: 1vh 1vw 2vh 1vw;
+      line-height: 4vh; }
+    .card .cardText {
+      height: 34vh; }
+
+  #textContentEnglish h1 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  #textContentEnglish h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+
+  .colEnglish1 {
+    padding: 0; }
+
+  .colEnglish2 {
+    padding: 0; } }
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  .iconDown {
+    height: 7vh;
+    width: 7vh; }
+
+  .card {
+    height: auto;
     margin: 0 auto 4vh auto; }
     .card .cardImageContainer {
-      height: 24vh; }
+      height: 30vh; }
     .card .cardHeadline {
+      display: none;
       height: auto;
       min-height: 10vh;
       padding: 2vh 1vw 2vh 1vw;
       line-height: 3vh; }
     .card .cardText {
-      height: 30vh; }
+      height: 34vh; }
 
   .navbar-brand {
     display: none !important; }
@@ -55,8 +72,28 @@
       margin: 0; }
 
   #gmap0-map-canvas {
-    width: 100% !important;
-    height: calc(100vh - 234px) !important; } }
+    width: 100% !important; }
+
+  #textContentEnglish h1 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  #textContentEnglish h2 {
+    font-size: 18px;
+    margin-bottom: 10px; }
+
+  #imageEnglishPride2 {
+    background-size: cover;
+    background-position: center;
+    margin-top: 0; }
+
+  .colEnglish1 {
+    padding-left: 0;
+    padding-right: 15px; }
+
+  .colEnglish2 {
+    padding-left: 15px;
+    padding-right: 0; } }
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
   .footer h4 {
@@ -64,7 +101,9 @@
   .footer p, .footer a {
     font-size: 16px !important;
     line-height: 180%;
-    margin: 0; } }
+    margin: 0; }
+  .footer #openingHoursEnglish p {
+    font-size: 13px !important; } }
 /* Large Devices, Wide Screens */
 /* only for the navbar since the breakpoint got changed manually */
 html {
@@ -90,8 +129,10 @@ h2 {
   margin: 0;
   padding: 0; }
 
-body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
-  font-family: "Lato", sans-serif; }
+body {
+  background-color: #f8f8f8; }
+  body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: "Lato", sans-serif; }
 
 #menuStartseiteLink:hover {
   text-decoration: none; }
@@ -139,6 +180,15 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
       border-radius: 0 4px 4px 0; }
     #navigationHeader .logoShop #iconShop:hover {
       cursor: pointer; }
+    #navigationHeader .logoShop #linkUk, #navigationHeader .logoShop #linkAustria {
+      height: 30px;
+      margin: 15px 10px 0 0; }
+    #navigationHeader .logoShop #linkUk :hover, #navigationHeader .logoShop #linkAustria :hover {
+      height: 35px;
+      margin: -2.5px 0 0 0; }
+    #navigationHeader .logoShop #iconUk, #navigationHeader .logoShop #iconAustria {
+      height: 100%;
+      width: auto; }
 
 #navBar {
   top: 60px;
@@ -158,7 +208,7 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
 
 .navbar-brand {
   font-family: "GaramondBE-SwashItalic";
-  color: #f8f8f8 !important; }
+  color: #e2b339 !important; }
 
 .footer {
   background-color: #222222;
@@ -216,6 +266,8 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
     background-color: transparent; }
   #footerMobile #nav-tabs {
     border-bottom: 2px solid #e2b339; }
+    #footerMobile #nav-tabs a {
+      border-radius: 0 0 0 0; }
   #footerMobile .tab-pane {
     padding-top: 10px; }
   #footerMobile .active a {
@@ -235,7 +287,48 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
     background-color: #222222 !important;
     border: none; }
 
-.indexTitleImageContainer {
+.headline {
+  background: #222222;
+  height: 10vh;
+  margin-bottom: 3vh; }
+  .headline h1 {
+    width: auto;
+    text-align: center;
+    margin: 0;
+    font-size: 6vh;
+    line-height: 10vh;
+    color: #f8f8f8; }
+
+.card {
+  background-color: #222222;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+  .card .cardImageContainer {
+    width: 100%;
+    background-size: cover;
+    background-position: center; }
+  .card .cardHeadline {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #222222; }
+    .card .cardHeadline h1 {
+      color: #222222;
+      margin: 0;
+      font-size: 20px;
+      font-family: 'Josefin Sans', sans-serif; }
+  .card .cardText {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f8f8;
+    overflow: hidden; }
+    .card .cardText h1 {
+      margin-top: 0;
+      font-family: 'Fjalla One', sans-serif; }
+    .card .cardText p {
+      font-family: 'Average', serif; }
+
+.titleImageContainer {
   height: calc(100vh - 112px);
   margin-top: 112px;
   width: 100%;
@@ -256,54 +349,61 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
 .iconDown:hover {
   background-image: url(../image/direction_gold.png); }
 
-.headline {
-  background: #222222;
-  position: relative;
-  height: 10vh;
-  margin-bottom: 3vh; }
-  .headline h1 {
-    width: auto;
-    text-align: center;
-    margin: 0;
-    font-size: 6vh;
-    line-height: 10vh;
-    color: #f8f8f8; }
-
-.card {
-  background-color: #222222;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
-  .card .cardImageContainer {
-    width: 100%; }
-    .card .cardImageContainer .cardImage {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; }
-  .card .cardHeadline {
-    width: 100%;
-    text-align: center;
-    position: relative; }
-    .card .cardHeadline h1 {
-      color: white;
-      margin: 0;
-      font-size: 20px; }
-  .card .cardText {
-    width: 100%;
-    padding: 20px;
-    background-color: white;
-    overflow: hidden; }
-
-.standardTitleImageContainer {
-  height: 35vh;
-  width: 100%;
-  margin-bottom: 3vh;
-  margin-top: 112px;
-  position: relative;
-  background-size: cover;
-  background-position: center; }
+#cardContainer {
+  padding-top: 3vh; }
 
 #gmap0-map-canvas {
   width: 100% !important;
-  height: 100vh !important; }
+  height: calc(100vh - 112px) !important;
+  margin-top: 112px; }
+
+#footerAnfahrt h4 {
+  color: #f8f8f8;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2b339; }
+#footerAnfahrt .linkFooter {
+  color: #e2b339;
+  font-size: 15px; }
+#footerAnfahrt #mailtoLinkFooter {
+  color: #e2b339; }
+#footerAnfahrt #footercol2Container1 {
+  margin-top: 18px; }
+#footerAnfahrt #footercol3Container1 {
+  margin-top: 15px; }
+
+#footerAnfahrtMobile {
+  height: auto; }
+  #footerAnfahrtMobile h4 {
+    color: #f8f8f8; }
+  #footerAnfahrtMobile a {
+    color: #f8f8f8; }
+  #footerAnfahrtMobile a:hover {
+    color: #e2b339;
+    border: none;
+    background-color: transparent; }
+  #footerAnfahrtMobile p {
+    line-height: 100%; }
+  #footerAnfahrtMobile #nav-tabs {
+    border-bottom: 2px solid #e2b339; }
+    #footerAnfahrtMobile #nav-tabs a {
+      border-radius: 0 0 0 0; }
+  #footerAnfahrtMobile .tab-pane {
+    padding-top: 15px; }
+  #footerAnfahrtMobile .active a {
+    background-color: #e2b339 !important;
+    border: 2px solid #e2b339; }
+  #footerAnfahrtMobile .active a:hover {
+    color: #f8f8f8; }
+  #footerAnfahrtMobile .active .linkFooter {
+    background-color: transparent !important;
+    border: none !important;
+    color: #e2b339; }
+  #footerAnfahrtMobile .linkFooter {
+    background-color: transparent !important; }
+  #footerAnfahrtMobile #mailtoLinkFooter {
+    color: #e2b339;
+    background-color: #222222 !important;
+    border: none; }
 
 #myGallery {
   height: 35vh;
@@ -327,36 +427,83 @@ body p, body a, body h1, body h2, body h3, body h4, body h5, body h6 {
 #titleImageHeuriger {
   display: none; }
 
+#containerNewsletter {
+  margin-top: 112px;
+  min-height: calc(100vh - 112px - 206.71px); }
+
+#newsletterSubmit {
+  background-color: #e2b339;
+  color: black;
+  border: none; }
+
+#newsletterSubmit:hover {
+  color: white; }
+
+#contentNewsletter h1 {
+  font-family: 'Fjalla One', sans-serif; }
+#contentNewsletter a {
+  color: #e2b339;
+  font-family: 'Average', serif; }
+#contentNewsletter p {
+  margin-top: 20px;
+  font-family: 'Average', serif; }
+
 .field-antiSpamField {
   display: none; }
 
-.textHeadline {
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-  background-color: #222222; }
-  .textHeadline h1 {
-    color: white;
-    margin: 0; }
-
 .textContent {
-  margin-bottom: 40px;
   width: 100%;
-  height: auto;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  padding: 20px; }
+  min-height: calc(100vh - 112px - 35vh - 206.71px);
+  background-color: #f8f8f8;
+  margin: 20px 0 20px 0; }
+  .textContent h1 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    color: #222222;
+    font-family: 'Fjalla One', sans-serif; }
   .textContent p {
-    margin: 0; }
+    font-size: 16px;
+    margin: 0;
+    font-family: 'Average', serif;
+    color: #222222; }
   .textContent a {
     text-decoration: none;
     color: #e2b339; }
   .textContent a:hover {
     text-decoration: underline;
     color: #e2b339; }
+  .textContent ul {
+    margin-left: 15px; }
+
+#textContentImpressum {
+  margin-top: calc(112px + 20px);
+  font-family: 'Average', serif; }
+
+.imageContainerEnglish {
+  width: 100%;
+  height: 220px;
+  margin-bottom: 10px;
+  background-image: url(../image/uploads/startseite/img_1531.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: 10px; }
+
+#imageEnglishPride1 {
+  background-image: url(../image/uploads/startseite/img_1531.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: 0; }
+
+#textContentEnglish {
+  min-height: calc(100vh - 80px - 206.71px);
+  margin-top: 80px;
+  font-family: 'Average', serif; }
 
 .textEditor {
   margin-top: 500px; }
+
+.form-group {
+  margin: 0 !important;
+  padding: 0; }
 
 /*# sourceMappingURL=index.css.map */

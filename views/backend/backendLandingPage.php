@@ -10,7 +10,7 @@
 
 <div id="contentBackendLandingPage" class="container">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-startseite">
                 <div id="fieldStartseite" class="menuField">
                     <div class="menuText">
@@ -20,7 +20,19 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <a class="menuLink" href="backend-site/backend-opening-hours">
+                <div id="fieldOpeningHours" class="menuField">
+                    <div class="menuText">
+                        <h1>Öffnungszeiten</h1>
+                    </div>
+                    <div class="menuIcon"></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-heuriger">
                 <div id="fieldHeuriger" class="menuField">
                     <div class="menuText">
@@ -30,7 +42,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-weinkeller">
                 <div id="fieldWeinkeller" class="menuField">
                     <div class="menuText">
@@ -40,7 +52,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-weinkarte">
                 <div id="fieldWeinkarte" class="menuField">
                     <div class="menuText">
@@ -50,7 +62,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-lagen">
                 <div id="fieldLagen" class="menuField">
                     <div class="menuText">
@@ -60,7 +72,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-auszeichnungen">
                 <div id="fieldAuszeichnungen" class="menuField">
                     <div class="menuText">
@@ -70,7 +82,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-impressum">
                 <div id="fieldImpressum" class="menuField">
                     <div class="menuText">
@@ -80,11 +92,21 @@
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="menuLink" href="backend-site/backend-newsletter">
                 <div id="fieldNewsletter" class="menuField">
                     <div class="menuText">
                         <h1>Newsletter</h1>
+                    </div>
+                    <div class="menuIcon"></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <a class="menuLink" href="backend-site/backend-ueber-uns">
+                <div id="fieldUeberUns" class="menuField">
+                    <div class="menuText">
+                        <h1>Über uns</h1>
                     </div>
                     <div class="menuIcon"></div>
                 </div>

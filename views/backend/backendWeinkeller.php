@@ -98,7 +98,7 @@ array_push($initialPreviewData, $imagePath);
                 <?= $form->field($model, 'baseType')->hiddenInput(['value'=> 'cardImage'])->label(false) ?>
                 <?= $form->field($model, 'imageType')->hiddenInput(['value'=> 'card_weinkeller'])->label(false) ?>
 
-                    <?= Html::submitButton('Bestätigen', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Speichern', ['class' => 'btn btn-primary']) ?>
                     <?php ActiveForm::end() ?>
             </div>
     </div>

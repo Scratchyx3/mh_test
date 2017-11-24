@@ -23,7 +23,8 @@
         "2amigos/yii2-gallery-widget": "~1.0",
         "2amigos/yii2-tinymce-widget" : "~1.1",
         "2amigos/yii2-ckeditor-widget" : "~2.1",
-        "dhiraj/yii2-malihu-custom-scrollbar-plugin": "~1.0"
+        "dhiraj/yii2-malihu-custom-scrollbar-plugin": "~1.0",
+        "yiisoft/yii2-jui": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -29,7 +29,7 @@ class Email extends ActiveRecord
             // email can not be longer than 100 chars
             [['email'], 'string', 'max' => 100, 'message' => 'Bitte nicht mehr als 100 Zeichen!'],
             // the email attribute should be a valid email address
-            ['email', 'email'],
+            ['email', 'email', 'message' => 'Bitte geben Sie eine gültige E-Mail Adresse an!'],
             // anti spam hidden field -> must be empty
             [['antiSpam'], 'string', 'max' => 0],
         ];

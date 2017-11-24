@@ -28,6 +28,7 @@ $options = ['class' => 'galleryContainer'];
 
 $headline = $model->headline;
 $text = $model->content;
+$text = str_replace('&nbsp;', ' ', $text);
 
 ?>
 
@@ -40,12 +41,16 @@ $text = $model->content;
 </div>
 <div class="container">
     <div class="row">
-        <div class="textHeadline">
-            <?php echo "<h1>" . $headline . "</h1>"; ?>
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="textContent">
+                <?php echo "<h1>" . $headline . "</h1>"; ?>
+                <p>
+                <?= $text ?>
+                </p>
+            </div>
         </div>
-        <div class="textContent">
-            <?= $text ?>
-        </div>
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
     </div>
 </div>
 
@@ -60,7 +65,7 @@ $this->registerJs(
 				autoHideScrollbar: false,
 				axis:"x",
 				alwaysShowScrollbar: 0
-			});
+			}); 
 			
 		});
 	})(jQuery);'

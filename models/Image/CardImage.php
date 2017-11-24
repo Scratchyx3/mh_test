@@ -70,12 +70,19 @@ class CardImage extends ActiveRecord implements Image
             $this->name = strtolower($file->name);
             $this->size = $file->size;
             // make sure that the given record does not already exist in db
-            if(!$this::find()->where(['name' => strtolower($this->name), 'size' => $this->size, 'type' => strtolower($this->type)])->one()) {
+            if(!$imageMdl = $this::find()->where([
+                'name' => strtolower($this->name),
+                'size' => $this->size,
+                'type' => strtolower($this->type)])->one()) {
                 // save model and return id if successful
                 $this->save();
                 $this->refresh();
+
                 return $this->id;
+            } else {
+                return $imageMdl->id;
             }
+
         }
         return false;
     }
