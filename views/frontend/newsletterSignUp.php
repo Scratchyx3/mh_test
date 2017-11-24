@@ -18,7 +18,11 @@ $emailMdl = new Email();
 
 $imageMdl = ImageFactory::create('titleImage', 'newsletter');
 $image = $imageMdl -> getRandomImage();
-$imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
+if (empty($image)) {
+    $imagePath = Url::to('/' . Yii::$app->params[0]['fallbackImagePath']);
+} else {
+    $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
+}
 
 ?>
 <div class="container-fluid">
