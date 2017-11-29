@@ -1,20 +1,20 @@
 html {
   line-height: 1.2 !important;
-  font-size: 1em; }
+  font-size: 1em !important; }
   @media (max-width: 1024px) {
     html {
-      font-size: 0.9375em; } }
+      font-size: 0.9375em !important; } }
   @media (max-width: 640px) {
     html {
-      font-size: 0.875em; } }
+      font-size: 0.875em !important; } }
   @media (max-width: 480px) {
     html {
-      font-size: 0.8125em; } }
+      font-size: 0.8125em !important; } }
 
 h1 {
-  font-size: 1.875em; }
+  font-size: 1.875em !important; }
 
 h2 {
-  font-size: 1.5em; }
+  font-size: 1.5em !important; }
 
 /*# sourceMappingURL=responsiveFontSizes.css.map */
