@@ -1,14 +1,14 @@
-html {
+body {
   line-height: 1.2 !important;
   font-size: 1em !important; }
   @media (max-width: 1024px) {
-    html {
+      body {
       font-size: 0.9375em !important; } }
   @media (max-width: 640px) {
-    html {
+      body {
       font-size: 0.875em !important; } }
   @media (max-width: 480px) {
-    html {
+      body {
       font-size: 0.8125em !important; } }
 
 h1 {
