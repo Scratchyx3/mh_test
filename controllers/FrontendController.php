@@ -23,7 +23,7 @@ class FrontendController extends Controller
                 $emailMdl->save() &&
                 empty($emailMdl->antiSpam)) {
 
-                $to = Yii::$app->params['newsletterEmail'];
+                $to = Yii::$app->params[0]['newsletterEmail'];
                 $subject = "Neue Newsletter-Anmeldung";
                 $txt = "E-Mail Adresse: " . $emailMdl->email;
                 $from = "From: Winzerhof Mayer-Hörmann <mh@veltliner.at>";
