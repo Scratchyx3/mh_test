@@ -40,7 +40,7 @@ if (empty($image)) {
                 <?php
                 Pjax::begin();
                 if($model->getEmailSaved()) {
-                    echo "<h1> Ihre E-Mail Adresse wurde zu unserem Newsletter hinzugefügt. Vielen Dank für Ihr Interesse! </h1>";
+                    echo "<p> Ihre E-Mail Adresse wurde zu unserem Newsletter hinzugefügt. Vielen Dank für Ihr Interesse! </p>";
                 }
                 ?>
                 <?php

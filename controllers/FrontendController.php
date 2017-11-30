@@ -25,7 +25,7 @@ class FrontendController extends Controller
 
                 $to = Yii::$app->params[0]['newsletterEmail'];
                 $subject = "Neue Newsletter-Anmeldung";
-                $txt = "E-Mail Adresse: " . $emailMdl->email;
+                $txt = "Neue Newsletter-Anmeldung:" . "<br>" . "E-Mail Adresse: " . $emailMdl->email;
                 $from = "From: Winzerhof Mayer-Hörmann <mh@veltliner.at>";
                 mail($to,$subject,$txt,$from);
             }
