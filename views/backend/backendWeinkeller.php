@@ -91,7 +91,7 @@ array_push($initialPreviewData, $imagePath);
 
                     <?= $form->field($model, 'content')->label('Text')->widget(CKEditor::className(), [
                         'options' => ['rows' => 6],
-                        'preset' => 'basic',
+                        'preset' => 'full',
                     ]) ?>
 
                     <?= $form->field($model, 'id')->hiddenInput(['value'=> $model->id])->label(false) ?>

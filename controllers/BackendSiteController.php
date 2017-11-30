@@ -230,25 +230,6 @@ class BackendSiteController extends Controller
         }
     }
     /**
-     * Displays backendImpressum.php
-     *
-     * @return string
-     */
-    public function actionBackendImpressum()
-    {
-        if (!Yii::$app->user->isGuest) {
-            $this->layout = '/backend/standard';
-            return $this->render('/backend/backendImpressum');
-        } else {
-            // if user is not logged in
-            $model = new User();
-            $this->layout='/backend/login';
-            return $this->render('/backend/login', [
-                'model' => $model,
-            ]);
-        }
-    }
-    /**
      * Displays backendNewsletter.php
      *
      * @return string

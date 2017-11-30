@@ -32,7 +32,8 @@ tests/_support/_generated
 #pdf files
 web/file_upload/*
 
-#image files
+#images
+web/image/uploads/*
 
 #db config
 /config/db.php

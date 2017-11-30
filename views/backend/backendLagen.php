@@ -128,7 +128,7 @@ foreach ($images as $image) {
             <?= $form->field($cardMdl, 'headline')->label('Überschrift')->textInput() ?>
             <?= $form->field($cardMdl, 'content')->label('Text')->widget(CKEditor::className(), [
                 'options' => ['rows' => 6],
-                'preset' => 'basic',
+                'preset' => 'full',
             ]) ?>
             <?= Html::submitButton('Speichern', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>
@@ -221,7 +221,7 @@ foreach ($images as $image) {
             <?= $form->field($model, 'headline')->label('Überschrift')->textInput() ?>
             <?= $form->field($model, 'content')->label('Text')->widget(CKEditor::className(), [
                 'options' => ['rows' => 6, 'id' => 'myCustomId'],
-                'preset' => 'basic',
+                'preset' => 'full',
             ]) ?>
             <?= Html::submitButton('Speichern', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end() ?>
