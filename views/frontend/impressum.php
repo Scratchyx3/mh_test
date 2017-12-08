@@ -9,6 +9,8 @@
 use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
+$this->title = 'Impressum';
+
 $imageMdl = ImageFactory::create('titleImage', 'impressum');
 $image = $imageMdl -> getRandomImage();
 $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);

@@ -51,11 +51,12 @@ use yii\helpers\html;
             <div class="col-sm-3">
                 <h4> Sonstiges </h4>
                 <div id="footercol3Container1">
-                    <?= Html::a('Über uns', ['site/ueber-uns'], ['class' => 'linkFooter']) ?>
+                    <?= Html::a('Newsletter-Anmeldung', ['site/newsletter-sign-up'], ['class' => 'linkFooter']) ?> <br>
+                    <?= Html::a('Partner', ['site/partner'], ['class' => 'linkFooter']) ?> <br>
+                    <?= Html::a('Impressum', ['site/impressum'], ['class' => 'linkFooter']) ?> <br>
                 </div>
 
-                <?= Html::a('Newsletter-Anmeldung', ['site/newsletter-sign-up'], ['class' => 'linkFooter']) ?> <br>
-                <?= Html::a('Impressum', ['site/impressum'], ['class' => 'linkFooter']) ?> <br>
+
             </div>
         </div>
     </div>
@@ -105,8 +106,8 @@ use yii\helpers\html;
             </div>
             <!--    BEGIN footer column 3-->
             <div class="tab-pane" id="sonstiges">
-                <?= Html::a('Über uns', ['site/ueber-uns'], ['class' => 'linkFooter']) ?> <br>
                 <?= Html::a('Newsletter-Anmeldung', ['site/newsletter-sign-up'], ['class' => 'linkFooter']) ?> <br>
+                <?= Html::a('Partner', ['site/partner'], ['class' => 'linkFooter']) ?> <br>
                 <?= Html::a('Impressum', ['site/impressum'], ['class' => 'linkFooter']) ?> <br>
             </div>
         </div>

@@ -93,10 +93,10 @@
             </a>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <a class="menuLink" href="backend-site/backend-ueber-uns">
-                <div id="fieldUeberUns" class="menuField">
+            <a class="menuLink" href="backend-site/backend-partner">
+                <div id="fieldPartner" class="menuField">
                     <div class="menuText">
-                        <h1>Über uns</h1>
+                        <h1>Partner</h1>
                     </div>
                     <div class="menuIcon"></div>
                 </div>

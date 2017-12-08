@@ -13,6 +13,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
+$this->title = 'Newsletter-Anmeldung';
 
 $emailMdl = new Email();
 

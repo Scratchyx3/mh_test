@@ -23,11 +23,11 @@ $linkToEnglishVersion = Url::to('/site/english');
                 <a id="menuStartseiteLink" href="<?=$startseiteUrl?>"><h1>Mayer-Hörmann</h1></a>
             </div>
 
-            <div class="logoShop col-sm-6 pull-right">
+            <div class="logoShop col-xs-12 col-sm-6 pull-right">
                 <?php echo Html::img('@web/image/icon_shop.png', ['alt'=>'shop icon', 'id'=>'iconShop', 'class'=>'pull-right']); ?>
                 <button id="shopButton" type="button" class="btn btn-default pull-right"><h1>Wein kaufen</h1></button>
-                <a id="linkUk" href="<?=$linkToEnglishVersion?>" class="pull-right">
-                    <?php echo Html::img('@web/image/icon/icon_uk.png', ['alt'=>'english', 'id'=>'iconUk', 'class'=>'pull-right']); ?>
+                <a id="linkUk" href="<?=$linkToEnglishVersion?>">
+                    <?php echo Html::img('@web/image/icon/icon_uk.png', ['alt'=>'english', 'id'=>'iconUk']); ?>
                 </a>
             </div>
         </div>

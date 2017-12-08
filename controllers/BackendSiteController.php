@@ -250,15 +250,20 @@ class BackendSiteController extends Controller
     }
 
     /**
-     * Displays backendUeberUns.php
+     * Displays backendPartner.php
      *
      * @return string
      */
-    public function actionBackendUeberUns()
+    public function actionBackendPartner()
     {
         if (!Yii::$app->user->isGuest) {
+            $cardMdl = new Card();
             $this->layout = '/backend/standard';
-            return $this->render('/backend/backendUeberUns');
+            return $this->render('/backend/backendPartner', [
+                'model' => $cardMdl,
+            ]);
+
+
         } else {
             // if user is not logged in
             $model = new User();

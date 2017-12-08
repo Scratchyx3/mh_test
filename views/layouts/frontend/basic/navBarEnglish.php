@@ -6,6 +6,8 @@
  * Time: 13:20
  */
 
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -21,15 +23,37 @@ $linkToEnglishVersion = Url::to('/site/english');
                 <a id="menuStartseiteLink" href="<?=$linkToEnglishVersion?>"><h1>Mayer-Hörmann</h1></a>
             </div>
 
-            <div class="logoShop col-sm-6 pull-right">
+            <div class="logoShop col-xs-12 col-sm-6 pull-right">
                 <?php echo Html::img('@web/image/icon_shop.png', ['alt'=>'shop icon', 'id'=>'iconShop', 'class'=>'pull-right']); ?>
                 <button id="shopButton" type="button" class="btn btn-default pull-right"><h1> Wine Shop </h1></button>
-                <a id="linkAustria" href="<?=$linkToGermanVersion?>" class="pull-right">
-                    <?php echo Html::img('@web/image/icon/icon_austria.png', ['alt'=>'german', 'id'=>'iconAustria', 'class'=>'pull-right']); ?>
+                <a id="linkAustria" href="<?=$linkToGermanVersion?>">
+                    <?php echo Html::img('@web/image/icon/icon_austria.png', ['alt'=>'german', 'id'=>'iconAustria', 'class'=>'']); ?>
                 </a>
             </div>
         </div>
     </div>
 </nav>
+
+<?php
+NavBar::begin([
+    'brandLabel' => 'Mayer-Hörmann',
+    'options' => [
+        'class' => 'navbar navbar-inverse navbar-fixed-top',
+        'id' => 'navBar'
+    ],
+]);
+
+echo Nav::widget([
+    'options' => [
+        'class' => 'navbar-nav',
+        'id' => 'navBarUl'
+    ],
+    'items' => [
+        ['label' => 'Landing Page', 'url' => ['/site/english']],
+        ['label' => 'Approach us', 'url' => ['/site/english-maps']],
+    ],
+]);
+NavBar::end();
+?>
 
 

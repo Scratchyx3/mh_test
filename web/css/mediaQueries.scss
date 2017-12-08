@@ -11,26 +11,34 @@
         height: 10vh;
         width: 10vh;
     }
-    // startseite cards
+    // ======================= Cards ======================== //
     .card {
         height: auto;
         margin: 0 auto 6vh auto;
         .cardImageContainer {
-            height: 34vh;
-        }
-        .cardHeadline {
-            // löschen //
-            display: none;
-            // löschen //
-            height: auto;
-            min-height: 8vh;
-            padding: 1vh 1vw 2vh 1vw;
-            line-height: 4vh;
+            //height: 34vh;
+            padding-top: 66.66%;
         }
         .cardText {
             height: 34vh;
         }
     }
+    // ======================= Partner Cards ======================== //
+    .cardPartner {
+        height: auto;
+        overflow: auto;
+        margin: 0 auto 6vh auto;
+        .cardPartnerImage {
+            height: auto;
+            width: 100%;
+            display: block;
+        }
+    }
+    // ======================= Language Logos ======================== //
+    #linkUk, #linkAustria {
+        float: left;
+    }
+
     #textContentEnglish {
         h1 {
             font-size: 20px;
@@ -66,26 +74,34 @@
         height: 7vh;
         width: 7vh;
     }
-    // startseite cards
+    // ======================= Cards ======================== //
     .card {
         height: auto;
         margin: 0 auto 4vh auto;
         .cardImageContainer {
-            height: 30vh;
-        }
-        .cardHeadline {
-            // löschen //
-            display: none;
-            // löschen //
-            height: auto;
-            min-height: 10vh;
-            padding: 2vh 1vw 2vh 1vw;
-            line-height: 3vh;
+            //height: 30vh;
+            padding-top: 66.66%;
         }
         .cardText {
             height: 34vh;
         }
     }
+    // ======================= Partner Cards ======================== //
+    .cardPartner {
+        height: auto;
+        margin: 0 auto 4vh auto;
+        .cardPartnerImage {
+            height: auto;
+            width: 50%;
+            float: left;
+            display: block;
+        }
+    }
+    // ======================= Language Logos ======================== //
+    #linkUk, #linkAustria {
+        float: right;
+    }
+
     //hide navbar-brand on tablets and higher
     .navbar-brand {
         display: none !important;

@@ -114,14 +114,14 @@ class SiteController extends Controller
         return $this->render('/backend/backendLandingPage');
     }
     /**
-     * Displays ueberUns.php
+     * Displays partner.php
      *
      * @return string
      */
-    public function actionUeberUns()
+    public function actionPartner()
     {
         $this->layout='/frontend/standard';
-        return $this->render('/frontend/ueberUns');
+        return $this->render('/frontend/partner');
     }
     /**
      * Displays impressum.php
@@ -147,7 +147,7 @@ class SiteController extends Controller
         ]);
     }
     /**
-     * Displays newsletterSignUp.php
+     * Displays english.php
      *
      * @return string
      */
@@ -155,5 +155,16 @@ class SiteController extends Controller
     {
         $this->layout='/frontend/english';
         return $this->render('/frontend/english');
+    }
+
+    /**
+     * Displays englishMaps.php
+     *
+     * @return string
+     */
+    public function actionEnglishMaps()
+    {
+        $this->layout='/frontend/english';
+        return $this->render('/frontend/englishMaps');
     }
 }

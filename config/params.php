@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'newsletterEmail' => 'rohrmoser.christoph91@gmail.com',
+    'newsletterEmail' => 'mh@veltliner.at',
     'fallbackImagePath' => 'image/fallbackImage.jpg',
 ];

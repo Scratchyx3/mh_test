@@ -74,19 +74,16 @@ h2 {
 #fieldLagen .menuIcon {
   background-image: url(../image/icon/icon_lagen.png); }
 
-#fieldImpressum .menuIcon {
-  background-image: url(../image/icon/icon_impressum.png); }
-
 #fieldAuszeichnungen .menuIcon {
   background-image: url(../image/icon/icon_auszeichnungen.png); }
 
 #fieldNewsletter .menuIcon {
   background-image: url(../image/icon/icon_newsletter.png); }
 
-#fieldUeberUns {
+#fieldPartner {
   margin-bottom: 30px; }
-  #fieldUeberUns .menuIcon {
-    background-image: url(../image/icon/icon_ueber_uns.png); }
+  #fieldPartner .menuIcon {
+    background-image: url(../image/icon/icon_partner.png); }
 
 .menuField {
   width: 100%;

@@ -26,7 +26,7 @@ $footerHeight: 206.71px;
 }
 
 body {
-    p, a, h1, h2, h3, h4, h5, h6 {
+    p, a, h1, h2, h3, h4, h5, h6, li {
         font-family: $standardFontFamily;
     }
     // background-color: $standardColorBlack;
@@ -60,6 +60,7 @@ body {
     .logoShop {
         height: 60px;
         padding-right: 0;
+        padding-left: 0;
         #shopButton {
             height: 40px;
             margin: 10px 0 0 0;
@@ -261,9 +262,9 @@ body {
         color: $standardColorWhite;
     }
 }
-// Aktuelles cards
+// ======================= Cards ======================== //
 .card {
-    background-color: $standardColorBlack;
+    background-color: $standardColorWhite;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     .cardImageContainer {
         width: 100%;
@@ -297,6 +298,31 @@ body {
         }
     }
 }
+// ======================= Partner Cards ======================== //
+.cardPartner {
+    background-color: $standardColorWhite;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    .cardPartnerImageContainer {
+        background-size: cover;
+        background-position: center;
+    }
+    .cardPartnerText {
+        padding: 20px;
+        background-color: $standardColorWhite;
+        overflow: hidden;
+        h1 {
+            margin-top: 0;
+            font-family: 'Fjalla One', sans-serif;
+        }
+        p {
+            font-family: 'Average', serif;
+        }
+    }
+}
+
+
+
+
 // ======================= Title images ======================== //
 .titleImageContainer {
     height: calc(100vh - #{$navBarHeight});
@@ -524,7 +550,7 @@ body {
 
 #textContentEnglish {
     min-height: calc(100vh - 80px - #{$footerHeight});
-    margin-top: 80px;
+    margin-top: calc(#{$navBarHeight} + 20px);
     font-family: 'Average', serif;
 }
 

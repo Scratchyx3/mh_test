@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Christoph Rohrmoser
- * Date: 21.06.2017
- * Time: 13:49
+ * Date: 27.06.2017
+ * Time: 11:20
  */
 
 use app\models\Card;
@@ -11,11 +11,11 @@ use app\models\Image\ImageFactory;
 use traversient\yii\customscrollbar\AssetBundle;
 use yii\helpers\Url;
 
-$this->title = 'Auszeichnungen';
-
 AssetBundle::register($this);
 
-$imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
+$this->title = 'Partner';
+
+$imageMdl = ImageFactory::create('titleImage', 'partner');
 $image = $imageMdl -> getRandomImage();
 if (empty($image)) {
     $imagePath = Url::to('/' . Yii::$app->params[0]['fallbackImagePath']);
@@ -24,11 +24,10 @@ if (empty($image)) {
 }
 
 $cardMdl = new Card();
-$cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_auszeichnungen'])->orderBy(['id'=>SORT_DESC])->all();
-$imageMdl = ImageFactory::create('cardImage', 'card_auszeichnungen');
-
-
+$cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_partner'])->orderBy(['id'=>SORT_DESC])->all();
+$imageMdl = ImageFactory::create('cardImage', 'card_partner');
 ?>
+
 <a id="linkIconDown" href="#headlineAuszeichnungen">
     <div class="iconDown"> </div>
 </a>
@@ -39,14 +38,15 @@ $imageMdl = ImageFactory::create('cardImage', 'card_auszeichnungen');
     </div>
     <div id="row">
         <div id="headlineAuszeichnungen" class="row headline">
-            <h1> Auszeichnungen </h1>
+            <h1> Partner </h1>
         </div>
     </div>
 </div>
 
-<div id="cardContainer" class="container">
+<div id="contentUeberUns" class="container">
     <div class="row">
         <?php
+        $count = 0;
         foreach($cardMdlArray as $cardMdl) {
             if ($cardMdl->published == 1) {
                 // get text and remove unwanted spaces caused by text editor plugin
@@ -60,62 +60,51 @@ $imageMdl = ImageFactory::create('cardImage', 'card_auszeichnungen');
                     $cardImagePath = Yii::$app->params[0]['fallbackImagePath'];
                 }
                 // if card is published
-                echo "<div class='col-xs-12 col-sm-12 col-md-6 col-lg-6'>";
-                echo "<div class='card'>";
+                echo "<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>";
+                echo "<div class='cardPartner'>";
                 if(isset($cardMdl->instagramLink) && !empty($cardMdl->instagramLink)) {
                     echo "<a class='disableLink' target='_blank' href='" . $cardMdl->instagramLink . "'>";
-                    echo "<div class='cardImageContainer' style='background: url(" . Url::to('/' . $cardImagePath) .
-                        "); background-size: cover; background-position: center;' >";
-                    echo "</div>";
+                    if ($count % 2 == 0) {
+                        echo "<img src='" . Url::to('/' . $cardImagePath) . "' class='cardPartnerImage'>";
+                    } else {
+                        echo "<img src='" . Url::to('/' . $cardImagePath) . "' class='cardPartnerImage pull-right'>";
+                    }
+
                     echo "</a>";
                 } else {
-                    echo "<div class='cardImageContainer' style='background: url(" . Url::to('/' . $cardImagePath) .
-                        "); background-size: cover; background-position: center;' >";
-                    echo "</div>";
+                    if ($count % 2 == 0) {
+                        echo "<img src='" . Url::to('/' . $cardImagePath) . "' class='cardPartnerImage'>";
+                    } else {
+                        echo "<img src='" . Url::to('/' . $cardImagePath) . "' class='cardPartnerImage pull-right'>";
+                    }
                 }
-                echo "<div class='cardText'>";
+                echo ($count % 2 == 0) ? "<div class='cardPartnerText'>" :  "<div class='cardPartnerText pull-left'>";
                 echo "<h1>" . $cardMdl->headline . "</h1>";
                 echo "<p>" . $text . "</p>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
             }
+            $count++;
         }
         ?>
     </div>
 </div>
 <?php
-// enable custom scroll bars
-$this->registerJs(
-    '(function($){
-			$(window).on("load",function(){
-				
-				$(".cardText").mCustomScrollbar({
-					theme:"inset-dark",
-					autoHideScrollbar: false,
-					axis:"y",
-					alwaysShowScrollbar: 0
-				});
-				
-			});
-		})(jQuery);'
-);
-
 // smooth scroll for the icon down
-$this->registerJs(
-    '$("#linkIconDown").click(function(){
-        //Toggle Class
-        $(".active").removeClass("active");
-        $(this).closest("li").addClass("active");
-        var theClass = $(this).attr("class");
-        $("."+theClass).parent("li").addClass("active");
-        //Animate
-        $("html, body").stop().animate({
-            scrollTop: $( $(this).attr("href") ).offset().top - 111
-        }, 800);
-        $("#linkKontakt").click();
-        return false;
-    });
-    $(".scrollTop a").scrollTop();'
+$this->registerJs('$("#linkIconDown").click(function(){
+   //Toggle Class
+   $(".active").removeClass("active");
+   $(this).closest("li").addClass("active");
+   var theClass = $(this).attr("class");
+   $("."+theClass).parent("li").addClass("active");
+   //Animate
+   $("html, body").stop().animate({
+   scrollTop: $( $(this).attr("href") ).offset().top - 112
+   }, 800);
+   $("#linkKontakt").click();
+   return false;
+   });
+   $(".scrollTop a").scrollTop();'
 );
 ?>
