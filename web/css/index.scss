@@ -8,6 +8,8 @@ $standardColorGold: #e2b339;
     font-family: 'GaramondBE-SwashItalic';
     src: url('../fonts/GaramondBE-SwashItalic.ttf');
 }
+$standardTextFontFamily: 'Average', serif;
+$standardHeadlineFontFamily: 'Fjalla One', sans-serif;
 $standardFontFamily: 'Lato', sans-serif;
 $cursiveFontFamily: 'Courgette', cursive;
 $mhLogoFontFamily: 'GaramondBE-SwashItalic';
@@ -291,10 +293,10 @@ body {
         overflow: hidden;
         h1 {
             margin-top: 0;
-            font-family: 'Fjalla One', sans-serif;
+            font-family: $standardHeadlineFontFamily;
         }
         p {
-            font-family: 'Average', serif;
+            font-family: $standardTextFontFamily;
         }
     }
 }
@@ -312,10 +314,10 @@ body {
         overflow: hidden;
         h1 {
             margin-top: 0;
-            font-family: 'Fjalla One', sans-serif;
+            font-family: $standardHeadlineFontFamily;
         }
         p {
-            font-family: 'Average', serif;
+            font-family: $standardTextFontFamily;
         }
     }
 }
@@ -463,6 +465,22 @@ body {
 #titleImageHeuriger {
     display: none;
 }
+.openingHours {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $standardColorGold;
+    text-align: center;
+    h1 {
+        color: $standardColorGold;
+        font-family: $standardHeadlineFontFamily;
+    }
+    p  {
+        line-height: 100%;
+        font-family: $standardTextFontFamily;
+    }
+}
+#openHoursEnglish {
+    margin-top: calc(#{$navBarHeight} + 20px);
+}
 // ========================== Newsletter =========================== //
 #containerNewsletter {
     margin-top: $navBarHeight;
@@ -479,15 +497,15 @@ body {
 
 #contentNewsletter {
     h1 {
-        font-family: 'Fjalla One', sans-serif;
+        font-family: $standardHeadlineFontFamily;
     }
     a {
         color: $standardColorGold;
-        font-family: 'Average', serif;
+        font-family: $standardTextFontFamily;
     }
     p {
         margin-top: 20px;
-        font-family: 'Average', serif;
+        font-family: $standardTextFontFamily;
     }
 }
 
@@ -504,12 +522,12 @@ body {
         font-size: 24px;
         margin: 0 0 10px 0;
         color: $standardColorBlack;
-        font-family: 'Fjalla One', sans-serif;
+        font-family: $standardHeadlineFontFamily;
     }
     p {
         font-size: 16px;
         margin: 0;
-        font-family: 'Average', serif;
+        font-family: $standardTextFontFamily;
         color: $standardColorBlack;
     }
     a {
@@ -527,7 +545,7 @@ body {
 
 #textContentImpressum {
     margin-top: calc(#{$navBarHeight} + 20px);
-    font-family: 'Average', serif;
+    font-family: $standardTextFontFamily;
 }
 
 // ======================== ENGLISH =============================== //
@@ -550,8 +568,7 @@ body {
 
 #textContentEnglish {
     min-height: calc(100vh - 80px - #{$footerHeight});
-    margin-top: calc(#{$navBarHeight} + 20px);
-    font-family: 'Average', serif;
+    font-family: $standardTextFontFamily;
 }
 
 .textEditor {

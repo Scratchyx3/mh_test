@@ -6,6 +6,10 @@
     display: none !important; } }
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
+  .openingHours p {
+    font-size: 14px;
+    line-height: 100%; }
+
   .iconDown {
     height: 10vh;
     width: 10vh; }
@@ -47,6 +51,10 @@
 /* Extra Small Devices, Phones */
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
+  .openingHours p {
+    font-size: 18px;
+    line-height: 100%; }
+
   .iconDown {
     height: 7vh;
     width: 7vh; }
@@ -337,9 +345,9 @@ body {
     overflow: hidden; }
     .card .cardText h1 {
       margin-top: 0;
-      font-family: 'Fjalla One', sans-serif; }
+      font-family: "Fjalla One", sans-serif; }
     .card .cardText p {
-      font-family: 'Average', serif; }
+      font-family: "Average", serif; }
 
 .cardPartner {
   background-color: #f8f8f8;
@@ -353,9 +361,9 @@ body {
     overflow: hidden; }
     .cardPartner .cardPartnerText h1 {
       margin-top: 0;
-      font-family: 'Fjalla One', sans-serif; }
+      font-family: "Fjalla One", sans-serif; }
     .cardPartner .cardPartnerText p {
-      font-family: 'Average', serif; }
+      font-family: "Average", serif; }
 
 .titleImageContainer {
   height: calc(100vh - 112px);
@@ -456,6 +464,20 @@ body {
 #titleImageHeuriger {
   display: none; }
 
+.openingHours {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2b339;
+  text-align: center; }
+  .openingHours h1 {
+    color: #e2b339;
+    font-family: "Fjalla One", sans-serif; }
+  .openingHours p {
+    line-height: 100%;
+    font-family: "Average", serif; }
+
+#openHoursEnglish {
+  margin-top: calc(112px + 20px); }
+
 #containerNewsletter {
   margin-top: 112px;
   min-height: calc(100vh - 112px - 206.71px); }
@@ -469,13 +491,13 @@ body {
   color: white; }
 
 #contentNewsletter h1 {
-  font-family: 'Fjalla One', sans-serif; }
+  font-family: "Fjalla One", sans-serif; }
 #contentNewsletter a {
   color: #e2b339;
-  font-family: 'Average', serif; }
+  font-family: "Average", serif; }
 #contentNewsletter p {
   margin-top: 20px;
-  font-family: 'Average', serif; }
+  font-family: "Average", serif; }
 
 .field-antiSpamField {
   display: none; }
@@ -489,11 +511,11 @@ body {
     font-size: 24px;
     margin: 0 0 10px 0;
     color: #222222;
-    font-family: 'Fjalla One', sans-serif; }
+    font-family: "Fjalla One", sans-serif; }
   .textContent p {
     font-size: 16px;
     margin: 0;
-    font-family: 'Average', serif;
+    font-family: "Average", serif;
     color: #222222; }
   .textContent a {
     text-decoration: none;
@@ -506,7 +528,7 @@ body {
 
 #textContentImpressum {
   margin-top: calc(112px + 20px);
-  font-family: 'Average', serif; }
+  font-family: "Average", serif; }
 
 .imageContainerEnglish {
   width: 100%;
@@ -525,8 +547,7 @@ body {
 
 #textContentEnglish {
   min-height: calc(100vh - 80px - 206.71px);
-  margin-top: calc(112px + 20px);
-  font-family: 'Average', serif; }
+  font-family: "Average", serif; }
 
 .textEditor {
   margin-top: 500px; }

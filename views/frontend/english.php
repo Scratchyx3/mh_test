@@ -6,9 +6,57 @@
  * Time: 13:13
  */
 
+use app\models\OpeningHour;
+
+// ============== opening hours ====================
+$events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all();
+$openingHours = OpeningHour::find()->where(['event' => 0])->orderBy('from_date')->all();
+Yii::$app->formatter->locale = 'en-US';
 ?>
 
 <div class="container">
+    <div class="row">
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div id="openHoursEnglish" class="openingHours">
+                <h1> Our Wine Tavern Opening Hours </h1>
+                <?php
+                foreach ($openingHours as $openingHour) {
+                    $f = Yii::$app->formatter;
+                    $d = $f->asOrdinal($f->asDate($openingHour->from_date, 'php:j'));
+                    $d2 = $f->asOrdinal($f->asDate($openingHour->to_date, 'php:j'));
+
+                    echo "<p>" .
+                        $d .
+                        Yii::$app->formatter->asDate($openingHour->from_date, 'php: M Y') .
+                        " - " .
+                        $d2 .
+                        Yii::$app->formatter->asDate($openingHour->to_date, 'php: M Y') .
+                        "</p>";
+                }
+
+                foreach ($events as $event) {
+                    $f = Yii::$app->formatter;
+                    $d = $f->asOrdinal($f->asDate($event->from_date, 'php:j'));
+                    $d2 = $f->asOrdinal($f->asDate($event->to_date, 'php:j'));
+
+
+                    echo "<p><b>" .
+                        $event->event_name . "</b>: " .
+                        $d .
+                        Yii::$app->formatter->asDate($event->from_date, 'php: M Y') .
+                        " - " .
+                        $d2 .
+                        Yii::$app->formatter->asDate($event->to_date, 'php: M Y') .
+                        "</p>";
+                }
+                ?>
+                <p>(daily, starting at 3pm)</p>
+            </div>
+        </div>
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
+    </div>
+
     <div class="row">
         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">

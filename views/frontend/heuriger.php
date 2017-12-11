@@ -7,9 +7,14 @@
  */
 
 use app\models\Image\ImageFactory;
+use app\models\OpeningHour;
 use yii\helpers\Url;
 
 traversient\yii\customscrollbar\AssetBundle::register($this);
+
+// ============== opening hours ====================
+$events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all();
+$openingHours = OpeningHour::find()->where(['event' => 0])->orderBy('from_date')->all();
 
 $this->title = 'Heuriger';
 
@@ -40,6 +45,34 @@ $text = str_replace('&nbsp;', ' ', $text);
     </div>
 </div>
 <div class="container">
+    <div class="row">
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="openingHours">
+                <h1> Unsere Heurigen-Öffnungszeiten </h1>
+                <?php
+                foreach ($openingHours as $openingHour) {
+                    echo "<p>" .
+                        Yii::$app->formatter->asDate($openingHour->from_date, 'php: d. M Y') .
+                        " - " .
+                        Yii::$app->formatter->asDate($openingHour->to_date, 'php: d. M Y') .
+                        "</p>";
+                }
+
+                foreach ($events as $event) {
+                    echo "<p><b>" .
+                        $event->event_name . "</b>: " .
+                        Yii::$app->formatter->asDate($event->from_date, 'php: d. M Y') .
+                        " - " .
+                        Yii::$app->formatter->asDate($event->to_date, 'php: d. M Y') .
+                        "</p>";
+                }
+                ?>
+                <p>(täglich ab 15:00 Uhr geöffnet)</p>
+            </div>
+        </div>
+        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
+    </div>
     <div class="row">
         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
