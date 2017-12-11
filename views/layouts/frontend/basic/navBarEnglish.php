@@ -50,7 +50,7 @@ echo Nav::widget([
     ],
     'items' => [
         ['label' => 'Landing Page', 'url' => ['/site/english']],
-        ['label' => 'Approach us', 'url' => ['/site/english-maps']],
+        ['label' => 'Visit Us', 'url' => ['/site/english-maps']],
     ],
 ]);
 NavBar::end();
