@@ -13,7 +13,7 @@ use dosamigos\google\maps\overlays\Marker;
 
 ?>
 
-<a id="linkIconDown" href="#footerAnchor">
+<a id="linkIconDown" href="#footer">
     <div class="iconDown"> </div>
 </a>
 
