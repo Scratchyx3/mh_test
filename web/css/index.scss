@@ -469,6 +469,12 @@ body {
     padding-bottom: 10px;
     border-bottom: 1px solid $standardColorGold;
     text-align: center;
+    a {
+        color: $standardColorGold;
+    }
+    a:hover {
+
+    }
     h1 {
         color: $standardColorGold;
         font-family: $standardHeadlineFontFamily;
@@ -567,6 +573,10 @@ body {
 }
 
 #textContentEnglish {
+    h2 {
+        font-family: $standardTextFontFamily;
+        font-weight: bold;
+    }
     min-height: calc(100vh - 80px - #{$footerHeight});
     font-family: $standardTextFontFamily;
 }

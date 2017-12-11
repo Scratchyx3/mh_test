@@ -7,6 +7,8 @@
  */
 
 use app\models\OpeningHour;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 // ============== opening hours ====================
 $events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all();
@@ -52,6 +54,7 @@ Yii::$app->formatter->locale = 'en-US';
                 }
                 ?>
                 <p>(daily, starting at 3pm)</p>
+                <?= Html::a('Our Menu', [Url::to(['file_upload/speisekarte/speisekarte.pdf'])], ['target' => '_blank']) ?>
             </div>
         </div>
         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>

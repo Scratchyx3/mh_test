@@ -8,6 +8,7 @@
 
 use app\models\Image\ImageFactory;
 use app\models\OpeningHour;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 traversient\yii\customscrollbar\AssetBundle::register($this);
@@ -69,6 +70,7 @@ $text = str_replace('&nbsp;', ' ', $text);
                 }
                 ?>
                 <p>(täglich ab 15:00 Uhr geöffnet)</p>
+                <?= Html::a('Unsere Speisekarte', [Url::to(['file_upload/speisekarte/speisekarte.pdf'])], ['target' => '_blank']) ?>
             </div>
         </div>
         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>

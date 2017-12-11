@@ -6,6 +6,8 @@
     display: none !important; } }
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
+  .openingHours a {
+    font-size: 16px; }
   .openingHours p {
     font-size: 14px;
     line-height: 100%; }
@@ -51,6 +53,8 @@
 /* Extra Small Devices, Phones */
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
+  .openingHours a {
+    font-size: 20px; }
   .openingHours p {
     font-size: 18px;
     line-height: 100%; }
@@ -468,6 +472,8 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid #e2b339;
   text-align: center; }
+  .openingHours a {
+    color: #e2b339; }
   .openingHours h1 {
     color: #e2b339;
     font-family: "Fjalla One", sans-serif; }
@@ -548,6 +554,9 @@ body {
 #textContentEnglish {
   min-height: calc(100vh - 80px - 206.71px);
   font-family: "Average", serif; }
+  #textContentEnglish h2 {
+    font-family: "Average", serif;
+    font-weight: bold; }
 
 .textEditor {
   margin-top: 500px; }
