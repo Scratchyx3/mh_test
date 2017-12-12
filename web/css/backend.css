@@ -21,13 +21,22 @@ h2 {
   margin: 0;
   padding: 0; }
 
-#loginContainer h1 {
-  margin-left: 20px; }
+#backgroundLogin {
+  width: 100vw;
+  height: 100vh;
+  background-color: #222222; }
 
-#login-form {
-  padding: 0 20px 0 20px;
-  margin-left: auto;
-  margin-right: auto; }
+#loginContainer {
+  height: 50vh;
+  margin-top: 20vh; }
+  #loginContainer h1, #loginContainer .control-label {
+    color: #f8f8f8; }
+  #loginContainer #loginButton {
+    background-color: #e2b339;
+    color: black;
+    border: none; }
+  #loginContainer #loginButton:hover {
+    color: white; }
 
 .menu {
   background: #222222;
