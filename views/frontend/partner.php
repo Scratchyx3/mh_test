@@ -28,16 +28,13 @@ $cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_partner'])->orderB
 $imageMdl = ImageFactory::create('cardImage', 'card_partner');
 ?>
 
-<a id="linkIconDown" href="#headlineAuszeichnungen">
+<a id="linkIconDown" href="#headlinePartner">
     <div class="iconDown"> </div>
 </a>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="titleImageContainer" style='background-image: url(<?= $imagePath ?>);'></div>
-    </div>
     <div id="row">
-        <div id="headlineAuszeichnungen" class="row headline">
+        <div id="headlinePartner" class="row headline">
             <h1> Partner </h1>
         </div>
     </div>
