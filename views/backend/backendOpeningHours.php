@@ -97,7 +97,10 @@ use yii\widgets\Pjax;
                     ],
                 ],
             ]);
-            Pjax::begin();
+            Pjax::begin([
+                'enablePushState' => false,
+                'enableReplaceState' => false,
+            ]);
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'columns' => [

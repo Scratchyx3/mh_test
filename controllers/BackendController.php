@@ -111,14 +111,25 @@ class BackendController extends Controller
 
             $cardMdl->fkImage = intval($fkImage);
             // adding http:// to the link in case user didnt do it
-            if(!empty($cardMdl->instagramLink) && strpos($cardMdl->instagramLink, 'http://') === false) {
+            if(!empty($cardMdl->instagramLink) && strpos($cardMdl->instagramLink, 'http') === false) {
                 $cardMdl->instagramLink = 'http://' . $cardMdl->instagramLink;
             }
+            // get ranking of highest ranked card
+            $highest_ranked_card = Card::find()
+                ->where(['imageType' => $cardMdl->imageType])
+                ->orderBy(['ranking'=>SORT_DESC])->one();
+
+            if (count($highest_ranked_card) > 0) {
+                $cardMdl->ranking = (int) ++$highest_ranked_card->ranking;
+            } else {
+                $cardMdl->ranking = 0;
+            }
+
             // if card is not found in database -> save
             if (!Card::find()->where(['id' => $cardMdl->id])->exists()) {
                 $cardMdl->save();
             } else {
-                //if card already exists in database -> update
+                // if card already exists in database -> update
                 if ($cardMdl->fkImage != 0) {
                     $cardMdl->updateAll([
                         'headline' => $cardMdl->headline,
@@ -126,7 +137,7 @@ class BackendController extends Controller
                         'fkImage' => $fkImage,
                         'instagramLink' => $cardMdl->instagramLink,
                         'baseType' => $cardMdl->baseType,
-                        'imageType' => $cardMdl->imageType
+                        'imageType' => $cardMdl->imageType,
                     ], ['id' => $cardMdl->id]);
                 } else {
                     $cardMdl->updateAll([
@@ -134,7 +145,7 @@ class BackendController extends Controller
                         'content' => $cardMdl->content,
                         'instagramLink' => $cardMdl->instagramLink,
                         'baseType' => $cardMdl->baseType,
-                        'imageType' => $cardMdl->imageType
+                        'imageType' => $cardMdl->imageType,
                     ], ['id' => $cardMdl->id]);
                 }
                 $cardMdl = Card::findOne($cardMdl->id);
@@ -148,14 +159,67 @@ class BackendController extends Controller
         return Yii::$app->runAction('backend-site/backend-startseite');
     }
 
+    public function actionRankUpCard() {
+        if (Yii::$app->request->isGet) {
+            $id = Yii::$app->request->get('id');
+            $type = Yii::$app->request->get('type');
+            if ($cardMdlRankUp = Card::findOne($id)) {
+                $cardMdlRankDown = Card::find()
+                    ->where(['and', 'imageType=:imageType', 'ranking<:ranking'])
+                    ->addParams([':imageType' => $cardMdlRankUp->imageType, ':ranking' => $cardMdlRankUp->ranking])
+                    ->orderBy(['ranking'=>SORT_DESC])->one();
+                // if a card with lower rank exists
+                if ($cardMdlRankDown != null) {
+                    $cardMdlRankDown->ranking++;
+                    while ($cardMdlRankUp->ranking >= $cardMdlRankDown->ranking) {
+                        $cardMdlRankUp->ranking--;
+                    }
+                    $cardMdlRankDown->save();
+                    $cardMdlRankUp->save();
+                }
+            }
+
+            return Yii::$app->runAction('backend-site/backend-' . $type);
+        }
+        // return fallback
+        return Yii::$app->runAction('backend-site/backend-landing-page');
+    }
+
+    public function actionRankDownCard() {
+        if (Yii::$app->request->isGet) {
+            $id = Yii::$app->request->get('id');
+            $type = Yii::$app->request->get('type');
+            if ($cardMdlRankDown = Card::findOne($id)) {
+                $cardMdlRankUp = Card::find()
+                    ->where(['and', 'imageType=:imageType', 'ranking>:ranking'])
+                    ->addParams([':imageType' => $cardMdlRankDown->imageType, ':ranking' => $cardMdlRankDown->ranking])
+                    ->orderBy(['ranking'=>SORT_ASC])->one();
+                // if a card with higher rank exists
+                if ($cardMdlRankUp != null) {
+                    $cardMdlRankUp->ranking--;
+                    while ($cardMdlRankUp->ranking >= $cardMdlRankDown->ranking) {
+                        $cardMdlRankDown->ranking++;
+                    }
+                    $cardMdlRankDown->save();
+                    $cardMdlRankUp->save();
+                }
+            }
+
+            return Yii::$app->runAction('backend-site/backend-' . $type);
+        }
+        // return fallback
+        return Yii::$app->runAction('backend-site/backend-landing-page');
+    }
+
     public function actionDeleteCard() {
         if (Yii::$app->request->isGet) {
             $id = Yii::$app->request->get('id');
             $type = Yii::$app->request->get('type');
             if ($cardMdl = Card::findOne($id)) {
                 $imageMdl = ImageFactory::create($cardMdl->baseType, $cardMdl->imageType)->findOne($cardMdl->fkImage);
-                $imageMdl->deleteImage();
-                $imageMdl->delete();
+                if($imageMdl->deleteImage()) {
+                    $imageMdl->delete();
+                }
                 $cardMdl->delete();
             }
 
@@ -194,7 +258,7 @@ class BackendController extends Controller
                     'published' => $cardMdl->published,
                 ], ['id' => $cardMdl->id]);
 
-                return Yii::$app->runAction('backend-site/backend-' .$type, ['model' => $cardMdl]);
+                return Yii::$app->runAction('backend-site/backend-' . $type, ['model' => $cardMdl]);
             }
         }
         // return fallback

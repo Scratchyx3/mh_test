@@ -238,6 +238,10 @@ body {
 .footer {
   background-color: #222222;
   padding-bottom: 10px; }
+  .footer .nav-tabs a {
+    padding: 10px; }
+  .footer .tab-pane a {
+    border: none !important; }
   .footer h4 {
     text-align: center; }
   .footer p {

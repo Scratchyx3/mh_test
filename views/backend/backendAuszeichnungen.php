@@ -142,12 +142,15 @@ $imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
             <?php
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Card::find()->where(['imageType' => 'card_auszeichnungen'])->orderBy('id DESC'),
+                'query' => Card::find()->where(['imageType' => 'card_auszeichnungen'])->orderBy('ranking ASC'),
                 'pagination' => [
                     'pageSize' => 500,
                 ],
             ]);
-            Pjax::begin();
+            Pjax::begin([
+                'enablePushState' => false,
+                'enableReplaceState' => false,
+            ]);
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'columns' => [
@@ -158,7 +161,7 @@ $imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
                     [
                         'header' => 'Aktionen',
                         'class' => 'yii\grid\ActionColumn',
-                        'template' => '{edit} {publish} {delete}',
+                        'template' => '{edit} {publish} {rankUp} {rankDown} {delete}',
                         'buttons' => [
                             'edit' => function ($url, $model) {
                                 $url = Url::to(['backend/edit-card', 'id' => $model->id, 'type' => 'auszeichnungen']);
@@ -171,6 +174,14 @@ $imageMdl = ImageFactory::create('titleImage', 'auszeichnungen');
                                 } else {
                                     return Html::a('<span class="glyphicon glyphicon-eye-close paintGreen"></span>', $url, ['title' => 'publish']);
                                 }
+                            },
+                            'rankUp' => function ($url, $model) {
+                                $url = Url::to(['backend/rank-up-card', 'id' => $model->id, 'type' => 'auszeichnungen', 'ranking' => $model->ranking]);
+                                return Html::a('<span class="glyphicon glyphicon-arrow-up"></span>', $url, ['title' => 'rank up']);
+                            },
+                            'rankDown' => function ($url, $model) {
+                                $url = Url::to(['backend/rank-down-card', 'id' => $model->id, 'type' => 'auszeichnungen', 'ranking' => $model->ranking]);
+                                return Html::a('<span class="glyphicon glyphicon-arrow-down"></span>', $url, ['title' => 'rank down']);
                             },
                             'delete' => function ($url, $model) {
                                 $url = Url::to(['backend/delete-card', 'id' => $model->id, 'type' => 'auszeichnungen']);

@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 AssetBundle::register($this);
 
-$this->title = 'Mayer Hörmann';
+$this->title = 'Winzerhof Mayer-Hörmann';
 
 $imageMdl = ImageFactory::create('titleImage', 'startseite');
 $image = $imageMdl -> getRandomImage();
@@ -17,12 +17,13 @@ if (empty($image)) {
     $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
 }
 
-
-
-$cardMdl = new Card();
-$cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_startseite'])->orderBy(['id'=>SORT_DESC])->all();
 $imageMdl = ImageFactory::create('cardImage', 'card_startseite');
 
+$cardMdl = new Card();
+$cardMdlArray = $cardMdl->find()
+    ->where(['and', 'imageType=:imageType', 'published=:published'])
+    ->addParams([':imageType' => 'card_startseite', ':published' => 1])
+    ->orderBy('ranking ASC')->all();
 ?>
 <a id="linkIconDown" href="#headlineAktuelles">
     <div class="iconDown"> </div>

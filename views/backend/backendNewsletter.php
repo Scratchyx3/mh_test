@@ -24,7 +24,10 @@ use yii\widgets\Pjax;
                   'pageSize' => 500,
               ],
           ]);
-          Pjax::begin();
+          Pjax::begin([
+                'enablePushState' => false,
+                'enableReplaceState' => false,
+          ]);
           echo GridView::widget([
               'dataProvider' => $dataProvider,
               'columns' => [

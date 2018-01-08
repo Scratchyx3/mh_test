@@ -17,7 +17,6 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
-
 $imageMdl = ImageFactory::create('titleImage', 'startseite');
 // get all images from database
 $images = $imageMdl -> find()->where(['type' => $imageMdl->getType()])->all();
@@ -141,12 +140,16 @@ echo FileInput::widget([
             <?php
 
             $dataProvider = new ActiveDataProvider([
-                'query' => Card::find()->where(['imageType' => 'card_startseite'])->orderBy('id DESC'),
+                'query' => Card::find()->where(['imageType' => 'card_startseite'])
+                    ->orderBy('ranking ASC'),
                 'pagination' => [
                     'pageSize' => 500,
                 ],
             ]);
-            Pjax::begin();
+            Pjax::begin([
+                'enablePushState' => false,
+                'enableReplaceState' => false,
+            ]);
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'columns' => [
@@ -157,7 +160,7 @@ echo FileInput::widget([
                     [
                         'header' => 'Aktionen',
                         'class' => 'yii\grid\ActionColumn',
-                        'template' => '{edit} {publish} {delete}',
+                        'template' => '{edit} {publish} {rankUp} {rankDown} {delete}',
                         'buttons' => [
                             'edit' => function ($url, $model) {
                                 $url = Url::to(['backend/edit-card', 'id' => $model->id, 'type' => 'startseite']);
@@ -171,8 +174,16 @@ echo FileInput::widget([
                                     return Html::a('<span class="glyphicon glyphicon-eye-close paintGreen"></span>', $url, ['title' => 'publish']);
                                 }
                             },
+                            'rankUp' => function ($url, $model) {
+                                $url = Url::to(['backend/rank-up-card', 'id' => $model->id, 'type' => 'startseite', 'ranking' => $model->ranking]);
+                                return Html::a('<span class="glyphicon glyphicon-arrow-up"></span>', $url, ['title' => 'rank up']);
+                            },
+                            'rankDown' => function ($url, $model) {
+                                $url = Url::to(['backend/rank-down-card', 'id' => $model->id, 'type' => 'startseite', 'ranking' => $model->ranking]);
+                                return Html::a('<span class="glyphicon glyphicon-arrow-down"></span>', $url, ['title' => 'rank down']);
+                            },
                             'delete' => function ($url, $model) {
-                                $url = Url::to(['backend/delete-card', 'id' => $model->id, 'type' => 'startseite']);
+                                $url = Url::to(['backend/delete-card', 'id' => $model->id, 'type' => 'startseite', 'ranking' => $model->ranking]);
                                 return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['title' => 'delete']);
                             },
                         ]

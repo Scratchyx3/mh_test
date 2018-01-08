@@ -143,6 +143,16 @@ body {
 .footer {
     background-color: $standardColorBlack;
     padding-bottom: 10px;
+    .nav-tabs {
+        a {
+            padding: 10px;
+        }
+    }
+    .tab-pane {
+        a {
+            border: none !important;
+        }
+    }
     h4 {
         text-align: center;
     }
@@ -324,9 +334,6 @@ body {
         }
     }
 }
-
-
-
 
 // ======================= Title images ======================== //
 .titleImageContainer {

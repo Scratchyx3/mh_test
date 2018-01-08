@@ -32,24 +32,30 @@ Yii::$app->formatter->locale = 'en-US';
             <div class="col-sm-3">
                 <h4> Social Media </h4>
                 <div id="footercol2Container1" class="footer3container">
-                    <div id="icon_facebook" class="iconFooter"></div>
-                    <div id="text_facebook" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Facebook </p>
-                    </div>
+                    <a href="https://www.facebook.com/Veltliner" target="_blank">
+                        <div id="icon_facebook" class="iconFooter"></div>
+                        <div id="text_facebook" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Facebook </p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="footer3container">
-                    <div id="icon_instagram" class="iconFooter"></div>
-                    <div id="text_instagram" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Instagram </p>
-                    </div>
+                    <a class="linkSocialMedia" href="https://www.instagram.com/veltliner.at" target="_blank">
+                        <div id="icon_instagram" class="iconFooter"></div>
+                        <div id="text_instagram" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Instagram </p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="footer3container">
-                    <div id="icon_youtube" class="iconFooter"></div>
-                    <div id="text_youtube" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Youtube </p>
-                    </div>
+                    <a class="linkSocialMedia" href="https://www.youtube.com/user/Hansi64m" target="_blank">
+                        <div id="icon_youtube" class="iconFooter"></div>
+                        <div id="text_youtube" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Youtube </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div id="openingHoursEnglish" class="col-sm-3">
@@ -112,24 +118,29 @@ Yii::$app->formatter->locale = 'en-US';
             <!--    BEGIN footer column 2-->
             <div class="tab-pane" id="socialMedia">
                 <div class="footer3container">
-                    <div id="icon_facebook" class="iconFooter"></div>
-                    <div id="text_facebook" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Facebook </p>
-                    </div>
+                    <a href="https://www.facebook.com/Veltliner" target="_blank">
+                        <div id="icon_facebook" class="iconFooter"></div>
+                        <div id="text_facebook" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Facebook </p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="footer3container">
-                    <div id="icon_instagram" class="iconFooter"></div>
-                    <div id="text_instagram" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Instagram </p>
-                    </div>
+                    <a class="linkSocialMedia" href="https://www.instagram.com/veltliner.at" target="_blank">
+                        <div id="icon_instagram" class="iconFooter"></div>
+                        <div id="text_instagram" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Instagram </p>
+                        </div>
+                    </a>
                 </div>
-
                 <div class="footer3container">
-                    <div id="icon_youtube" class="iconFooter"></div>
-                    <div id="text_youtube" class="iconTextFooter">
-                        <p> &nbsp; &nbsp; Youtube </p>
-                    </div>
+                    <a class="linkSocialMedia" href="https://www.youtube.com/user/Hansi64m" target="_blank">
+                        <div id="icon_youtube" class="iconFooter"></div>
+                        <div id="text_youtube" class="iconTextFooter">
+                            <p> &nbsp; &nbsp; Youtube </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <!--    BEGIN footer column 3-->

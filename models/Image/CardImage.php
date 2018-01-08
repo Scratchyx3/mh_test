@@ -8,6 +8,7 @@
 
 namespace app\models\Image;
 
+use app\models\Card;
 use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
@@ -93,7 +94,12 @@ class CardImage extends ActiveRecord implements Image
      */
     public function deleteImage()
     {
-        if(unlink($this->path . $this->name)) {
+        $cardMdlArray = Card::find()
+            ->where(['and', 'imageType=:imageType', 'fkImage=:fkImage'])
+            ->addParams([':imageType' => $this->getType(), ':fkImage' => $this->id])->all();
+
+        if(count($cardMdlArray) == 1) {
+            unlink($this->path . $this->name);
             return true;
         }
         return false;

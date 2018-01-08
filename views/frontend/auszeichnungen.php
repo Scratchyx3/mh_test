@@ -23,11 +23,13 @@ if (empty($image)) {
     $imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
 }
 
-$cardMdl = new Card();
-$cardMdlArray = $cardMdl->find()->where(['imageType' => 'card_auszeichnungen'])->orderBy(['id'=>SORT_DESC])->all();
 $imageMdl = ImageFactory::create('cardImage', 'card_auszeichnungen');
 
-
+$cardMdl = new Card();
+$cardMdlArray = $cardMdl->find()
+    ->where(['and', 'imageType=:imageType', 'published=:published'])
+    ->addParams([':imageType' => 'card_auszeichnungen', ':published' => 1])
+    ->orderBy('ranking ASC')->all();
 ?>
 <a id="linkIconDown" href="#headlineAuszeichnungen">
     <div class="iconDown"> </div>
