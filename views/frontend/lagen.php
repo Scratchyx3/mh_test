@@ -42,9 +42,11 @@ $cardMdlArray = $cardMdl->find()
         <div class="titleImageContainer" style='background-image: url(<?= $imagePath ?>);'></div>
     </div>
     <div id="row">
+        <div class="row headlineBorderTop"></div>
         <div id="headlineLagen" class="row headline">
             <h1> Lagen </h1>
         </div>
+        <div class="row headlineBorderBottom"></div>
     </div>
 </div>
 

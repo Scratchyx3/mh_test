@@ -263,16 +263,26 @@ body {
 // Aktuelles Headline
 .headline {
     background: $standardColorBlack;
-    height: 10vh;
-    margin-bottom: 3vh;
+    height: 5vh;
     h1 {
         width: auto;
         text-align: center;
-        margin: 0;
-        font-size: 6vh;
-        line-height: 10vh;
+        font-size: 3vh;
+        line-height: 5vh;
         color: $standardColorWhite;
+        margin: 0;
     }
+}
+.headlineBorderTop {
+    height: 3px;
+    background-color: $standardColorBlack;
+    margin-bottom: 3px;
+}
+.headlineBorderBottom {
+    height: 3px;
+    background-color: $standardColorBlack;
+    margin-top: 3px;
+    margin-bottom: 3vh;
 }
 // ======================= Cards ======================== //
 .card {

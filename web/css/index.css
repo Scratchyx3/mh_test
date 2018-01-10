@@ -318,15 +318,25 @@ body {
 
 .headline {
   background: #222222;
-  height: 10vh;
-  margin-bottom: 3vh; }
+  height: 5vh; }
   .headline h1 {
     width: auto;
     text-align: center;
-    margin: 0;
-    font-size: 6vh;
-    line-height: 10vh;
-    color: #f8f8f8; }
+    font-size: 3vh;
+    line-height: 5vh;
+    color: #f8f8f8;
+    margin: 0; }
+
+.headlineBorderTop {
+  height: 3px;
+  background-color: #222222;
+  margin-bottom: 3px; }
+
+.headlineBorderBottom {
+  height: 3px;
+  background-color: #222222;
+  margin-top: 3px;
+  margin-bottom: 3vh; }
 
 .card {
   background-color: #f8f8f8;

@@ -41,6 +41,7 @@ $cardMdlArray = $cardMdl->find()
         <div id="headlinePartner" class="row headline">
             <h1> Partner </h1>
         </div>
+        <div class="row headlineBorderBottom"></div>
     </div>
 </div>
 
