@@ -366,6 +366,14 @@ body {
       font-family: "Fjalla One", sans-serif; }
     .card .cardText p {
       font-family: "Average", serif; }
+    .card .cardText a {
+      font-family: "Average", serif;
+      text-decoration: none;
+      color: #e2b339; }
+    .card .cardText a:hover {
+      text-decoration: underline; }
+    .card .cardText h2, .card .cardText h3, .card .cardText h4, .card .cardText h5 {
+      font-family: "Average", serif; }
 
 #headlinePartner {
   margin-top: 112px; }

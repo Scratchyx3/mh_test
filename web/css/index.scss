@@ -318,6 +318,17 @@ body {
         p {
             font-family: $standardTextFontFamily;
         }
+        a {
+            font-family: $standardTextFontFamily;
+            text-decoration: none;
+            color: $standardColorGold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h2, h3, h4, h5 {
+            font-family: $standardTextFontFamily;
+        }
     }
 }
 // ======================= Partner Cards ======================== //
