@@ -71,18 +71,26 @@ class GalleryImage extends ActiveRecord implements Image
     {
         // Datei und Faktor der Größenänderung
         $filename = strtolower($this->path . $file->baseName . '.' . $file->extension);
-        $percent = 0.3;
         // Typ der Ausgabe
         header('Content-Type: image/jpeg');
         // Neue Größe berechnen
         list($width, $height) = getimagesize($filename);
-        $newwidth = $width * $percent;
-        $newheight = $height * $percent;
+
+        if($width > 1900 || $height > 1000) {
+            $percent = 0.3;
+        } elseif ($width > 850 || $height > 500) {
+            $percent = 0.6;
+        } else {
+            $percent = 1;
+        }
+
+        $newWidth = $width * $percent;
+        $newHeight = $height * $percent;
         // Bild laden
-        $thumb = imagecreatetruecolor($newwidth, $newheight);
+        $thumb = imagecreatetruecolor($newWidth, $newHeight);
         $source = imagecreatefromjpeg($filename);
         // Skalieren
-        imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        imagecopyresized($thumb, $source, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
         // Save picture
         if(!imagejpeg($thumb, strtolower($this->path . 'thumbnail_' . $file->baseName . '.' . $file->extension), 80)) {
             return false;
