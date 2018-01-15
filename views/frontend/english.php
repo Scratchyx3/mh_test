@@ -15,7 +15,7 @@ $events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all(
 $openingHours = OpeningHour::find()->where(['event' => 0])->orderBy('from_date')->all();
 Yii::$app->formatter->locale = 'en-US';
 // ============== meta tags ====================
-$this->title = 'Winzerhof Mayer-Hörmann - Welcome';
+$this->title = 'Winzerhof Mayer-Hörmann | Welcome';
 $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Producing Grüner Veltliner is the most exciting thing a vintner can do” is our belief.',

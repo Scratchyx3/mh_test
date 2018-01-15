@@ -11,6 +11,8 @@ use dosamigos\google\maps\LatLng;
 use dosamigos\google\maps\Map;
 use dosamigos\google\maps\overlays\Marker;
 
+$this->title = 'Winzerhof Mayer-Hörmann | Visit us';
+
 ?>
 
 <a id="linkIconDown" href="#footer">

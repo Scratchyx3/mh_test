@@ -14,7 +14,7 @@ use yii\helpers\Url;
 AssetBundle::register($this);
 
 // ============== meta tags ====================
-$this->title = 'Winzerhof Mayer-Hörmann - Rieden';
+$this->title = 'Winzerhof Mayer-Hörmann | Rieden';
 $this->registerMetaTag([
     'name' => 'description',
     'content' => 'Der Winzerhof Mayer-Hörmann liegt im südlichen Weinbaugebiet Kamptal, bewirtschaftet aber auch viel Weingärten am Wagram.',

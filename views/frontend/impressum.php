@@ -9,7 +9,7 @@
 use app\models\Image\ImageFactory;
 use yii\helpers\Url;
 
-$this->title = 'Impressum';
+$this->title = 'Winzerhof Mayer-Hörmann | Impressum';
 
 $imageMdl = ImageFactory::create('titleImage', 'impressum');
 $image = $imageMdl -> getRandomImage();

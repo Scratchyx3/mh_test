@@ -13,7 +13,7 @@ use yii\helpers\Url;
 
 AssetBundle::register($this);
 
-$this->title = 'Partner';
+$this->title = 'Winzerhof Mayer-Hörmann | Partner und Kooperationen';
 
 $imageMdl = ImageFactory::create('titleImage', 'partner');
 $image = $imageMdl -> getRandomImage();

@@ -14,6 +14,8 @@ use dosamigos\google\maps\overlays\Marker;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$this->title = 'Auszeichnungen';
+
 ?>
 
 <a id="linkIconDown" href="#footerAnchor">
