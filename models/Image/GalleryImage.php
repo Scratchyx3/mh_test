@@ -78,6 +78,8 @@ class GalleryImage extends ActiveRecord implements Image
 
         if($width > 1900 || $height > 1000) {
             $percent = 0.3;
+        } elseif ($width > 1400 || $height > 750) {
+            $percent = 0.45;
         } elseif ($width > 850 || $height > 500) {
             $percent = 0.6;
         } else {
