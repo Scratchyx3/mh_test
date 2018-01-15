@@ -7,7 +7,16 @@ use yii\helpers\Url;
 
 AssetBundle::register($this);
 
-$this->title = 'Winzerhof Mayer-Hörmann';
+// meta tags
+$this->title = 'Mayer-Hörmann, einer der Veltlinerspezialisten Österreichs';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Der Winzerhof Mayer-Hörmann setzt auf seine große Sortenvielfalt: Grüner Veltliner, Roter Veltliner, Frühroter Veltliner, Riesling, Gelber Muskateller, Chardonnay, Sauvignon blanc, Zweigelt, St. Laurent, Shiraz, BIQ John',
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'weinbau, betrieb, winzerei, kellerei, weinhandel, heuriger, vinothek, weinverkauf, wein, engabrunn, feuersbrunn, noe, nö, österreich, austria, veltliner, riesling, welschriesling, muskateller, chardonnay, gemischter satz, sauvignon blanc,  zweigelt, shiraz, st. sankt laurent, blauburger, barrique',
+]);
 
 $imageMdl = ImageFactory::create('titleImage', 'startseite');
 $image = $imageMdl -> getRandomImage();

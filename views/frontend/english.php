@@ -14,6 +14,17 @@ use yii\helpers\Url;
 $events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all();
 $openingHours = OpeningHour::find()->where(['event' => 0])->orderBy('from_date')->all();
 Yii::$app->formatter->locale = 'en-US';
+// ============== meta tags ====================
+$this->title = 'Winzerhof Mayer-Hörmann - Welcome';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Producing Grüner Veltliner is the most exciting thing a vintner can do” is our belief.',
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'wine, wine estate, Kamptal, Austria, Wagram, winecellar',
+]);
+
 ?>
 
 <div class="container">
@@ -80,11 +91,11 @@ Yii::$app->formatter->locale = 'en-US';
                 </ul>
 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colEnglish1">
-                    <div id="imageEnglishPride1" class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish1" class="imageContainerEnglish"> </div>
                 </div>
 
                 <div class="col-xs-0 col-sm-6 col-md-6 col-lg-6 hidden-xs hidden-sm colEnglish2">
-                    <div id="imageEnglishPride2" class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish2" class="imageContainerEnglish"> </div>
                 </div>
 
 
@@ -108,11 +119,11 @@ Yii::$app->formatter->locale = 'en-US';
                     cover primary rock. Grapes from “Spiegel” always bring peppery Grüne Veltliner, typical for the
                     variety and the region. </p>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colEnglish1">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish3" class="imageContainerEnglish"> </div>
                 </div>
 
                 <div class="col-xs-0 col-sm-6 col-md-6 col-lg-6 hidden-xs hidden-sm colEnglish2">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish4" class="imageContainerEnglish"> </div>
                 </div>
                 <h1>Production</h1>
                 <p>The first priority with freshly gathered white grapes( handpicked or harvested by machines) is to get
@@ -131,11 +142,11 @@ Yii::$app->formatter->locale = 'en-US';
                     red wine. Flavour reminds of dried plums, cinnamon and vanilla. This wine is well balanced and has
                     an individual taste. Very subtle! </p>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colEnglish1">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish5" class="imageContainerEnglish"> </div>
                 </div>
 
                 <div class="col-xs-0 col-sm-6 col-md-6 col-lg-6 hidden-xs hidden-sm colEnglish2">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish6" class="imageContainerEnglish"> </div>
                 </div>
                 <h1>The owners</h1>
                <h2>Ingrid Mayer</h2>
@@ -151,11 +162,11 @@ Yii::$app->formatter->locale = 'en-US';
                     the wines guarantees high qualities. He always aims at producing unique and subtle wines and has
                     come to the conclusion: Each vintage is a challenge!</p>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 colEnglish1">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish7" class="imageContainerEnglish"> </div>
                 </div>
 
                 <div class="col-xs-0 col-sm-6 col-md-6 col-lg-6 hidden-xs hidden-sm colEnglish2">
-                    <div class="imageContainerEnglish"> </div>
+                    <div id="imageEnglish8" class="imageContainerEnglish"> </div>
                 </div>
             </div>
         </div>

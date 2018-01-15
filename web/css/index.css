@@ -570,11 +570,32 @@ body {
   background-position: center;
   margin-top: 10px; }
 
-#imageEnglishPride1 {
-  background-image: url(../image/uploads/startseite/img_1531.jpg);
-  background-size: cover;
-  background-position: center;
+#imageEnglish1, #imageEnglish2 {
   margin-top: 0; }
+
+#imageEnglish1 {
+  background-image: url(../image/uploads/english/noegold.jpg); }
+
+#imageEnglish2 {
+  background-image: url(../image/uploads/english/topheurigensieger.jpg); }
+
+#imageEnglish3 {
+  background-image: url(../image/uploads/english/hagelkreuz.jpg); }
+
+#imageEnglish4 {
+  background-image: url(../image/uploads/english/rosenberg.jpg); }
+
+#imageEnglish5 {
+  background-image: url(../image/uploads/english/keller.jpg); }
+
+#imageEnglish6 {
+  background-image: url(../image/uploads/english/fuellanlage1.jpg); }
+
+#imageEnglish7 {
+  background-image: url(../image/uploads/english/mayers.jpg); }
+
+#imageEnglish8 {
+  background-image: url(../image/uploads/english/mayeringrid.jpg); }
 
 #textContentEnglish {
   min-height: calc(100vh - 80px - 206.71px);

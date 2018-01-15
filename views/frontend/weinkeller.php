@@ -11,7 +11,12 @@ use yii\helpers\Url;
 
 traversient\yii\customscrollbar\AssetBundle::register($this);
 
-$this->title = 'Weinkeller';
+// ============== meta tags ====================
+$this->title = 'Winzerhof Mayer-Hörmann - Weinkeller in Engabrunn';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Im Weinkeller des Winzerhofes Mayer-Hörmann kann man schenll die Zeit vergessen, wenn man mit den Winzern den Wein verkostet.',
+]);
 
 $imageMdl = ImageFactory::create('galleryImage', 'weinkeller');
 $rndImages = $imageMdl->getRandomImage();

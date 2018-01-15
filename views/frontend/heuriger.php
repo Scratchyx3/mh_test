@@ -16,8 +16,12 @@ traversient\yii\customscrollbar\AssetBundle::register($this);
 // ============== opening hours ====================
 $events = OpeningHour::find()->where(['event' => 1])->orderBy('from_date')->all();
 $openingHours = OpeningHour::find()->where(['event' => 0])->orderBy('from_date')->all();
-
-$this->title = 'Heuriger';
+// ============== meta tags ====================
+$this->title = 'Winzerhof Mayer-Hörmann, Topheuriger in Feuersbrunn';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Der Buschenschank Mayer-Hörmann liegt in Feuersbrunn, Weinstraße 2. Im schöner Gastgarten kann man die Wein des Winzerhofes genießen.',
+]);
 
 $imageMdl = ImageFactory::create('galleryImage', 'heuriger');
 $rndImages = $imageMdl->getRandomImage();
