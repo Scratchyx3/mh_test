@@ -393,6 +393,11 @@ body {
       font-family: "Fjalla One", sans-serif; }
     .cardPartner .cardPartnerText p {
       font-family: "Average", serif; }
+    .cardPartner .cardPartnerText a {
+      color: #e2b339;
+      text-decoration: none; }
+    .cardPartner .cardPartnerText a:hover {
+      text-decoration: underline; }
 
 .titleImageContainer {
   height: calc(100vh - 112px);

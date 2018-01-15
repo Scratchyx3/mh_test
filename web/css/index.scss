@@ -353,6 +353,13 @@ body {
         p {
             font-family: $standardTextFontFamily;
         }
+        a {
+            color: $standardColorGold;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     }
 }
 
