@@ -10,13 +10,20 @@ $this->title = 'Winzerhof Mayer-Hörmann | Impressum';
 
 ?>
 
+<div class="container-fluid">
+    <div id="row">
+        <div id="headlinePartner" class="row headline">
+            <h1> Impressum </h1>
+        </div>
+        <div class="row headlineBorderBottom"></div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"> </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div id="textContentImpressum" class="textContent">
-                <h1> Impressum </h1>
-
                 <p> Informationspflicht laut &sect;5 E-Commerce Gesetz, &sect;14 Unternehmensgesetzbuch,
                     &sect;63 Gewerbeordnung und Offenlegungspflicht laut &sect;25 Mediengesetz
                 </p>
