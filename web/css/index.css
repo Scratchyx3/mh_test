@@ -137,10 +137,10 @@ html, body {
       font-size: 0.9375em; } }
   @media (max-width: 640px) {
     html, body {
-      font-size: 0.875em; } }
+      font-size: 0.9375em; } }
   @media (max-width: 480px) {
     html, body {
-      font-size: 0.8125em; } }
+      font-size: 0.9375em; } }
 
 h1 {
   font-size: 1.625em; }
