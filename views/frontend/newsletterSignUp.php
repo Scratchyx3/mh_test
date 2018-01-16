@@ -6,11 +6,14 @@
  * Time: 11:25
  */
 
+use app\models\Email;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
 $this->title = 'Winzerhof Mayer-Hörmann | Newsletter-Anmeldung';
+
+$emailMdl = new Email();
 
 ?>
 <div class="container-fluid">

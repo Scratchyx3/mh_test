@@ -562,6 +562,7 @@ body {
     margin-left: 15px; }
 
 #textContentImpressum {
+  margin-top: 0;
   font-family: "Average", serif; }
 
 .imageContainerEnglish {
