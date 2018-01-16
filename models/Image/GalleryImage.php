@@ -76,11 +76,11 @@ class GalleryImage extends ActiveRecord implements Image
         // Neue Größe berechnen
         list($width, $height) = getimagesize($filename);
 
-        if($width > 1900 || $height > 1000) {
+        if($width > 1900 || $height > 1200) {
             $percent = 0.3;
-        } elseif ($width > 1400 || $height > 750) {
+        } elseif ($width > 1400 || $height > 850) {
             $percent = 0.45;
-        } elseif ($width > 850 || $height > 500) {
+        } elseif ($width > 850 || $height > 600) {
             $percent = 0.6;
         } else {
             $percent = 1;
