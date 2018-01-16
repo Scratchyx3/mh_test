@@ -51,7 +51,6 @@ $h1-font-size: (null: 26);
 $h2-font-size: (null: 24px);
 
 html, body {
-    line-height: 1.4 !important;
     @include font-size-map($body-font-size);
 }
 
