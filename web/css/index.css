@@ -130,17 +130,17 @@
     font-size: 13px !important; } }
 /* Large Devices, Wide Screens */
 /* only for the navbar since the breakpoint got changed manually */
-html {
+html, body {
   line-height: 1.2 !important;
   font-size: 1em; }
   @media (max-width: 1024px) {
-    html {
+    html, body {
       font-size: 0.9375em; } }
   @media (max-width: 640px) {
-    html {
+    html, body {
       font-size: 0.875em; } }
   @media (max-width: 480px) {
-    html {
+    html, body {
       font-size: 0.8125em; } }
 
 h1 {

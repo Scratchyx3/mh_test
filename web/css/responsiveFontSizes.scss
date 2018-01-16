@@ -50,7 +50,7 @@ $body-font-size: (null: 16, $md: 15, $sm: 14, $xs: 13);
 $h1-font-size: (null: 26);
 $h2-font-size: (null: 24px);
 
-html {
+html, body {
     line-height: 1.2 !important;
     @include font-size-map($body-font-size);
 }
