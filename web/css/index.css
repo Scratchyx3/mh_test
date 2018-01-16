@@ -131,7 +131,6 @@
 /* Large Devices, Wide Screens */
 /* only for the navbar since the breakpoint got changed manually */
 html, body {
-  line-height: 1.4 !important;
   font-size: 1em; }
   @media (max-width: 1024px) {
     html, body {

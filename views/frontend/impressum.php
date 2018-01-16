@@ -6,21 +6,9 @@
  * Time: 11:24
  */
 
-use app\models\Image\ImageFactory;
-use yii\helpers\Url;
-
 $this->title = 'Winzerhof Mayer-Hörmann | Impressum';
 
-$imageMdl = ImageFactory::create('titleImage', 'impressum');
-$image = $imageMdl -> getRandomImage();
-$imagePath = Url::to('/' . $image[0]['path'] . $image[0]['name']);
-
 ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="standardTitleImageContainer" style='background-image: url(<?= $imagePath ?>);'></div>
-    </div>
-</div>
 
 <div class="container">
     <div class="row">

@@ -32,10 +32,6 @@ $cardMdlArray = $cardMdl->find()
     ->orderBy('ranking ASC')->all();
 ?>
 
-<a id="linkIconDown" href="#headlinePartner">
-    <div class="iconDown"> </div>
-</a>
-
 <div class="container-fluid">
     <div id="row">
         <div id="headlinePartner" class="row headline">
