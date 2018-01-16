@@ -514,8 +514,7 @@ body {
   margin-top: calc(112px + 20px); }
 
 #containerNewsletter {
-  margin-top: 112px;
-  min-height: calc(100vh - 112px - 206.71px); }
+  min-height: calc(100vh - 206.71px); }
 
 #newsletterSubmit {
   background-color: #e2b339;

@@ -527,8 +527,7 @@ body {
 }
 // ========================== Newsletter =========================== //
 #containerNewsletter {
-    margin-top: $navBarHeight;
-    min-height: calc(100vh - #{$navBarHeight} - #{$footerHeight});
+    min-height: calc(100vh - #{$footerHeight});
 }
 #newsletterSubmit {
     background-color: $standardColorGold;
